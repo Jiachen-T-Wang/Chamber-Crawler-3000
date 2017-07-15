@@ -7,8 +7,6 @@ class Cell{
    Object *type;
 public:
    Cell(int x, int y);
-   void changeType(Object *type);
+   void changeType(Object *type);//gai
 };
-
-
 #endif
