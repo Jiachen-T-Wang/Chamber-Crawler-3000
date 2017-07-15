@@ -1,7 +1,8 @@
-#ifndef _TILE_H
-#define _TILE_H
+#ifndef __TILE_H__
+#define __TILE_H__
 #include <iostream>
 #include "cell.h"
+
 class Object;
 class Tile: public Cell{
    Object *occupy;

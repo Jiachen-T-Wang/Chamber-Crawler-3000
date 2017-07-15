@@ -1,5 +1,5 @@
-#ifndef character_h
-#define character_h
+#ifndef __CHARACTER_H__
+#define __CHARACTER_H__
 
 #include "cell.h"
 
