@@ -8,7 +8,7 @@ class Cell;
 
 class Floor{
     int level;
-   std::vector<std::vector <Cell *>> map;
+   std::vector<std::vector <Cell *>> f;
    
 public:
     Floor(std::string fileName);  //read the map from the txt file
