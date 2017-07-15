@@ -1,5 +1,5 @@
-#ifndef player_h
-#define player_h
+#ifndef __PLAYER_H__
+#define __PLAYER_H__
 
 #include "character.h"
 
