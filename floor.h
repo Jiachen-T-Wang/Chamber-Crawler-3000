@@ -2,14 +2,17 @@
 #define __FLOOR_H__
 
 #include <iostream>
-#include <vector>;
+#include <vector>
+
+class Cell;
 
 class Floor{
-	int level;
-	
+    int level;
+   std::vector<std::vector <Cell *>> map;
+   
 public:
     Floor(std::string fileName);  //read the map from the txt file
-    ~Floor();
+    
 };
 
 #endif
