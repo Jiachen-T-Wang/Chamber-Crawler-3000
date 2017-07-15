@@ -3,7 +3,7 @@
 #include <iostream>
 #include "cell.h"
 class Object;
-class Tile{
+class Tile: public Cell{
    std::string type;
    Object *occupy;
 public:
