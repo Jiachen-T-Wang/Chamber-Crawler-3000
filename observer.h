@@ -1,5 +1,5 @@
-#ifndef _OBSERVER_H_
-#define _OBSERVER_H_
+#ifndef __OBSERVER_H__
+#define __OBSERVER_H__
 #include "subscriptions.h"
 class Subject;
 class Cell;

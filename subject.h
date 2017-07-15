@@ -1,5 +1,5 @@
-#ifndef _SUBJECT_H_
-#define _SUBJECT_H_
+#ifndef __SUBJECT_H__
+#define __SUBJECT_H__
 #include <vector>
 #include "subscriptions.h"
 struct Info;

@@ -1,5 +1,5 @@
-#ifndef chamber_h
-#define chamber_h
+#ifndef __CHAMBER_H__
+#define __CHAMBER_H__
 
 #include <vector>
 class Item;
