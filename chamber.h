@@ -7,7 +7,7 @@ class Enemy;
 class Cell;
 
 class Chamber{
-  std::vector <std::pair<int,int>> coordiantes;
+  std::vector <std::pair<int,int>> coordinates;
   /*
   std::vector <item *>;
   std::vector <Potion *>;
