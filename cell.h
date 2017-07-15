@@ -6,6 +6,6 @@
 class Cell{
   int x;
   int y;
-  std::string type; // One of doorway, empty, stairway, tile or wall
+  std::string type; // One of doorway, empty, passage, stairway, tile or wall
 };
 #endif
