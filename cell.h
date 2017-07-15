@@ -1,5 +1,6 @@
 #ifndef __CELL_H
 #define __CELL_H
+
 class Object;
 class Cell{
    int x;
