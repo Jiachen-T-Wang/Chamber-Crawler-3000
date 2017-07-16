@@ -19,6 +19,7 @@ public:
   void move(string dir);
   virtual void usePotion(Potion* p);
   virtual void attack(Enemy* e) override;
+  void beAtkBy(Enemy* enemy);
   virtual void PickGold(int gold);
   virtual ~Player() = 0;
 };

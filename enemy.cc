@@ -8,7 +8,7 @@ Enemy::Enemy(int HP, int atk, int def)
 bool Enemy::canMove(){ return moveable; }
 
 void Enemy::attack(Player* p){
-
+	p->beAtkBy(this);
 }
 
 //如果死了 通知TD
