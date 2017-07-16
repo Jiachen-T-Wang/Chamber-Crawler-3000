@@ -5,14 +5,17 @@
 #include <vector>
 #include "cell.h"
 
+class Chamber;
 class Floor{
    int level;
-   std::vector<std::vector <Cell>> board;
+   
    int length;
    int height;
-   
+   std::vector<std::vector <Cell>> board;
+   std::vector <Chamber *> chambers;
+   void addToChamber(Cell *c);
 public:
-   Floor(std::string fileName);  //read the map from the txt file
+   Floor(int l, std::string fileName);  //read the map from the txt file
 };
 
 #endif
