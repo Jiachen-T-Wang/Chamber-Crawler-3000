@@ -9,6 +9,12 @@ Cell::Cell(int x, int y, char c): x{x}, y{y}, content{nullptr}{
    else if (c == ' ') type = "empty";
 }
 
+void Cell::notify(Object* o){
+	o->setPosition(this);
+	setCont() = o;
+	Observers[TD]->notify(this);
+}
+
 Object* Cell::getContent(){
 	return content;
 }
