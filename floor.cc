@@ -1,7 +1,7 @@
 #include <vector>
 #include "floor.h"
 #include <iostream>
-#include "string.h"
+#include <string.h>
 #include "cell.h"
 #include "chamber.h"
 using namespace std;
