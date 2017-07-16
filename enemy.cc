@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 #include "enemy.h"
 
 Enemy::Enemy(int HP, int atk, int def)
@@ -12,9 +11,8 @@ void Enemy::attack(Player* p){
 }
 
 //如果死了 通知TD
-//Damage(Defender) = ceiling((100/(100+Def(Defender)))*Atk(Attacker))
 void Enemy::beAtkBy(Player* p){
-	int damage = ceil((100/(100+getDef())) * getAtk(p));
+	int damage = calcDamage(p, this);
 	getHurt(damage);
 	if(checkDead()){
 		position->notifyDead();
