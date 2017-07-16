@@ -3,11 +3,18 @@
 
 #include "cell.h"
 
-class Character{
-  int HP, atk, def;
+class Character: public Object{
+  int maxHP;
+  int HP;
+  int atk;
+  int def;
 public:
-  void move();
-  void attack();
-  void checkDead();
+	Character(int maxHP, int HP, int atk, int def);
+  	virtual void move()=0;
+  	virtual void attack()=0;
+  	void checkDead();
 };
+
 #endif 
+
+
