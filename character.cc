@@ -17,9 +17,8 @@ Character::getDef(){
 }
 
 Character::move(){
-	int dir = rand() % 8;
-	Cell* curP = getPosition();
-	curP->
+		Cell* curP = getPosition();
+		curP->notifyObservers(this)
 }
 
 void Character::checkDead(){

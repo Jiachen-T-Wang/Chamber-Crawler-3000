@@ -23,6 +23,7 @@ public:
   Cell(int x, int y, char c);
   void notify(Subject &);
   Object* getContent();   //if nullptr means nobody on it
+  void setCont(Object* o);   //mutator
 };
 
 #endif

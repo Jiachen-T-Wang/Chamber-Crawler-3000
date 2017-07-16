@@ -9,9 +9,8 @@ class Subject {
   std::vector<Observer*> observers;
  public:
   void attach(Observer *o);  
-  void notifyObservers();
-  void notifyObservers(int dir);  //notify the neighbor in the specific direction (for move & attack)
-  void notifyObservers(int dir, Player p);
+  void notifyObservers(Character* man, int dir = -1);  //to move
+  void notifyObservers(int dir, Player p);  //to attack
   virtual Info getInfo() const = 0;
   virtual ~Subject() = default;
 };

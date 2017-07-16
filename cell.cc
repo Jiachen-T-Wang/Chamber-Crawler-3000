@@ -9,5 +9,13 @@ Cell::Cell(int x, int y, char c): x{x}, y{y}, content{nullptr}{
    else if (c == ' ') type = "empty";
 }
 
+Object* Cell::getContent(){
+	return content;
+}
+
+void Cell::getCont(Object* o){
+	content = o;
+}
+
 
 
