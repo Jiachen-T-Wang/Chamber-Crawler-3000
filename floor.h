@@ -13,7 +13,6 @@ class Floor{
    
 public:
    Floor(std::string fileName);  //read the map from the txt file
-   
 };
 
 #endif
