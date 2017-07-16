@@ -21,6 +21,7 @@ public:
   virtual void attack(Enemy* e) override;
   void beAtkBy(Enemy* enemy);
   virtual void PickGold(int gold);
+  virtual void roundChange();   //每一轮都发生的变化
   virtual ~Player() = 0;
 };
 

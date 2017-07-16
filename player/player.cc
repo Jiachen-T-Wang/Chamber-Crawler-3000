@@ -34,4 +34,6 @@ void Player::PickGold(){
 	
 }
 
+void Player::roundChange(){}
+
 Player::~Player() {}

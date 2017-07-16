@@ -12,7 +12,7 @@ class Cell;
 class Troll: public Player{
    public:
    	Troll(Floor* f);
-   	void regainHP();
+   	void roundChange() override;
 };
 
 #endif
