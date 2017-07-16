@@ -3,7 +3,6 @@
 Potion::Potion(Player *component, int effect, std::string type):
 component{component}, effect{effect}, type{type} {}
 
-
 int Potion::getAttack(){
   int result = component->getAttack();
   if (type == "Atk") result += effect;
