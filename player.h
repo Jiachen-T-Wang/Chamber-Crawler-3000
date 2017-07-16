@@ -15,10 +15,12 @@ class Player: public Character{
   const std::string race;
 public:
   Player(int HP, int atk, int def, int maxHP, Floor* f, std::string race);
+  int getMaxHP() const;
   void move(string dir);
   virtual void usePotion(Potion* p);
-  virtual void attack(Enemy* e);
+  virtual void attack(Enemy* e) override;
   virtual void PickGold(int gold);
+  virtual ~Player() = 0;
 };
 
 #endif

@@ -32,3 +32,18 @@ void notifyObservers(Character* man, int dir = -1){
 	}
 	observers[TD]->notify();
 }
+
+void notifyEnemy(Player* player, int dir){
+	Enemy* enemy = observers[dir];
+	enemy->beAtkBy(player);
+}
+
+
+
+
+
+
+
+
+
+

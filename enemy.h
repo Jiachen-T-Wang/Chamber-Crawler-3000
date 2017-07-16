@@ -3,13 +3,15 @@
 
 #include "character.h"
 
-class Enemy:public Character{
-  Bool isHostile;
-  Bool moveable;
-  int amount;
-  Floor *r;
+//it should be an abstract class, so make dtor pure virtual
+class Enemy: public Character{
+  bool moveable;
 public:
-  void move();
-  void attack(Player *);
+  Enemy(int HP, int atk, int def);
+  bool canMove();
+  virtual void attack(Player* p);
+  virtual void beAtkBy(Player* p);
+  virtual ~Enemy()=0;
 };
+
 #endif
