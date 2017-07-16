@@ -12,7 +12,7 @@ public:
 	int getHP();
 	int getAtk();
   int getDef();
-  virtual void move();
+  void move();
   virtual void attack()=0;
   void checkDead();
 };

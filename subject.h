@@ -10,6 +10,8 @@ class Subject {
  public:
   void attach(Observer *o);  
   void notifyObservers();
+  void notifyObservers(int dir);  //notify the neighbor in the specific direction (for move & attack)
+  void notifyObservers(int dir, Player p);
   virtual Info getInfo() const = 0;
   virtual ~Subject() = default;
 };

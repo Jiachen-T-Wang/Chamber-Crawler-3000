@@ -9,3 +9,8 @@ void Subject::notifyObservers() {
     observers[i]->notify(*this);
   }
 }
+
+void Subject::notifyObservers(int dir){
+	observers[dir]->notify();
+	observers[TD]->notify();
+}
