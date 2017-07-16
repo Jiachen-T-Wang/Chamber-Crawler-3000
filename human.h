@@ -13,7 +13,7 @@ class Human: public Enemy{
 	
 public:
 	Human(int HP, int atk, int def);
-	void beAtkBy(Player* p);
+	void beAtkBy(Player* p) override;
 };
 
 #endif
