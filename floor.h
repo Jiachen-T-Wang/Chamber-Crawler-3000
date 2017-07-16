@@ -3,12 +3,11 @@
 
 #include <iostream>
 #include <vector>
-
-class Cell;
+#include "cell.h"
 
 class Floor{
     int level;
-   std::vector<std::vector <Cell *>> f;
+   std::vector<std::vector <Cell>> board;
    
 public:
     Floor(std::string fileName);  //read the map from the txt file
