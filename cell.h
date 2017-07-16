@@ -1,5 +1,14 @@
 #ifndef __CELL_H__
 #define __CELL_H__
+#define EA 0
+#define SO 1
+#define WE 2
+#define NO 3
+#define NE 4
+#define SE 5
+#define NW 6
+#define SW 7
+#define TD 8
 #include "subject.h"
 #include "observer.h"
 #include <string>
