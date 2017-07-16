@@ -17,8 +17,6 @@ public:
   Player(int HP, int atk, int def, int maxHP, Floor* f, std::string race);
   int getMaxHP() const;
   void move(string dir);
-  virtual int getAttack();
-  virtual int getDefense();
   virtual void usePotion(Potion* p);
   virtual void attack(Enemy* e) override;
   void beAtkBy(Enemy* enemy);
