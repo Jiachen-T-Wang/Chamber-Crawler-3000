@@ -9,11 +9,12 @@ class Floor;
 class Potion;
 
 class Player: public Character{
+  const int maxHP;
   Floor* f;
   int score;
   const std::string race;
 public:
-  Player(int maxHP, int HP, int atk, int def, Floor* f, std::string race);
+  Player(int HP, int atk, int def, int maxHP, Floor* f, std::string race);
   void move();
   virtual void usePotion(Potion* p);
   virtual void attack(Enemy* e);

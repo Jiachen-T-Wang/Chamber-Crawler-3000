@@ -1,7 +1,7 @@
 #include "player.h"
 
-Player::Player(int maxHP, int HP, int atk, int def, Floor* f, std::string race)
-	: Character{maxHP, HP, atk, def}, f{f}, score{0}, race{race} {}
+Player::Player(int HP, int atk, int def, int maxHP, Floor* f, std::string race)
+	: Character{HP, atk, def}, maxHP{maxHP}, f{f}, score{0}, race{race} {}
 
 void Player::move(){
 

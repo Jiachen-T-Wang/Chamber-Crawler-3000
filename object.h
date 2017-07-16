@@ -7,7 +7,7 @@ class Cell;
 class Object{
 	Cell* Position;
 public:
-	
+	Object();
 }
 
 #endif
