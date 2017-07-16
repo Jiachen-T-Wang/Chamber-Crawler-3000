@@ -1,7 +1,7 @@
 #ifndef __ENEMY_H__
 #define __ENEMY_H__
 
-#include "character.h"
+#include "../character.h"
 
 //it should be an abstract class, so make dtor pure virtual
 class Enemy: public Character{
