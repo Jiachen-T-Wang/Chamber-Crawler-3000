@@ -12,7 +12,7 @@ void Subject::notifyObservers() {
 }
 
 //this is for move
-void notifyObservers(Character* man, int dir = -1){
+void notifyMove(Character* man, int dir = -1){
 	if (dir < 0){
 		while (1){
 			int dir = rand() % 8;  //这个可以再转化为NO, NE, ... 现在有点困不想改
@@ -34,8 +34,12 @@ void notifyObservers(Character* man, int dir = -1){
 }
 
 void notifyEnemy(Player* player, int dir){
-	Enemy* enemy = observers[dir];
+	Observer* enemy = observers[dir];
 	enemy->beAtkBy(player);
+}
+
+void notifyMiss(){
+	observers[TD]->Miss();
 }
 
 
