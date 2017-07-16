@@ -9,6 +9,9 @@ class Character: public Object{
   int def;
 public:
 	Character(int HP, int atk, int def);
+	int getHP();
+	int getAtk();
+  	int getDef();
   	virtual void move()=0;
   	virtual void attack()=0;
   	void checkDead();
