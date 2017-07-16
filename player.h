@@ -15,7 +15,7 @@ class Player: public Character{
   const std::string race;
 public:
   Player(int HP, int atk, int def, int maxHP, Floor* f, std::string race);
-  void move();
+  void move(string dir);
   virtual void usePotion(Potion* p);
   virtual void attack(Enemy* e);
   virtual void PickGold(int gold);
