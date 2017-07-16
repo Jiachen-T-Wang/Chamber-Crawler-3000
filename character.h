@@ -2,7 +2,7 @@
 #define __CHARACTER_H__
 
 #include "cell.h"
-
+#include "object.h"
 class Character: public Object{
   int HP;
   int atk;
