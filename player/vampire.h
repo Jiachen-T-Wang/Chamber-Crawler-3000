@@ -12,6 +12,7 @@ class Vampire: public Player{
 	bool allerge; 
    public:
    	Shade(Floor* f);
+   	void getAllerge();
    	void attack(Enemy* e) override;  //gains 5 HP every successful attack
 };
 

@@ -15,8 +15,8 @@ public:
 	int getHP();
 	int getAtk();
   int getDef();
-  int addHP(int hp);
-  int minusHP(int hp);
+  void addHP(int hp);
+  void getHurt(int damage);
   void move();
   virtual void attack()=0;
   void checkDead();

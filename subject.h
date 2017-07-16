@@ -12,6 +12,7 @@ class Subject {
   void notifyObservers(Character* man, int dir = -1);  //to move
   void notifyObservers(int dir, Player p);  //to attack
   void notifyEnemy(Player* player, int dir);
+  void notifyMiss();
   virtual Info getInfo() const = 0;
   virtual ~Subject() = default;
 };

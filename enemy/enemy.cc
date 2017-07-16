@@ -13,7 +13,7 @@ void Enemy::attack(Player* p){
 		p->beAtkBy(this);
 	}
 	else{
-		//攻击miss, notify TD 
+		(this->getPosition())->notyfyMiss();
 	}
 }
 
