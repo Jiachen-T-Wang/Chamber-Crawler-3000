@@ -3,9 +3,10 @@
 
 #include <string>
 #include "player.h"
+#include "decorator.h"
 
 class Player;
-class Potion{
+class Potion: public Decorator{
   int effect; // One of 10, 5, -5 or -10
   std::string type; // One of Hp, Atk, Def
   Player *component;

@@ -4,15 +4,22 @@
 #include "cell.h"
 #include "object.h"
 class Character: public Object{
-  int maxHP;
   int HP;
   int atk;
   int def;
+
+protected:
+  int calcDamage(Character* attacker, Character* defender);
 public:
-	Character(int maxHP, int HP, int atk, int def);
-  	virtual void move()=0;
-  	virtual void attack()=0;
-  	void checkDead();
+	Character(int HP, int atk, int def);
+	int getHP();
+	int getAtk();
+  int getDef();
+  void addHP(int hp);
+  void getHurt(int damage);
+  void move();
+  virtual void attack()=0;
+  void checkDead();
 };
 
 #endif 
