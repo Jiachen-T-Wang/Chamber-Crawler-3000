@@ -5,14 +5,12 @@
 
 class Floor;
 
-//properties: drops 2 normal piles of gold when it die
-//and randomly choose two of 9 positions, if not occupied. 
-//if it is occupied by the player, than directly 
-//picked up by the player
+//Vampires are allergic to dwarves and lose 5HP rather than gain
 class Dwarf: public Enemy{
 	
 public:
-	Human(int HP, int atk, int def);
+	Dwarf();
+	void attack(Player* p) override;
 	void beAtkBy(Player* p) override;
 };
 
