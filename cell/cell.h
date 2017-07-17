@@ -22,7 +22,7 @@ class Cell: public Subject, public Observer {//abstract
   const bool canStand;
   const bool canStandByAll;
 public:
-  Cell(int x, int y, char c);
+  Cell(int x, int y, std::string c);
   void notify(Object* o);
   Object* getContent();   //if nullptr means nobody on it
   void setCont(Object* o);   //mutator
