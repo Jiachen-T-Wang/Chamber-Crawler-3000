@@ -10,12 +10,15 @@ class Potion;
 
 class Player: public Character{
   const int maxHP;
+  int atkEffect; // set to 0 when change floor
+  int defEffect; // set to 0 when change floor
   Floor* f;
   int score;
   const std::string race;
 public:
   Player(int HP, int atk, int def, int maxHP, Floor* f, std::string race);
   int getMaxHP() const;
+  void addHp(int hpEffect);
   void move(string dir);
   virtual void usePotion(Potion* p);
   virtual void attack(Enemy* e) override;
