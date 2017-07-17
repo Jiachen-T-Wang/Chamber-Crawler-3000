@@ -24,8 +24,8 @@ public:
   void notify(Object* o);
   Object* getContent();   //if nullptr means nobody on it
   void setCont(Object* o);   //mutator
-  virtual bool getCanStand() = 0;   //return true if it can be stand on
-  virtual bool getCanStandByAll() = 0;
+  bool getCanStand();   //return true if it can be stand on
+  bool getCanStandByAll();
 };
 
 #endif
