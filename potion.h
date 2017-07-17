@@ -2,8 +2,9 @@
 #define potion_h
 
 #include <string>
+#include "object.h"
 
-class Potion {
+class Potion: public Object {
   int effect; // One of 10, 5, -5 or -10
   std::string type; // One of Hp, Atk, Def
 
