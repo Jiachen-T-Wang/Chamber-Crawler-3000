@@ -20,24 +20,45 @@ Floor::addToChamber(Cell *c){
    
 }
 
-void Floor::createEnemy(){
-   
+Chamber *Floor::randChamber(){
+   srand(time(0));
+   int x=rand() % chamberNum;
+   return chambers[x];
 }
+
+void Floor::createEnemy(){
+   for(int i=0; i<enemyNum; i++){
+      randChamber()->addEnemy();
+   }
+}
+
+void Floor::createPotion(){
+   for(int i=0; i<postionNum; i++){
+      randChamber()->addPotion();
+   }
+}
+
+void Floor::createGold(){
+   for(int i=0; i<goldNum; i++){
+      randChamber()->addGold();
+   }
+}
+
 Floor::Floor(int l, string fileName):level{l}, length{0}, height{0}{
-   for(int i=0; i<5; ++i)
+   for(int i=0; i<chamberNum; ++i)
       chambers.emplace_back(new Chamber());
-   ifilestream fs {fileName};
+   
+      ifilestream fs {fileName};
    string line;
    while(getline(cin, fs)){
       length = line.length();
       vector <Cell> cellLine;
       for(int i=0; i< length; ++i){
-         Cell c {i, height, line[i]};
-         cellLine.emplace_back(c);
+         cellLine.emplace_back({i, height, line[i]});
       }
       board.emplace_back(cellLine);
       for(auto c: cellLine) addToChamber(&c);
-      height++;
+         height++;
    }
    createEnemy();
    createPotion();

@@ -2,7 +2,7 @@
 #define potion_h
 
 #include <string>
-#include "player.h"
+#include "player/player.h"
 #include "decorator.h"
 
 class Player;
@@ -14,7 +14,7 @@ public:
   Potion(Player *component, int effect, std::string type);
   int getAttack() override;
   int getDefense() override;
-  void setHp(int Hp);
+  void setHp();
   ~Potion();
 };
 

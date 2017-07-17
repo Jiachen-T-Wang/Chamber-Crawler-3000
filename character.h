@@ -7,13 +7,13 @@ class Character: public Object{
   int HP;
   int atk;
   int def;
-
+  
 protected:
   int calcDamage(Character* attacker, Character* defender);
 public:
-	Character(int HP, int atk, int def);
-	int getHP();
-	int getAtk();
+  Character(int HP, int atk, int def);
+  int getHP();
+  int getAtk();
   int getDef();
   void addHP(int hp);
   void getHurt(int damage);
@@ -22,6 +22,6 @@ public:
   void checkDead();
 };
 
-#endif 
+#endif
 
 

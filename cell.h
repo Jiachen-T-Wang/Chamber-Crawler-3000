@@ -19,15 +19,13 @@ class Cell: public Subject, public Observer {//abstract
   int y;
   std::string type; // One of doorway, empty, passage, stairway, tile or wall
   Object* content;
-  const bool canStand;
-  const bool canStandByAll;
 public:
-  Cell(int x, int y, std::string c);
+  Cell(int x, int y, char c);
   void notify(Object* o);
   Object* getContent();   //if nullptr means nobody on it
   void setCont(Object* o);   //mutator
-  virtual bool getCanStand() = 0;   //return true if it can be stand on
-  virtual bool getCanStandByAll() = 0;
+  bool getCanStand();   //return true if it can be stand on
+  bool getCanStandByAll();
 };
 
 #endif
