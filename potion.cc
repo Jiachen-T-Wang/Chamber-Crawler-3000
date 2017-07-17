@@ -5,7 +5,7 @@ component{component}, effect{effect}, type{type} {}
 
 
 int Potion::getAttack(){
-  int result = getAttack()
+  int result = component->getAttack()
   if (type == "Atk") result += effect;
   if result < 0 result = 0;
   return result;
