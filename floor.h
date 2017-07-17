@@ -6,6 +6,7 @@
 #include "cell.h"
 
 class Chamber;
+const int postionNum = 10;
 class Floor{
    int level;
    
