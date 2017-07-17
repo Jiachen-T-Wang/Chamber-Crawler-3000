@@ -4,5 +4,9 @@
 #include "cell.h"
 #include <string>
 
-
+class Passage:public Cell{
+public:
+  Passage(int x, int y);
+  bool canStand() override;
+};
 #endif

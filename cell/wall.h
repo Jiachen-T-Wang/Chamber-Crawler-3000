@@ -4,5 +4,9 @@
 #include "cell.h"
 #include <string>
 
-
+class Wall:public Cell{
+public:
+  Wall(int x, int y);
+  bool canStand() override;
+};
 #endif
