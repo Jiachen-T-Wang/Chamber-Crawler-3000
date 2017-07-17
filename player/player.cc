@@ -1,10 +1,15 @@
 #include <cmath>
 #include "player.h"
+#include "character.h"
 
 Player::Player(int HP, int atk, int def, int maxHP, Floor* f, std::string race)
 	: Character{HP, atk, def}, maxHP{maxHP}, f{f}, score{0}, race{race} {}
 
 int Player::getMaxHP() const { return maxHP; }
+
+void Player::addHp(int hpEffect) {
+  HP = (getHP() + hpEffect > maxHP) ? maxHP : getHP() + hpEfect;
+}
 
 void Player::move(int dir){
 	Cell* curP = getPosition();

@@ -16,6 +16,7 @@ class Player: public Character{
 public:
   Player(int HP, int atk, int def, int maxHP, Floor* f, std::string race);
   int getMaxHP() const;
+  void addHp(int hpEffect);
   void move(string dir);
   virtual void usePotion(Potion* p);
   virtual void attack(Enemy* e) override;
