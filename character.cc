@@ -23,7 +23,7 @@ Character::getDef(){
 
 Character::move(){
 		Cell* curP = getPosition();
-		curP->notifyObservers(this)
+		curP->notifyObservers(this);
 }
 
 void Character::checkDead(){
