@@ -19,6 +19,10 @@ Floor::addToChamber(Cell *c){
    else if(x>=38 && x<= 49 && y>=10 && y<=12) chamber[4]->addCell(c);
    
 }
+
+void Floor::createEnemy(){
+   
+}
 Floor::Floor(int l, string fileName):level{l}, length{0}, height{0}{
    for(int i=0; i<5; ++i)
       chambers.emplace_back(new Chamber());
@@ -35,6 +39,9 @@ Floor::Floor(int l, string fileName):level{l}, length{0}, height{0}{
       for(auto c: cellLine) addToChamber(&c);
       height++;
    }
+   createEnemy();
+   createPotion();
+   createGold();
 }
 
 

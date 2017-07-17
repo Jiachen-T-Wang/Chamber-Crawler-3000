@@ -3,10 +3,12 @@
 
 #include <iostream>
 #include <vector>
-#include "cell.h"
+#include "cell/cell.h"
 
 class Chamber;
 const int postionNum = 10;
+const int goldNum = 10;
+const int enemyNum = 20;
 class Floor{
    int level;
    
