@@ -9,6 +9,7 @@ class Chamber;
 const int postionNum = 10;
 const int goldNum = 10;
 const int enemyNum = 20;
+const int chamberNum = 5;
 class Floor{
    int level;
    
@@ -16,7 +17,13 @@ class Floor{
    int height;
    std::vector<std::vector <Cell>> board;
    std::vector <Chamber *> chambers;
+   
    void addToChamber(Cell *c);
+   Chamber *randChamber();
+   void createEnemy();
+   void createPotion();
+   void createGold();
+   
 public:
    Floor(int l, std::string fileName);  //read the map from the txt file
 };
