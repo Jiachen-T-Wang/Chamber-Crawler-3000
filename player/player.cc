@@ -3,7 +3,8 @@
 #include "character.h"
 
 Player::Player(int HP, int atk, int def, int maxHP, Floor* f, std::string race)
-	: Character{HP, atk, def}, maxHP{maxHP}, f{f}, score{0}, race{race} {}
+: Character{HP, atk, def}, maxHP{maxHP}, atkEffect{0}, defEffect{0}, f{f},
+score{0}, race{race} {}
 
 int Player::getMaxHP() const { return maxHP; }
 
@@ -16,9 +17,11 @@ void Player::move(int dir){
 	curP->notifyObservers(this, int dir);
 }
 
-//一会儿做
+// Basic Implementation
 void Player::usePotion(Potion* p){
-
+  if (p->type == "Hp") addHp(p->effect);
+  else if (p->type == "Atk") atkEffect += (p->effect);
+  else if (p->type == "Def") defEffect += (p->effect);
 }
 
 //

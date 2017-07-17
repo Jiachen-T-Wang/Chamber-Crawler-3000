@@ -3,7 +3,7 @@
 #include "character.h"
 
 Character::Character(int HP, int atk, int def)
-: Object{}, HP{HP}, atk{atk}, def{def}, atkEffect{0}, defEffect{0} {}
+: Object{}, HP{HP}, atk{atk}, def{def} {}
 
 int Character::calcDamage(Character* attacker, Character* defender){
   return ceil((100/(100+defender->getDef())) * attacker->getAtk());

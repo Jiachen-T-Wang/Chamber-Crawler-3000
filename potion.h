@@ -2,9 +2,7 @@
 #define potion_h
 
 #include <string>
-#include "player/player.h"
 
-class Player;
 class Potion {
   int effect; // One of 10, 5, -5 or -10
   std::string type; // One of Hp, Atk, Def

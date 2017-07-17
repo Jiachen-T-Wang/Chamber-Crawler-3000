@@ -7,8 +7,6 @@ class Character: public Object{
   int HP;
   int atk;
   int def;
-  int atkEffect;
-  int defEffect;
   
 protected:
    int calcDamage(Character* attacker, Character* defender);

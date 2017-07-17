@@ -10,6 +10,8 @@ class Potion;
 
 class Player: public Character{
   const int maxHP;
+  int atkEffect; // set to 0 when change floor
+  int defEffect; // set to 0 when change floor
   Floor* f;
   int score;
   const std::string race;
