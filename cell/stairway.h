@@ -8,5 +8,6 @@ class Stairway:public Cell{
 public:
   Stairway(int x, int y);
   bool canStand() override;
+  bool getCanStandByAll() override;
 };
 #endif

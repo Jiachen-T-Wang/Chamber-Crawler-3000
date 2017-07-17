@@ -8,5 +8,6 @@ class Empty:public Cell{
 public:
   Empty(int x, int y);
   bool canStand() override;
+  bool getCanStandByAll() override;
 };
 #endif

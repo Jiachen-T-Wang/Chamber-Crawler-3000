@@ -8,5 +8,6 @@ class Passage:public Cell{
 public:
   Passage(int x, int y);
   bool canStand() override;
+  bool getCanStandByAll() override;
 };
 #endif

@@ -8,5 +8,6 @@ class Wall:public Cell{
 public:
   Wall(int x, int y);
   bool canStand() override;
+  bool getCanStandByAll() override;
 };
 #endif
