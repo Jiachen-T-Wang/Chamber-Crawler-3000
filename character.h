@@ -8,17 +8,15 @@ class Character: public Object{
   int atk;
   int def;
   
-protected:
-   int calcDamage(Character* attacker, Character* defender);
-  
 public:
   Character(int HP, int atk, int def);
   int getHP();
   int getAtk();
   int getDef();
   void getHurt(int damage);
-  void move();
+  virtual void move();
   virtual void attack()=0;
+  virtual void beAtkBy()=0;
   void checkDead();
 };
 

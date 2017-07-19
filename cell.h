@@ -21,7 +21,6 @@ class Cell: public Subject, public Observer {//abstract
   Object* content;
 public:
   Cell(int x, int y, char c);
-  void notify(Object* o);
   Object* getContent();   //if nullptr means nobody on it
   void setCont(Object* o);   //mutator
   bool getCanStand();   //return true if it can be stand on

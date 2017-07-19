@@ -5,20 +5,22 @@
 Character::Character(int HP, int atk, int def)
 : Object{}, HP{HP}, atk{atk}, def{def} {}
 
-int Character::calcDamage(Character* attacker, Character* defender){
-  return ceil((100/(100+defender->getDef())) * attacker->getAtk());
-}
+
 
 int Character::getHP(){
   return HP;
 }
 
 int Character::getAtk(){
-  return (atk + atkEffect < 0) ? 0 : atk + atkEffect;
+  return atk;
 }
 
 int Character::getDef(){
-  return (def + defEffect < 0) ? 0 : def + defEffect;
+  return def;
+}
+
+void Character::getHurt(int damage){
+	HP = HP - damage;
 }
 
 void Character::move(){

@@ -10,7 +10,7 @@ class Dwarf: public Enemy{
 	
 public:
 	Dwarf();
-	void attack(Player* p) override;
+	void attack(int dir) override;
 	void beAtkBy(Player* p) override;
 };
 

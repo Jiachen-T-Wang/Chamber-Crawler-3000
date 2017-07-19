@@ -14,16 +14,23 @@ class Player: public Character{
   int defEffect; // set to 0 when change floor
   Floor* f;
   int score;
-  const std::string race;
+
+  int calcDamage(Enemy* attacker);
+
 public:
+  const std::string race;
   Player(int HP, int atk, int def, int maxHP, Floor* f, std::string race);
   int getMaxHP() const;
   void addHp(int hpEffect);
   void move(string dir);
+  int realAtk();
+  int realDef();
+  int showScore();
+  virtual void incScore(int value);
   virtual void usePotion(Potion* p);
-  virtual void attack(Enemy* e) override;
-  void beAtkBy(Enemy* enemy);
-  virtual void PickGold(int gold);
+  virtual void attack(int dir);
+  virtual void beAtkBy(Enemy* enemy);
+  virtual void PickGold(Treasure* gold);
   virtual void roundChange();   //每一轮都发生的变化
   virtual ~Player() = 0;
 };

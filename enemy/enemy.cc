@@ -1,28 +1,41 @@
 #include <iostream>
 #include <cstdlib>
 #include "enemy.h"
+using namespace std;
 
-Enemy::Enemy(int HP, int atk, int def)
-	: Character{HP, atk, def}, moveable{false} {}
+Enemy::Enemy(int HP, int atk, int def, string type)
+	: Character{HP, atk, def}, moveable{false}, type{type} {}
 
 bool Enemy::canMove(){ return moveable; }
 
+int Enemy::calcDamage(Player* attacker){
+  return ceil((100/(100+this->getDef())) * attacker->realAtk());
+}
+
 void Enemy::attack(Player* p){
-	int notMiss = rand() % 2;
+	int notMiss = rand() % 2;  
 	if (notMiss){
 		p->beAtkBy(this);
 	}
 	else{
-		(this->getPosition())->notyfyMiss();
+		getPosition()->notyfyMiss();
 	}
+}
+
+void Enemy::attack(Drow* d){
+	attack(d);
 }
 
 //如果死了 通知TD
 void Enemy::beAtkBy(Player* p){
-	int damage = calcDamage(p, this);
+	int damage = calcDamage(p);
 	getHurt(damage);
 	if(checkDead()){
-		position->notifyDead();
+		if(p->race == "Goblin"){
+			p->incScore(5);
+		}
+		getPosition()->setCont() = nullptr;
+		getPosition()->notifyDead();
 	}
 }
 
