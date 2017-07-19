@@ -17,12 +17,19 @@ void Player::move(int dir){
 	curP->notifyObservers(this, int dir);
 }
 
+
+
+
 // Basic Implementation
 void Player::usePotion(Potion* p){
   if (p->type == "Hp") addHp(p->effect);
   else if (p->type == "Atk") atkEffect += (p->effect);
   else if (p->type == "Def") defEffect += (p->effect);
 }
+
+
+
+
 
 int Player::realAtk(){
   return (getAtk() + atkEffect < 0) ? 0 : getAtk() + atkEffect;
@@ -36,14 +43,9 @@ int Player::calcDamage(Enemy* attacker){
   return ceil((100/(100+this->realDef())) * attacker->getAtk());
 }
 
-
 void Player::attack(int dir){
 	Cell* curP = getPosition();
 	curP->notifyEnemy(this, dir);
-}
-
-int Player::calcDamage(Enemy* attacker, Player* defender){
-
 }
 
 void Player::beAtkBy(Enemy* enemy){
