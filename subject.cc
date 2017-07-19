@@ -4,12 +4,13 @@
 #include "subscriptions.h"
 
 void Subject::attach(Observer *o) { observers.push_back(o); }
-
+/*
 void Subject::notifyObservers() {
   for (int i = 0; i < observers.size(); i++) {
     observers[i]->notify(*this);
   }
 }
+*/
 
 //this is for move
 void notifyMove(Character* man, int dir = -1){
@@ -31,6 +32,16 @@ void notifyMove(Character* man, int dir = -1){
 		}
 	}
 	observers[TD]->notify();
+}
+
+void notifyMove(Enemy* e){
+	while (1){
+		int dir = rand() % 8;
+		if (!(observers[dir]->getContent())){
+			observers[dir]->getMove(e, dir);
+			break;
+		}
+	}
 }
 
 void notifyEnemy(Player* player, int dir){

@@ -8,6 +8,10 @@ Enemy::Enemy(int HP, int atk, int def, string type)
 
 bool Enemy::canMove(){ return moveable; }
 
+void Enemy::move(){
+	getPosition()->notifyMove(this);
+}
+
 int Enemy::calcDamage(Player* defender){
   return ceil((100/(100+defender->realDef())) * this->getAtk());
 }

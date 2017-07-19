@@ -14,7 +14,7 @@ public:
   int getAtk();
   int getDef();
   void getHurt(int damage);
-  virtual void move();
+  virtual void move()=0;
   virtual void attack()=0;
   virtual void beAtkBy()=0;
   void checkDead();

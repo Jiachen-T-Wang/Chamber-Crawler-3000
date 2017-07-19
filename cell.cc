@@ -15,13 +15,12 @@ void Cell::notifyDead(){
    setCont = nullptr;
    Observers[TD]->notify(this);
 }
-
-void Cell::notify(Object* o){
-	o->setPosition(this);
-	setCont() = o;
-	Observers[TD]->notify(this);
-}
 */
+
+void Cell::getMove(Character* e, int dir){
+	setCont(e);
+}
+
 Object* Cell::getContent(){
 	return content;
 }

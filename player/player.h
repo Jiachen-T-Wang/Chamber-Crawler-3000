@@ -23,10 +23,12 @@ public:
   Player(int HP, int atk, int def, int maxHP, Floor* f, std::string race);
   int getMaxHP() const;
   void addHp(int hpEffect);
+  
   void move(string dir);
+
   int realAtk();
   int realDef();
-  int showScore();
+  virtual int showScore();
   virtual void incScore(int value);
   virtual void usePotion(Potion* p);
   

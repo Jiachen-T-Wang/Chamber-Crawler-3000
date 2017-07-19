@@ -15,6 +15,8 @@ public:
   Enemy(int HP, int atk, int def);
   bool canMove();
 
+  virtual void move();
+
   virtual void attack(Player* p);
   virtual void attack(Drow* d);
   virtual void attack(Vampire* v);

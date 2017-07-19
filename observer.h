@@ -3,11 +3,11 @@
 
 class Subject;
 class Cell;
+class Character;
 
 class Observer {
  public:
-  virtual void notify(Subject &whoNotified) = 0;  // pass the Cell that called
-                                                  // the notify method
+  virtual void getMove(Character* c, int dir) = 0;
   virtual ~Observer() = default;
 };
 #endif

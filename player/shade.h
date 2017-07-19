@@ -11,6 +11,7 @@ class Cell;
 class Shade: public Player{
    public:
    	Shade(Floor* f);
+   	int showScore() override;
 };
 
 #endif

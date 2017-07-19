@@ -5,8 +5,6 @@
 Character::Character(int HP, int atk, int def)
 : Object{}, HP{HP}, atk{atk}, def{def} {}
 
-
-
 int Character::getHP(){
   return HP;
 }
@@ -23,10 +21,12 @@ void Character::getHurt(int damage){
 	HP = HP - damage;
 }
 
+/*
 void Character::move(){
   Cell* curP = getPosition();
   curP->notifyObservers(this);
 }
+*/
 
 void Character::checkDead(){
   return (HP <= 0);

@@ -23,6 +23,7 @@ public:
   Cell(int x, int y, char c);
   Object* getContent();   //if nullptr means nobody on it
   void setCont(Object* o);   //mutator
+  void getMove(Character* e, int dir) override;
   bool getCanStand();   //return true if it can be stand on
   bool getCanStandByAll();
 };
