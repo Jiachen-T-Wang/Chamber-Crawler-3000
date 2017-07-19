@@ -7,6 +7,7 @@
 class Enemy;
 class Floor;
 class Potion;
+class Halfling;
 
 class Player: public Character{
   const int maxHP;
@@ -28,7 +29,10 @@ public:
   int showScore();
   virtual void incScore(int value);
   virtual void usePotion(Potion* p);
-  virtual void attack(int dir);
+  
+  virtual void attack(Player* p);
+  virtual void attack(Halfling* h);
+
   virtual void beAtkBy(Enemy* enemy);
   virtual void PickGold(Treasure* gold);
   virtual void roundChange();   //每一轮都发生的变化

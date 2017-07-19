@@ -13,7 +13,8 @@ class Vampire: public Player{
    public:
    	Shade(Floor* f);
    	void getAllerge();
-   	void attack(int dir) override;  //gains 5 HP every successful attack
+   	void attack(Player* p) override;  //gains 5 HP every successful attack
+   	void attack(Halfling* h) override;
    	void beAtkBy(Enemy* e);
 };
 

@@ -42,11 +42,25 @@ int Player::calcDamage(Enemy* defender){
   return ceil((100/(100+defender->getDef())) * this->realAtk());
 }
 
+
 void Player::attack(Enemy* enemy){
 	int damage = calcDamage(enemy);
 	enemy->getHurt(damage);
 	getPosition()->notifyPlayerAttack(damage);
 }
+
+void Player::attack(Halfling* h){
+	int notMiss = rand() % 2;  
+	if (notMiss){
+		int damage = calcDamage(h);
+		h->getHurt(damage);
+		getPosition()->notifyPlayerAttack(damage);
+	}
+	else{
+		getPosition()->notyfyMiss();
+	}
+}
+
 
 void Player::beAtkBy(Enemy* enemy){
 
