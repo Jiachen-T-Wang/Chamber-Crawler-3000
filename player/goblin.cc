@@ -10,9 +10,10 @@ void Goblin::beAtkBy(Orcs* e){
 	}
 }
 
-//steals 5 gold from every slain enemy
-/*
+
 void Goblin::attack(Enemy* e){
-	
+	Player::attack(e);
+	if(e->checkDead()){
+		intScore(5);
+	}
 }
-*/

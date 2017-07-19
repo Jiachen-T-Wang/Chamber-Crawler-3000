@@ -13,6 +13,7 @@ class Orcs;
 class Goblin: public Player{
    public:
    	Goblin(Floor* f);
+   	void attack(Enemy* e) override;
    	void beAtkBy(Orcs* e) override;
 };
 
