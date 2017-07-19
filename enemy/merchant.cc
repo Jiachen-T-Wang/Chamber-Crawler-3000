@@ -12,7 +12,7 @@ void Merchant::attack(Player* p){
 }
 
 void Merchant::beAtkBy(Player* p){
+	p->attack(this);
 	angry = true;
-	Enemy::beAtkBy(Player* p);
 }
 

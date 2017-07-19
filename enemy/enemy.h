@@ -17,6 +17,8 @@ public:
 
   virtual void attack(Player* p);
   virtual void attack(Drow* d);
+  virtual void attack(Vampire* v);
+  virtual void attack(Goblin* g);
   
   virtual void beAtkBy(Player* p);
   virtual ~Enemy()=0;

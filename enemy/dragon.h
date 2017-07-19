@@ -8,7 +8,7 @@ class DragonHoard;
 class Orcs: public Enemy{
 	DragonHoard* hoard;
 public:
-	Dragon();
+	Dragon(DragonHoard* hoard);
 };
 
 #endif
