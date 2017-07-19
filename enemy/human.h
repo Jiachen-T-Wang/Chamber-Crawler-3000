@@ -10,9 +10,8 @@ class Floor;
 //if it is occupied by the player, than directly 
 //picked up by the player
 class Human: public Enemy{
-	
 public:
-	Human(int HP, int atk, int def);
+	Human();
 	void beAtkBy(Player* p) override;
 };
 

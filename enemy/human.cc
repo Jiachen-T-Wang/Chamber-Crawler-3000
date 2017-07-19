@@ -1,8 +1,8 @@
 #include <cmath>
 #include "human.h"
 
-Human::Human(int HP, int atk, int def)
-	: Enemy{HP, atk, def} {}
+Human::Human()
+	: Enemy{140, 20, 20, "Human"} {}
 
 void Human::beAtkBy(Player* p){
 	int damage = calcDamage(p, this);

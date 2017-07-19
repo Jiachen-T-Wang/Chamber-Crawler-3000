@@ -13,7 +13,7 @@ int Enemy::calcDamage(Player* attacker){
 }
 
 void Enemy::attack(Player* p){
-	int notMiss = rand() % 2;
+	int notMiss = rand() % 2;  
 	if (notMiss){
 		p->beAtkBy(this);
 	}
