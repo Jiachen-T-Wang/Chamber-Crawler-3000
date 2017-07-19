@@ -7,6 +7,7 @@
 class Orcs: public Enemy{
 public:
 	Orcs();
+	void attack(Goblin* g);
 };
 
 #endif

@@ -10,4 +10,8 @@ void Drow::usePotion(Potion* p){
   else if (p->type == "Def") defEffect += (1.5 * p->effect);
 }
 
+void Drow::beAtkBy(Enemy* e){
+	e->attack(this);
+}
+
 

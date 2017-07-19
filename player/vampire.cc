@@ -22,9 +22,9 @@ void Vampire::attack(int dir){
 		getHurt(-5);
 }
 
-void Vampire::beAtkBy(Enemy* enemy){
-	if(enemy->type == "Dwarf"){
-		getAllerge();
+void Vampire::beAtkBy(Enemy* e){
+	e->attack(this);
+	if(checkDead()){
+		//游戏结束
 	}
-	Player::beAtkBy(Enemy* enemy);
 }
