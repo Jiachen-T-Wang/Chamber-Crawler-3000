@@ -7,12 +7,17 @@ Vampire::Vampire(Floor* f)
 	: Player{INT_MAX, 50, 25, 25, f, "Vampire"}
 	, allerge{false} {}
 
+void Vampire::getAllerge(){
+	allerge = true;
+}
+
 //gains 5 HP every successful attack, wow!
 //but if it allerge, then lose 5 HP
-void Vampire::attack(Enemy* e){
-	//insert attack code here
+//may need to implement another function to handle the case of halfling!!!
+void Vampire::attack(int dir){
+	Player::attack(dir);
 	if (allerge)
-		HP -= 5;    //改成setHP()？
+		getHurt(5);    
 	else
-		HP += 5;
+		getHurt(-5);
 }

@@ -7,22 +7,27 @@ Enemy::Enemy(int HP, int atk, int def)
 
 bool Enemy::canMove(){ return moveable; }
 
+int Enemy::calcDamage(Player* attacker){
+  return ceil((100/(100+this->getDef())) * attacker->realAtk());
+}
+
 void Enemy::attack(Player* p){
 	int notMiss = rand() % 2;
 	if (notMiss){
 		p->beAtkBy(this);
 	}
 	else{
-		(this->getPosition())->notyfyMiss();
+		getPosition()->notyfyMiss();
 	}
 }
 
 //如果死了 通知TD
 void Enemy::beAtkBy(Player* p){
-	int damage = calcDamage(p, this);
+	int damage = calcDamage(p);
 	getHurt(damage);
 	if(checkDead()){
-		position->notifyDead();
+		getPosition()->setCont() = nullptr;
+		getPosition()->notifyDead();
 	}
 }
 

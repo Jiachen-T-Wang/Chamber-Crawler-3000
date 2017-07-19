@@ -24,14 +24,30 @@ void Player::usePotion(Potion* p){
   else if (p->type == "Def") defEffect += (p->effect);
 }
 
-//
+int Player::realAtk(){
+  return (getAtk() + atkEffect < 0) ? 0 : getAtk() + atkEffect;
+}
+
+int Player::realDef(){
+  return (getDef() + defEffect < 0) ? 0 : getDef() + defEffect;
+}
+
+int Player::calcDamage(Enemy* attacker){
+  return ceil((100/(100+this->realDef())) * attacker->getAtk());
+}
+
+
 void Player::attack(int dir){
 	Cell* curP = getPosition();
 	curP->notifyEnemy(this, dir);
 }
 
+int Player::calcDamage(Enemy* attacker, Player* defender){
+
+}
+
 void Player::beAtkBy(Enemy* enemy){
-	int damage = ceil((100/(100+getDef())) * getAtk(enemy));
+	int damage = calcDamage(enemy);
 	getHurt(damage);
 	if(checkDead()){
 		//游戏结束

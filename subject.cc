@@ -15,8 +15,8 @@ void Subject::notifyObservers() {
 void notifyMove(Character* man, int dir = -1){
 	if (dir < 0){
 		while (1){
-			int dir = rand() % 8;  //这个可以再转化为NO, NE, ... 现在有点困不想改
-			if (!(observers[dir]->getContent())){  //if that direction does not have object
+			int dir = rand() % 8;
+			if (!(observers[dir]->getContent())){
 				observers[dir]->notify(man);
 				break;
 			}
@@ -34,13 +34,19 @@ void notifyMove(Character* man, int dir = -1){
 }
 
 void notifyEnemy(Player* player, int dir){
-	Observer* enemy = observers[dir];
+	Observer* enemy = observers[dir]->getContent();
 	enemy->beAtkBy(player);
 }
 
 void notifyMiss(){
-	observers[TD]->Miss();
+	observers[TD]->displayMiss();
 }
+
+void notifyDead(){
+	observers[TD]->displayDead();
+}
+
+
 
 
 
