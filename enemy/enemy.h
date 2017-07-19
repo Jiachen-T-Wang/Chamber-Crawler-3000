@@ -3,10 +3,15 @@
 
 #include "../character.h"
 
+class Player;
+
 //it should be an abstract class, so make dtor pure virtual
 class Enemy: public Character{
   bool moveable;
+
+  int calcDamage(Player* attacker);
 public:
+  const std::string type;
   Enemy(int HP, int atk, int def);
   bool canMove();
   virtual void attack(Player* p);

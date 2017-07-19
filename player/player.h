@@ -23,14 +23,15 @@ public:
   int getMaxHP() const;
   void addHp(int hpEffect);
   void move(string dir);
-  virtual void usePotion(Potion* p);
-  virtual void attack(int dir);
   int realAtk();
   int realDef();
+  int showScore();
+  virtual void incScore(int value);
+  virtual void usePotion(Potion* p);
+  virtual void attack(int dir);
   virtual void beAtkBy(Enemy* enemy);
-  virtual void PickGold(int gold);
+  virtual void PickGold(Treasure* gold);
   virtual void roundChange();   //每一轮都发生的变化
-  std::string showRace() const;
   virtual ~Player() = 0;
 };
 

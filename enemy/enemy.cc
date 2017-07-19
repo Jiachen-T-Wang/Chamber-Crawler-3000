@@ -1,9 +1,10 @@
 #include <iostream>
 #include <cstdlib>
 #include "enemy.h"
+using namespace std;
 
-Enemy::Enemy(int HP, int atk, int def)
-	: Character{HP, atk, def}, moveable{false} {}
+Enemy::Enemy(int HP, int atk, int def, string type)
+	: Character{HP, atk, def}, moveable{false}, type{type} {}
 
 bool Enemy::canMove(){ return moveable; }
 
@@ -26,6 +27,9 @@ void Enemy::beAtkBy(Player* p){
 	int damage = calcDamage(p);
 	getHurt(damage);
 	if(checkDead()){
+		if(p->race == "Goblin"){
+			p->incScore(5);
+		}
 		getPosition()->setCont() = nullptr;
 		getPosition()->notifyDead();
 	}

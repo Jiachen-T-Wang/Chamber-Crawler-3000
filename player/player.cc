@@ -56,8 +56,12 @@ void Player::beAtkBy(Enemy* enemy){
 	}
 }
 
-void Player::PickGold(){
-	
+int showScore(){ return score; }
+
+void incScore(int value){ score += value; }
+
+void Player::PickGold(Treasure* gold){
+	intScore(gold->getValue());
 }
 
 void Player::roundChange(){}

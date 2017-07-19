@@ -21,3 +21,10 @@ void Vampire::attack(int dir){
 	else
 		getHurt(-5);
 }
+
+void Vampire::beAtkBy(Enemy* enemy){
+	if(enemy->type == "Dwarf"){
+		getAllerge();
+	}
+	Player::beAtkBy(Enemy* enemy);
+}

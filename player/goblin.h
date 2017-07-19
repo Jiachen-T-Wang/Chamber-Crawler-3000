@@ -12,7 +12,7 @@ class Cell;
 class Goblin: public Player{
    public:
    	Goblin(Floor* f);
-   	void attack(Enemy* e) override;
+//   	void attack(Enemy* e) override;
 };
 
 #endif
