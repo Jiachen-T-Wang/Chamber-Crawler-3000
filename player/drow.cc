@@ -9,3 +9,5 @@ void Drow::usePotion(Potion* p){
   else if (p->type == "Atk") atkEffect += (1.5* p->effect);
   else if (p->type == "Def") defEffect += (1.5 * p->effect);
 }
+
+

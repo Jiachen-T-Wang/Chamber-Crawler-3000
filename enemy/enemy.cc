@@ -22,6 +22,10 @@ void Enemy::attack(Player* p){
 	}
 }
 
+void Enemy::attack(Drow* d){
+	attack(d);
+}
+
 //如果死了 通知TD
 void Enemy::beAtkBy(Player* p){
 	int damage = calcDamage(p);

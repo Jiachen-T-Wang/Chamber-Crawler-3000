@@ -10,6 +10,7 @@ class Elf: public Enemy{
 public:
 	Elf();
 	void attack(Player* p) override;
+	void attack(Drow* d) override;
 };
 
 #endif
