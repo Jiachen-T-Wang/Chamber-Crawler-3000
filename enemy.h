@@ -1,18 +1,22 @@
 #ifndef __ENEMY_H__
 #define __ENEMY_H__
 
-#include "../character.h"
+#include "character.h"
+#include "player.h"
 
-class Player;
+class Drow;
+class Vampire;
+class Goblin;
 
 //it should be an abstract class, so make dtor pure virtual
 class Enemy: public Character{
   bool moveable;
 
   int calcDamage(Player* attacker);
+  int calcDamage(Goblin* defender);
 public:
   const std::string type;
-  Enemy(int HP, int atk, int def);
+  Enemy(int HP, int atk, int def, std::string);
   bool canMove();
 
   virtual void move();

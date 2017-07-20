@@ -17,7 +17,7 @@ public:
   virtual void move()=0;
   virtual void attack()=0;
   virtual void beAtkBy()=0;
-  void checkDead();
+  bool checkDead();
 };
 
 #endif

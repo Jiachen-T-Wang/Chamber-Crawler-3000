@@ -18,7 +18,7 @@ void Cell::notifyDead(){
 */
 
 void Cell::getMove(Character* e, int dir){
-	setCont(e);
+	// setCont(e); type error
 }
 
 Object* Cell::getContent(){
@@ -29,14 +29,14 @@ void Cell::setCont(Object* o){
 	content = o;
 }
 
-bool getCanStand() {
+bool Cell::getCanStand() {
   if (type == "Tile" ||
       type == "Doorway" ||
       type == "Passage") return true;
   return false;
 }
 
-bool getCanStandByAll() {
+bool Cell::getCanStandByAll() {
   if (type == "Tile") return true;
   return false;
 }

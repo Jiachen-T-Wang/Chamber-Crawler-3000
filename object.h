@@ -10,6 +10,6 @@ public:
 	Object();
 	void setPosition(Cell* p);
 	Cell* getPosition();
-}
+};
 
 #endif

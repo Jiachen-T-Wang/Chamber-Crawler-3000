@@ -1,7 +1,8 @@
 #include <cstdlib>
+#include <iostream>
 #include "subject.h"
 #include "observer.h"
-#include "subscriptions.h"
+using namespace std;
 
 void Subject::attach(Observer *o) { observers.push_back(o); }
 /*
@@ -13,7 +14,7 @@ void Subject::notifyObservers() {
 */
 
 //this is for move
-void notifyMove(Character* man, int dir = -1){
+void Subject::notifyMove(Character* man, int dir = -1){
 	if (dir < 0){
 		while (1){
 			int dir = rand() % 8;
@@ -34,7 +35,7 @@ void notifyMove(Character* man, int dir = -1){
 	observers[TD]->notify();
 }
 
-void notifyMove(Enemy* e){
+void Subject::notifyMove(Enemy* e){
 	while (1){
 		int dir = rand() % 8;
 		if (!(observers[dir]->getContent())){
@@ -44,16 +45,16 @@ void notifyMove(Enemy* e){
 	}
 }
 
-void notifyEnemy(Player* player, int dir){
+void Subject::notifyEnemy(Player* player, int dir){
 	Observer* enemy = observers[dir]->getContent();
 	enemy->beAtkBy(player);
 }
 
-void notifyMiss(){
+void Subject::notifyMiss(){
 	observers[TD]->displayMiss();
 }
 
-void notifyDead(){
+void Subject::notifyDead(){
 	observers[TD]->displayDead();
 }
 
