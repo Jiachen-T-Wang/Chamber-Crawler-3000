@@ -5,6 +5,7 @@
 using namespace std;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void Subject::attach(Observer *o) { observers.push_back(o); }
 /*
 void Subject::notifyObservers() {
@@ -56,6 +57,9 @@ void Subject::notifyEnemyAttack(Enemy* e, int damage){
 void Subject::notifyMiss(){
 	observers[TD]->displayMiss();
 }
+=======
+void Subject::attach(Observer *o) { observers.emplace_back(o); }
+>>>>>>> d010c8748af62cbe5b438b69bf9c9c7688fc2305
 =======
 void Subject::attach(Observer *o) { observers.emplace_back(o); }
 >>>>>>> d010c8748af62cbe5b438b69bf9c9c7688fc2305

@@ -7,6 +7,7 @@ class Observer;
 
 class Subject {
 <<<<<<< HEAD
+<<<<<<< HEAD
   std::vector<Observer*> observers;
  public:
   void attach(Observer *o);  
@@ -19,6 +20,8 @@ class Subject {
   virtual Info getInfo() const = 0;
   virtual ~Subject() = default;
 =======
+=======
+>>>>>>> d010c8748af62cbe5b438b69bf9c9c7688fc2305
    
    std::vector<Observer*> observers;
    
@@ -30,6 +33,9 @@ public:
   // virtual Info getInfo() const = 0;
    
    virtual ~Subject() = default;
+<<<<<<< HEAD
+>>>>>>> d010c8748af62cbe5b438b69bf9c9c7688fc2305
+=======
 >>>>>>> d010c8748af62cbe5b438b69bf9c9c7688fc2305
 };
 
