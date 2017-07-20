@@ -45,7 +45,7 @@ void Floor::createGold(){
 }
 
 Floor::Floor(int l, string fileName):level{l}, length{0}, height{0}{
-  td = new Textdisplay;
+  td = new TextDisplay;
   for(int i=0; i<chamberNum; ++i)
     chambers.emplace_back(new Chamber());
     ifilestream fs {fileName};
