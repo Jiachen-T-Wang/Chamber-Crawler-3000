@@ -33,7 +33,7 @@ public:
   virtual void incScore(int value);
   virtual void usePotion(Potion* p);
   
-  virtual void attack(Player* p);
+  virtual void attack(Enemy* p);
   virtual void attack(Halfling* h);
 
   virtual void beAtkBy(Enemy* enemy);
