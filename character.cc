@@ -1,26 +1,30 @@
 #include <cstdlib>
 #include <cmath>
 #include "character.h"
+
 using namespace std;
 
-bool Character::moveTo(string dir){
-   getPos()->
+void Character::moveTo(Dir dir){
+   Cell *neighbor = getPos()->getNeighbour(dir);
+   setPos(neighbor);
+   getPos()->notifyObservers();
 }
 
-Character::Character(int HP, int atk, int def)
-: Object{}, HP{HP}, atk{atk}, def{def} {}
-
 int Character::getHP(){
-  return HP;
+   return HP;
 }
 
 int Character::getAtk(){
-  return atk;
+   return atk;
 }
 
 int Character::getDef(){
-  return def;
+   return def;
 }
+
+
+Character::Character(int HP, int atk, int def):
+Object{}, HP{HP}, atk{atk}, def{def} {}
 
 void Character::hurt(int damage){
 	HP -= damage;

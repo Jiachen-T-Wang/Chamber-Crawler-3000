@@ -13,6 +13,7 @@ protected:
    void setPos(Cell* p);
    
    Cell* getPos();
+   
 public:
    
    Object();
