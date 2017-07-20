@@ -8,8 +8,8 @@
 using namespace std;
 
 void Floor::addToChamber(Cell *c){
-  int x = c->getX();
-  int y = c->getY();
+  int x = c->getCol();
+  int y = c->getRow();
   if(x>=3 && x<=28 && y>=3 && y<=6) chambers[0]->addCell(c);
   else if((x>=39 && x<= 61 && y>=3 && y<=6) || (y==5 && x>=62 && x<=69) ||
           (y==6 && x>=62 && x<=72) || (x>=61 && x<=75 && y>=7 && y<=12))
@@ -45,10 +45,12 @@ void Floor::createGold(){
   }
 }
 
-void Floor::addNeighbours(Cell &c, int row, int col){
+void Floor::addNeighbours(Cell &c, string dir, int row, int col){
    try{
-      c.attachNeighbour(&theGrid.at(row).at(col));
-   } catch(out_of_range){} // the cell at row, col is out of boundary
+      c.attachNeighbour(dir, &board.at(row).at(col));
+   } catch(out_of_range){
+      c.attachNeighbour(dir,nullptr);
+   } // the cell at row, col is out of boundary
 }
 
 Floor::Floor(int l, string fileName):level{l}, length{79}, height{25}{
@@ -67,10 +69,18 @@ Floor::Floor(int l, string fileName):level{l}, length{79}, height{25}{
     
     for(auto c: cellLine) { addToChamber(&c); }
   }
-   for(int r=0; r<height; ++r){
-      for (int c=0; c< length; ++c){
-         addNeighbours(board[r][c], r-1, c+1);
-        // 聪明的你会写 笨笨的我睡了 
+   for(int row=0; r<height; ++row){
+      for (int col=0; c< length; ++col){
+         Cell &cell =board[row][col];
+         addNeighbours(cell, "no", row-1, col);
+         addNeighbours(cell, "so", row+1, col);
+         addNeighbours(cell, "ea", row, col+1);
+         addNeighbours(cell, "we", row, col-1);
+         addNeighbours(cell, "ne", row-1, col+1);
+         addNeighbours(cell, "nw", row-1, col-1);
+         addNeighbours(cell, "se", row+1, col+1);
+         addNeighbours(cell, "sw", row+1, col-1);
+        
       }
    }
 

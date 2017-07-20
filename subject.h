@@ -4,8 +4,6 @@
 
 struct Info;
 class Observer;
-class Player;
-class Enemy;
 
 class Subject {
   std::vector<Observer*> observers;

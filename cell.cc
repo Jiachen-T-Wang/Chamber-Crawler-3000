@@ -1,7 +1,7 @@
 #include "cell.h"
 #include "cellType.h"
 #include <vector>
-Cell::Cell(int x, int y, char c): x{x}, y{y}, content{nullptr}{
+Cell::Cell(int row, int col, char c): row{row}, col{col}, content{nullptr}{
    if (c == '.') type = CellType::Tile;
    else if (c == '|' || c == '-') type = CellType::Wall;
    else if (c == '+') type = CellType::Doorway;
@@ -30,9 +30,9 @@ bool Cell::getCanStandByAll() {
   return false;
 }
 
-void Cell::notify(Player *p){
-   content->attack(p);
+void Cell::notify(){
+   content->attack();
 }
-void Cell::attachNeighbour(Cell *c){
-   neighbours.emplace_back(c);
+void Cell::attachNeighbour(std::string dir, Cell *c){
+   neighbours[dir]=c;
 }
