@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cstdlib>
 #include "enemy.h"
+#include "observer.h"
+#include "cell.h"
 using namespace std;
 
 Enemy::Enemy(int HP, int atk, int def, string type)
@@ -13,11 +15,14 @@ void Enemy::move(){
 }
 
 int Enemy::calcDamage(Player* defender){
-  return ceil((100/(100+defender->realDef())) * this->getAtk());
+  // return ceil((100/(100+defender->realDef())) * this->getAtk());
+  // no matching
+  return 0;
 }
 
 int Enemy::calcDamage(Goblin* defender){
-	calcDamage(defender);
+  calcDamage(defender);
+  return 0; // return type?
 }
 
 void Enemy::attack(Player* player){
@@ -25,36 +30,36 @@ void Enemy::attack(Player* player){
 	if (notMiss){
 		int damage = calcDamage(player);
 		player->getHurt(damage);
-		getPosition()->notifyEnemyAttack(damage);
+		// getPosition()->notifyEnemyAttack(damage);
+        // no matching
 	}
 	else{
-		getPosition()->notyfyMiss();
+		getPosition()->notifyMiss();
 	}
 }
 
 void Enemy::attack(Vampire* v){
-	attack(v);
+	// attack(v);
 }
 
 void Enemy::attack(Drow* d){
-	attack(d);
+	// attack(d);
 }
 
 void Enemy::attack(Goblin* g){
-	attack(g);
+	// attack(g);
 }
 
 
 //如果死了 通知TD
 void Enemy::beAtkBy(Player* p){
 
-	p->attack(this);
-
+	// p->attack(this); type error
 	if(checkDead()){
 		if(p->race == "Goblin"){
 			p->incScore(5);
 		}
-		getPosition()->setCont() = nullptr;
+      getPosition()->setCont(nullptr);
 		getPosition()->notifyDead();
 	}
 }

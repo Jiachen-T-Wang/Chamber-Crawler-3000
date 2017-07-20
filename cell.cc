@@ -18,7 +18,7 @@ void Cell::notifyDead(){
 */
 
 void Cell::getMove(Character* e, int dir){
-	setCont(e);
+	// setCont(e); type error
 }
 
 Object* Cell::getContent(){
