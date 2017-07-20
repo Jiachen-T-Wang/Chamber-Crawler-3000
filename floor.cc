@@ -1,7 +1,8 @@
 #include <vector>
 #include "floor.h"
 #include <iostream>
-#include <string.h>
+#include <fstream>
+#include <string>
 #include "cell.h"
 #include "chamber.h"
 using namespace std;
@@ -45,22 +46,20 @@ void Floor::createGold(){
 }
 
 Floor::Floor(int l, string fileName):level{l}, length{0}, height{0}{
-  td = new TextDisplay;
-  for(int i=0; i<chamberNum; ++i)
+  td = new TextDisplay(fileName);
+  for(int i=0; i<chamberNum; ++i) {
     chambers.emplace_back(new Chamber());
-    ifilestream fs {fileName};
+  }
+  ifstream fs {fileName};
   string line;
-  while(getline(cin, fs)){
+  while(getline(fs, line)){
     length = line.length();
     vector <Cell> cellLine;
-    vector <char> charline;
     
     for(int i=0; i< length; ++i){
       cellLine.emplace_back({i, height, line[i]});
-      charline.emplace_back(line[i]);
     }
     board.emplace_back(cellLine);
-    td->theDisplay.emplace_back(charline);
     
     for(auto c: cellLine) { addToChamber(&c); }
     height++;

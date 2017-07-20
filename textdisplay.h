@@ -6,9 +6,12 @@
 class Cell;
 
 class TextDisplay: public Observer {
+  int height;
+  int width;
   std::vector<std::vector<char>> theDisplay;
   
  public:
+  TextDisplay(std::string fileName);
   void getMove(Character* c, int dir) override;
   void display();
 
