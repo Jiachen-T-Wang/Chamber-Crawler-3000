@@ -10,6 +10,8 @@ class Potion: public Object {
 
 public:
   Potion(int effect, std::string type);
+  std::string getType();
+  int getEffect();
 };
 
 #endif

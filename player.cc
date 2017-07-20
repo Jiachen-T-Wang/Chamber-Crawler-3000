@@ -9,7 +9,7 @@ score{0}, race{race} {}
 int Player::getMaxHP() const { return maxHP; }
 
 void Player::addHp(int hpEffect) {
-  HP = (getHP() + hpEffect > maxHP) ? maxHP : getHP() + hpEfect;
+  HP = (getHP() + hpEffect > maxHP) ? maxHP : getHP() + hpEffect;
 }
 
 void Player::move(int dir){
@@ -22,9 +22,9 @@ void Player::move(int dir){
 
 // Basic Implementation
 void Player::usePotion(Potion* p){
-  if (p->type == "Hp") addHp(p->effect);
-  else if (p->type == "Atk") atkEffect += (p->effect);
-  else if (p->type == "Def") defEffect += (p->effect);
+  if (p->getType() == "Hp") addHp(p->getEffect());
+  else if (p->getType() == "Atk") atkEffect += (p->getEffect());
+  else if (p->getType() == "Def") defEffect += (p->getEffect());
 }
 
 

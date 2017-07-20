@@ -9,6 +9,8 @@ using namespace std;
 TextDisplay::TextDisplay(string fileName) {
   ifstream fs {fileName};
   string line;
+  height = 0;
+  
   while(getline(fs, line)){
     width = line.length();
     vector <char> charline;
@@ -23,8 +25,8 @@ TextDisplay::TextDisplay(string fileName) {
 void TextDisplay::getMove(Character* c, int dir){}
 
 void TextDisplay::display() {
-  for (int i = 0; i < 25; i++) {
-    for (int j = 0; j < 79; j++) {
+  for (int i = 0; i < height; i++) {
+    for (int j = 0; j < width; j++) {
       cout << theDisplay[i][j];
     }
     cout << endl;

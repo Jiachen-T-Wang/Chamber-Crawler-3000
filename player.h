@@ -3,10 +3,10 @@
 #include <iostream>
 #include <string>
 #include "character.h"
+#include "potion.h"
 
 class Enemy;
 class Floor;
-class Potion;
 class Halfling;
 class Treasure;
 
