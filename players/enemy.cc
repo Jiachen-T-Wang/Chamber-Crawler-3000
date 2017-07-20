@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cstdlib>
-#include <cmath>
 #include "enemy.h"
 #include "observer.h"
 #include "cell.h"
@@ -16,7 +15,14 @@ void Enemy::move(){
 }
 
 int Enemy::calcDamage(Player* defender){
-   return ceil((100/(100+defender->realDef())) * this->getAtk());
+  // return ceil((100/(100+defender->realDef())) * this->getAtk());
+  // no matching
+  return 0;
+}
+
+int Enemy::calcDamage(Goblin* defender){
+  calcDamage(defender);
+  return 0; // return type?
 }
 
 void Enemy::attack(Player* player){
@@ -24,7 +30,8 @@ void Enemy::attack(Player* player){
   if (notMiss){
     int damage = calcDamage(player);
     player->getHurt(damage);
-    getPosition()->notifyEnemyAttack(this, damage);
+    // getPosition()->notifyEnemyAttack(damage);
+    // no matching
   }
   else{
     getPosition()->notifyMiss();
@@ -32,15 +39,15 @@ void Enemy::attack(Player* player){
 }
 
 void Enemy::attack(Vampire* v){
-  attack(static_cast<Player*>(v));
+  attack(v);
 }
 
 void Enemy::attack(Drow* d){
-  attack(static_cast<Player*>(d));
+  attack(d);
 }
 
 void Enemy::attack(Goblin* g){
-  attack(static_cast<Player*>(g));
+  attack(g);
 }
 
 

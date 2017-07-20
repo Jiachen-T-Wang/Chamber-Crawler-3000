@@ -4,6 +4,7 @@
 #include "observer.h"
 using namespace std;
 
+<<<<<<< HEAD
 void Subject::attach(Observer *o) { observers.push_back(o); }
 /*
 void Subject::notifyObservers() {
@@ -48,15 +49,20 @@ void Subject::notifyMove(Enemy* e){
 	}
 }
 
+void Subject::notifyEnemyAttack(Enemy* e, int damage){
+	observers[TD]->displayEnemyAtk(e, damage);
+}
+
 void Subject::notifyMiss(){
 	observers[TD]->displayMiss();
 }
+=======
+void Subject::attach(Observer *o) { observers.emplace_back(o); }
+>>>>>>> d010c8748af62cbe5b438b69bf9c9c7688fc2305
 
-void Subject::notifyDead(){
-	observers[TD]->displayDead();
+void Subject::notifyObservers(){
+   for(auto ob:observers) ob->notify();
 }
-
-
 
 
 

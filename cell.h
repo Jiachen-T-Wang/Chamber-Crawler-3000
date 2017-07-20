@@ -1,31 +1,37 @@
 #ifndef __CELL_H__
 #define __CELL_H__
-#define EA 0
-#define SO 1
-#define WE 2
-#define NO 3
-#define NE 4
-#define SE 5
-#define NW 6
-#define SW 7
-#define TD 8
+#include <map>
 #include "subject.h"
 #include "observer.h"
-#include <string>
-
+#include <vector>
+enum class Dir;
+enum class CellType;
 class Object;
 class Cell: public Subject, public Observer {//abstract
-  int x;
-  int y;
-  std::string type; // One of doorway, empty, passage, stairway, tile or wall
-  Object* content;
+   
+   int row;
+   int col;
+   CellType type;
+   Object* content;
+   std::map <Dir, Cell *> neighbours;
+   
 public:
-  Cell(int x, int y, char c);
-  Object* getContent();   //if nullptr means nobody on it
-  void setCont(Object* o);   //mutator
-  void getMove(Character* e, int dir) override;
-  bool getCanStand();   //return true if it can be stand on
-  bool getCanStandByAll();
+   
+   Cell(int row, int col, char c);
+   
+   Object* getContent();   // nullptr means nobody on it
+   
+   void setCont(Object* o);   //mutator
+   
+   bool getCanStand();   //return true if it can be stand on
+   
+   bool getCanStandByAll();
+   
+   void notify();
+   
+   void attachNeighbour(Dir dir, Cell *c);
+   
+   Cell *getNeighbour(Dir dir);
 };
 
 #endif

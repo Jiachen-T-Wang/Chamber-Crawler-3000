@@ -1,8 +1,6 @@
 #include "cell.h"
 #include "cellType.h"
 #include <vector>
-using namespace std;
-
 Cell::Cell(int row, int col, char c): row{row}, col{col}, content{nullptr}{
    if (c == '.') type = CellType::Tile;
    else if (c == '|' || c == '-') type = CellType::Wall;
@@ -10,6 +8,8 @@ Cell::Cell(int row, int col, char c): row{row}, col{col}, content{nullptr}{
    else if (c == '#') type = CellType::Passage;
    else if (c == '\\') type = CellType::Stairway;
    else if (c == ' ') type = CellType::Empty;
+      
+      
 }
 
 
@@ -36,10 +36,6 @@ bool Cell::getCanStandByAll() {
 void Cell::notify(){
    content->attack();
 }
-
-void Cell::attachNeighbour(string dir, Cell *c){
+void Cell::attachNeighbour(std::string dir, Cell *c){
    neighbours[dir]=c;
-}
-Cell *Cell::getNeighbour(string dir){
-   return neighbours[dir];
 }
