@@ -7,7 +7,7 @@
 #include "chamber.h"
 using namespace std;
 
-Floor::addToChamber(Cell *c){
+void Floor::addToChamber(Cell *c){
   int x = c->getX();
   int y = c->getY();
   if(x>=3 && x<=28 && y>=3 && y<=6) chambers[0]->addCell(c);
@@ -45,7 +45,13 @@ void Floor::createGold(){
   }
 }
 
-Floor::Floor(int l, string fileName):level{l}, length{0}, height{0}{
+void Floor::addNeighbours(Cell &c, int row, int col){
+   try{
+      c.attachNeighbour(&theGrid.at(row).at(col));
+   } catch(out_of_range){} // the cell at row, col is out of boundary
+}
+
+Floor::Floor(int l, string fileName):level{l}, length{79}, height{25}{
   td = new TextDisplay(fileName);
   for(int i=0; i<chamberNum; ++i) {
     chambers.emplace_back(new Chamber());
@@ -53,17 +59,21 @@ Floor::Floor(int l, string fileName):level{l}, length{0}, height{0}{
   ifstream fs {fileName};
   string line;
   while(getline(fs, line)){
-    length = line.length();
     vector <Cell> cellLine;
-    
     for(int i=0; i< length; ++i){
       cellLine.emplace_back({i, height, line[i]});
     }
     board.emplace_back(cellLine);
     
     for(auto c: cellLine) { addToChamber(&c); }
-    height++;
   }
+   for(int r=0; r<height; ++r){
+      for (int c=0; c< length; ++c){
+         addNeighbours(board[r][c], r-1, c+1);
+        // 聪明的你会写 笨笨的我睡了 
+      }
+   }
+
   createEnemy();
   createPotion();
   createGold();

@@ -18,7 +18,7 @@ class Chamber{
     */
 
 public:
-   Chamber(int size);
+   Chamber();
    void addCell(Cell *);
    void addEnemy();
    void addPotion();

@@ -11,21 +11,25 @@
 #define TD 8
 #include "subject.h"
 #include "observer.h"
-#include <string>
+#include <vector>
 
+enum class CellType;
 class Object;
 class Cell: public Subject, public Observer {//abstract
-  int x;
-  int y;
-  std::string type; // One of doorway, empty, passage, stairway, tile or wall
-  Object* content;
+   int x;
+   int y;
+   CellType type;
+   Object* content;
+   std::vector <Cell *> neighbours;
 public:
-  Cell(int x, int y, char c);
-  Object* getContent();   //if nullptr means nobody on it
-  void setCont(Object* o);   //mutator
-  void getMove(Character* e, int dir) override;
-  bool getCanStand();   //return true if it can be stand on
-  bool getCanStandByAll();
+   Cell(int x, int y, char c);
+   
+   Object* getContent();   //if nullptr means nobody on it
+   void setCont(Object* o);   //mutator
+   bool getCanStand();   //return true if it can be stand on
+   bool getCanStandByAll();
+   void notify();
+   void attachNeighbour(Cell *c);
 };
 
 #endif

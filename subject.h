@@ -9,13 +9,10 @@ class Enemy;
 
 class Subject {
   std::vector<Observer*> observers;
+   
  public:
-  void attach(Observer *o);  
-  void notifyMove(Player* p, std::string dir);  //to move
-  void notifyMove(Enemy* e);
-  void notifyEnemy(Player* player, int dir);
-  void notifyMiss();
-  void notifyDead();
+  void attach(Observer *o);
+   void notifyObservers();
   virtual Info getInfo() const = 0;
   virtual ~Subject() = default;
 };

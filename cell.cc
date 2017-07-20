@@ -1,24 +1,13 @@
 #include "cell.h"
-
+#include "cellType.h"
+#include <vector>
 Cell::Cell(int x, int y, char c): x{x}, y{y}, content{nullptr}{
-   if (c == '.') type = "Tile";
-   else if (c == '|' || c == '-') type = "Wall";
-   else if (c == '+') type = "Doorway";
-   else if (c == '#') type = "Passage";
-   else if (c == '\\') type = "Stairway";
-   else if (c == ' ') type = "Empty";
-}
-
-//if the enemy dead (没经过notify observer, 因为没有其它observer，除了TD，不然太麻烦了)
-/*
-void Cell::notifyDead(){
-   setCont = nullptr;
-   Observers[TD]->notify(this);
-}
-*/
-
-void Cell::getMove(Character* e, int dir){
-	// setCont(e); type error
+   if (c == '.') type = CellType::Tile;
+   else if (c == '|' || c == '-') type = CellType::Wall;
+   else if (c == '+') type = CellType::Doorway;
+   else if (c == '#') type = CellType::Passage;
+   else if (c == '\\') type = CellType::Stairway;
+   else if (c == ' ') type = CellType::Empty;
 }
 
 Object* Cell::getContent(){
@@ -30,14 +19,20 @@ void Cell::setCont(Object* o){
 }
 
 bool Cell::getCanStand() {
-  if (type == "Tile" ||
-      type == "Doorway" ||
-      type == "Passage") return true;
+  if (type == CellType::Tile||
+      type == CellType::Doorway ||
+      type == CellType::Passage) return true;
   return false;
 }
 
 bool Cell::getCanStandByAll() {
-  if (type == "Tile") return true;
+  if (type == CellType::Tile) return true;
   return false;
 }
 
+void Cell::notify(Player *p){
+   content->attack(p);
+}
+void Cell::attachNeighbour(Cell *c){
+   neighbours.emplace_back(c);
+}
