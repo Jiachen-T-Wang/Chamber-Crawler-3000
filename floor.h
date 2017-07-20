@@ -3,7 +3,8 @@
 
 #include <iostream>
 #include <vector>
-#include "cell/cell.h"
+#include "cell.h"
+#include "textdisplay.h"
 
 class Chamber;
 const int postionNum = 10;
@@ -11,21 +12,24 @@ const int goldNum = 10;
 const int enemyNum = 20;
 const int chamberNum = 5;
 class Floor{
-   int level;
-   
-   int length;
-   int height;
-   std::vector<std::vector <Cell>> board;
-   std::vector <Chamber *> chambers;
-   
-   void addToChamber(Cell *c);
-   Chamber *randChamber();
-   void createEnemy();
-   void createPotion();
-   void createGold();
-   
+  int level;
+  
+  int length;
+  int height;
+  std::vector<std::vector <Cell>> board;
+  std::vector <Chamber *> chambers;
+  TextDisplay *td;
+  
+  void addToChamber(Cell *c);
+  Chamber *randChamber();
+  void createEnemy();
+  void createPotion();
+  void createGold();
+  
 public:
-   Floor(int l, std::string fileName);  //read the map from the txt file
+  Floor(int l, std::string fileName);  //read the map from the txt file
+  void display();
+  ~Floor();
 };
 
 #endif

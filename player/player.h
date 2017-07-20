@@ -8,6 +8,7 @@ class Enemy;
 class Floor;
 class Potion;
 class Halfling;
+class Treasure;
 
 class Player: public Character{
   const int maxHP;
@@ -24,7 +25,7 @@ public:
   int getMaxHP() const;
   void addHp(int hpEffect);
   
-  void move(string dir);
+  void move(std::string dir);
 
   int realAtk();
   int realDef();

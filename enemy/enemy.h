@@ -4,6 +4,9 @@
 #include "../character.h"
 
 class Player;
+class Drow;
+class Vampire;
+class Goblin;
 
 //it should be an abstract class, so make dtor pure virtual
 class Enemy: public Character{
