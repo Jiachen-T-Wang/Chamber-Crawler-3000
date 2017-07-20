@@ -14,7 +14,7 @@ void Player::addHp(int hpEffect) {
 
 void Player::move(int dir){
 	Cell* curP = getPosition();
-	curP->notifyMove(this, int dir);
+	curP->notifyMove(this, dir);
 }
 
 
