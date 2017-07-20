@@ -4,6 +4,7 @@
 #include "subject.h"
 #include "observer.h"
 #include <vector>
+
 enum class Dir;
 enum class CellType;
 class Object;
@@ -15,17 +16,17 @@ class Cell: public Subject, public Observer {//abstract
    Object* content;
    std::map <Dir, Cell *> neighbours;
    
+   
 public:
    
    Cell(int row, int col, char c);
    
-   Object* getContent();   // nullptr means nobody on it
+  Object* getContent();   // nullptr means nobody on it
+  void setCont(Object* o);   //mutator
    
-   void setCont(Object* o);   //mutator
+   bool canStand();   //return true if it can be stand on
    
-   bool getCanStand();   //return true if it can be stand on
-   
-   bool getCanStandByAll();
+   bool canStandByAll();
    
    void notify();
    

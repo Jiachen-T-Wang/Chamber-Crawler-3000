@@ -21,25 +21,24 @@ void Cell::setCont(Object* o){
 	content = o;
 }
 
-bool Cell::getCanStand() {
+bool Cell::canStand() {
   if (type == CellType::Tile||
       type == CellType::Doorway ||
       type == CellType::Passage) return true;
   return false;
 }
 
-bool Cell::getCanStandByAll() {
+bool Cell::canStandByAll() {
   if (type == CellType::Tile) return true;
   return false;
 }
 
 void Cell::notify(){
-   content->attack();
-}
+   }
 
-void Cell::attachNeighbour(string dir, Cell *c){
+void Cell::attachNeighbour(Dir dir, Cell *c){
    neighbours[dir]=c;
 }
-Cell *Cell::getNeighbour(string dir){
+Cell *Cell::getNeighbour(Dir dir){
    return neighbours[dir];
 }
