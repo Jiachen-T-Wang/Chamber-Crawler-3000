@@ -2,7 +2,7 @@
 #define __PLAYER_H__
 #include <iostream>
 #include <string>
-#include "../character.h"
+#include "character.h"
 
 class Enemy;
 class Floor;

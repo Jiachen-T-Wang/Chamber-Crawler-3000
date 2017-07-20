@@ -3,7 +3,7 @@
 #include <ctime>
 #include "cell.h"
 
-Chamber::Chamber(): size{0}{
+Chamber::Chamber(int size): size{0}{
    
 }
 Cell *Chamber::randCell(){
@@ -12,14 +12,14 @@ Cell *Chamber::randCell(){
    return cells[x];
 }
 
-Chamber::addCell(Cell *c){
+void Chamber::addCell(Cell *c){
    cells.emplace_back(c);
    size++;
 }
 
-void Chamber::addEnemy();
-void Chamber::addPotion();
-void Chamber::addGold();
+void Chamber::addEnemy(){}
+void Chamber::addPotion(){}
+void Chamber::addGold(){}
 
 
 

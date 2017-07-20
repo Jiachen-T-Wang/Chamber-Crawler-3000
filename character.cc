@@ -28,6 +28,6 @@ void Character::move(){
 }
 */
 
-void Character::checkDead(){
+bool Character::checkDead(){
   return (HP <= 0);
 }

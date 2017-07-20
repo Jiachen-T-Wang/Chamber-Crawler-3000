@@ -1,11 +1,11 @@
 #ifndef __SUBJECT_H__
 #define __SUBJECT_H__
 #include <vector>
-#include "player/player.h"
-#include "enemy/enemy.h"
 
 struct Info;
 class Observer;
+class Player;
+class Enemy;
 
 class Subject {
   std::vector<Observer*> observers;

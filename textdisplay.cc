@@ -5,18 +5,17 @@
 #include "info.h"
 using namespace std;
 
-void Textdisplay::getMove(Character* c, int dir){
+void TextDisplay::getMove(Character* c, int dir){
   
 }
 
 void TextDisplay::display() {
-  for (int i = 0; i < td.gridSize; i++) {
-    for (int j = 0; j < td.gridSize; j++) {
-      out << td.theDisplay[i][j];
+  for (int i = 0; i < 25; i++) {
+    for (int j = 0; j < 79; j++) {
+      cout << theDisplay[i][j];
     }
-    out << endl;
+    cout << endl;
   }
-  return out;
 }
 
 TextDisplay::~TextDisplay() {}
