@@ -14,6 +14,7 @@ void Subject::notifyObservers() {
 */
 
 //this is for move
+/*
 void Subject::notifyMove(Character* man, int dir = -1){
 	if (dir < 0){
 		while (1){
@@ -35,6 +36,8 @@ void Subject::notifyMove(Character* man, int dir = -1){
 	observers[TD]->notify();
 }
 
+*/
+
 void Subject::notifyMove(Enemy* e){
 	while (1){
 		int dir = rand() % 8;
@@ -43,11 +46,6 @@ void Subject::notifyMove(Enemy* e){
 			break;
 		}
 	}
-}
-
-void Subject::notifyEnemy(Player* player, int dir){
-	Observer* enemy = observers[dir]->getContent();
-	enemy->beAtkBy(player);
 }
 
 void Subject::notifyMiss(){
