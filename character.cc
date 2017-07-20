@@ -21,12 +21,6 @@ void Character::getHurt(int damage){
 	HP = HP - damage;
 }
 
-/*
-void Character::move(){
-  Cell* curP = getPosition();
-  curP->notifyObservers(this);
-}
-*/
 
 bool Character::checkDead(){
   return (HP <= 0);

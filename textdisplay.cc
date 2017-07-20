@@ -13,12 +13,12 @@ TextDisplay::TextDisplay(string fileName) {
   
   while(getline(fs, line)){
     width = line.length();
-    vector <char> charline;
+    vector <char> charLine;
     
     for(int i = 0; i < width; ++i){
-      charline.emplace_back(line[i]);
+      charLine.emplace_back(line[i]);
     }
-    theDisplay.emplace_back(charline);
+    theDisplay.emplace_back(charLine);
     height++;
   }
 }

@@ -5,11 +5,16 @@
 class Cell;
 
 class Object{
-	Cell* position;
+   
+   Cell* position;
+   
 public:
-	Object();
-	void setPosition(Cell* p);
-	Cell* getPosition();
+   
+   Object();
+   
+   void setPosition(Cell* p);
+   
+   Cell* getPosition();
 };
 
 #endif

@@ -8,7 +8,10 @@ Cell::Cell(int row, int col, char c): row{row}, col{col}, content{nullptr}{
    else if (c == '#') type = CellType::Passage;
    else if (c == '\\') type = CellType::Stairway;
    else if (c == ' ') type = CellType::Empty;
+      
+      
 }
+
 
 Object* Cell::getContent(){
 	return content;

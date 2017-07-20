@@ -4,9 +4,13 @@ using namespace std;
 Potion::Potion(int effect, std::string type): effect{effect}, type{type} {}
 
 string Potion::getType() {
-  return type;
+   return type;
 }
 
 int Potion::getEffect() {
-  return effect;
+   return effect;
+}
+
+bool isPotion(){
+   return true;
 }

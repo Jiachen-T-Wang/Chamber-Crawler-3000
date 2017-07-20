@@ -5,6 +5,7 @@
 #include <string>
 #include "cell.h"
 #include "chamber.h"
+#include "textdisplay.h"
 using namespace std;
 
 void Floor::addToChamber(Cell *c){
@@ -63,7 +64,9 @@ Floor::Floor(int l, string fileName):level{l}, length{79}, height{25}{
   while(getline(fs, line)){
     vector <Cell> cellLine;
     for(int i=0; i< length; ++i){
-      cellLine.emplace_back({i, height, line[i]});
+       Cell c {i, height, line[i]};
+       c.attach(td);
+      cellLine.emplace_back(c);
     }
     board.emplace_back(cellLine);
     

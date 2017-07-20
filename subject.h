@@ -2,17 +2,21 @@
 #define __SUBJECT_H__
 #include <vector>
 
-struct Info;
+//struct Info;
 class Observer;
 
 class Subject {
-  std::vector<Observer*> observers;
    
- public:
-  void attach(Observer *o);
+   std::vector<Observer*> observers;
+   
+public:
+   void attach(Observer *o);
+   
    void notifyObservers();
-  virtual Info getInfo() const = 0;
-  virtual ~Subject() = default;
+   
+  // virtual Info getInfo() const = 0;
+   
+   virtual ~Subject() = default;
 };
 
 #endif

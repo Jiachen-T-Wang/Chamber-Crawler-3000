@@ -4,20 +4,26 @@
 #include "cell.h"
 #include "object.h"
 class Character: public Object{
-  int HP;
-  int atk;
-  int def;
-  
+   int HP;
+   int atk;
+   int def;
+   
 public:
-  Character(int HP, int atk, int def);
-  int getHP();
-  int getAtk();
-  int getDef();
-  void getHurt(int damage);
-  virtual void move()=0;
-  virtual void attack()=0;
-  virtual void beAtkBy()=0;
-  bool checkDead();
+   
+   Character(int HP, int atk, int def);
+   
+   int getHP();
+   int getAtk();
+   int getDef();
+   void getHurt(int damage);
+   
+   bool checkDead();
+   virtual void move()=0;
+   
+   virtual void attack()=0;
+   
+   virtual void beAtkBy()=0;
+   
 };
 
 #endif

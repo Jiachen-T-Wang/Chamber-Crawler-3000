@@ -1,6 +1,7 @@
 #include <cmath>
 #include "player.h"
 #include "character.h"
+using namespace std;
 
 Player::Player(int HP, int atk, int def, int maxHP, Floor* f, std::string race)
 : Character{HP, atk, def}, maxHP{maxHP}, atkEffect{0}, defEffect{0}, f{f},
@@ -22,9 +23,11 @@ void Player::move(int dir){
 
 // Basic Implementation
 void Player::usePotion(Potion* p){
-  if (p->getType() == "Hp") addHp(p->getEffect());
-  else if (p->getType() == "Atk") atkEffect += (p->getEffect());
-  else if (p->getType() == "Def") defEffect += (p->getEffect());
+   string type = p->getType();
+   int effect =p->getEffect();
+  if (type == "Hp") addHp(effect);
+  else if (type == "Atk") atkEffect += (effect);
+  else if (type == "Def") defEffect += (effect);
 }
 
 
