@@ -8,13 +8,16 @@ class Object{
    
    Cell* position;
    
+protected:
+   
+   void setPos(Cell* p);
+   
+   Cell* getPos();
 public:
    
    Object();
    
-   void setPosition(Cell* p);
    
-   Cell* getPosition();
 };
 
 #endif

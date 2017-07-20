@@ -2,11 +2,11 @@
 #include "cell.h"
 Object::Object(): position{nullptr} {}
 
-void Object::setPos(Cell* p){
+void Object::setPosition(Cell* p){
    position = p;
    p->setCont(this);
 }
 
-Cell* Object::getPos(){
+Cell* Object::getPosition(){
    return position;
 }

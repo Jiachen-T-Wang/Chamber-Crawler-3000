@@ -4,7 +4,7 @@
 #include "subject.h"
 #include "observer.h"
 #include <vector>
-
+enum class Dir;
 enum class CellType;
 class Object;
 class Cell: public Subject, public Observer {//abstract
@@ -13,7 +13,7 @@ class Cell: public Subject, public Observer {//abstract
    int col;
    CellType type;
    Object* content;
-   std::map <std::string, Cell *> neighbours;
+   std::map <Dir, Cell *> neighbours;
    
 public:
    
@@ -29,7 +29,9 @@ public:
    
    void notify();
    
-   void attachNeighbour(std::string dir, Cell *c);
+   void attachNeighbour(Dir dir, Cell *c);
+   
+   Cell *getNeighbour(Dir dir);
 };
 
 #endif

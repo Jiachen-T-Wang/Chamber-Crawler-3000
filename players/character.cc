@@ -4,7 +4,7 @@
 using namespace std;
 
 bool Character::moveTo(string dir){
-   getPos()->
+   position->
 }
 
 Character::Character(int HP, int atk, int def)
