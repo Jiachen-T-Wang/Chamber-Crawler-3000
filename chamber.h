@@ -7,19 +7,18 @@ class Enemy;
 class Cell;
 
 class Chamber{
+   
    int size;
+   
    std::vector <Cell *>cells;
+   
    Cell *randCell();
-
-   /*
-    std::vector <item *>;
-    std::vector <Potion *>;
-    std::vector <Treasure *>;
-    */
 
 public:
    Chamber();
+   
    void addCell(Cell *);
+   
    void addEnemy();
    void addPotion();
    void addGold();

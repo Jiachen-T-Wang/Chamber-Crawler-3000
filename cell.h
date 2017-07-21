@@ -18,10 +18,14 @@ class Cell: public Subject, public Observer {//abstract
    
 public:
    
+   
    Cell(int row, int col, char c);
    
-  Object* getContent();   // nullptr means nobody on it
-  void setCont(Object* o);   //mutator
+   int getCol();
+   int getRow();
+   
+   Object* getContent();   // nullptr means nobody on it
+   void setCont(Object* o);   //mutator
    
    bool canStand();   //return true if it can be stand on
    
@@ -32,6 +36,10 @@ public:
    void attachNeighbour(Dir dir, Cell *c);
    
    Cell *getNeighbour(Dir dir);
+   
+   void spawnEnemy();
+   void spawnPotion();
+   void spawnGold();
 };
 
 #endif

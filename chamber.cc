@@ -3,9 +3,10 @@
 #include <ctime>
 #include "cell.h"
 
-Chamber::Chamber(int size): size{0}{
+Chamber::Chamber(): size{0}{
    
 }
+
 Cell *Chamber::randCell(){
    srand(time(0));
    int x=rand() % size;
@@ -17,9 +18,15 @@ void Chamber::addCell(Cell *c){
    size++;
 }
 
-void Chamber::addEnemy(){}
-void Chamber::addPotion(){}
-void Chamber::addGold(){}
+void Chamber::addEnemy(){
+   randCell()->spawnEnemy();
+}
+void Chamber::addPotion(){
+   randCell()->spawnPotion();
+}
+void Chamber::addGold(){
+   randCell()->spawnEnemy();
+}
 
 
 
