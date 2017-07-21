@@ -4,18 +4,19 @@
 #include "enemy.h"
 #include "observer.h"
 #include "cell.h"
-#include "treasure"
-#include "treasure/*"
+#include "treasure/treasure.h"
+#include "treasure/smallGold.h"
+#include "treasure/normalhoard.h"
 using namespace std;
 
 Enemy::Enemy(int HP, int atk, int def, string type)
 : Character{HP, atk, def}, moveable{false}, type{type} {
   int x=rand() % 2;
   if(x){
-    gold = make_share<SmallGold>();
+    gold = make_shared<SmallGold>();
   }
   else{
-    gold = make_share<NormalGold>();
+    gold = make_shared<NormalHoard>();
   }
 }
 
