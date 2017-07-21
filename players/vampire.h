@@ -11,9 +11,9 @@ class Cell;
 class Vampire: public Player{
 	bool allerge; 
    public:
-   	Shade(Floor* f);
+   	Vampire(Floor* f);
    	void getAllerge();
-   	void attack(Player* p) override;  //gains 5 HP every successful attack
+   	void attack(Enemy* p) override;  //gains 5 HP every successful attack
    	void attack(Halfling* h) override;
    	void beAtkBy(Enemy* e);
 };

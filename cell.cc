@@ -33,11 +33,11 @@ int Cell::getRow(){
    return row;
 }
 
-Object* Cell::getContent(){
+std::shared_ptr<Object> Cell::getContent(){
    return content;
 }
 
-void Cell::setCont(Object* o){
+void Cell::setCont(std::shared_ptr<Object> o){
    content = o;
 }
 
@@ -57,8 +57,15 @@ bool Cell::canStandByAll() {
 void Cell::attachNeighbour(Dir dir, Cell *c){
    neighbours[dir]=c;
 }
+<<<<<<< HEAD
+<<<<<<< HEAD
+std::shared_ptr<Cell> Cell::getNeighbour(Dir dir){
+=======
+=======
+>>>>>>> 3f06dca506a3425b099df294628fb302dcd5a78f
 
 Cell *Cell::getNeighbour(Dir dir){
+>>>>>>> 3f06dca506a3425b099df294628fb302dcd5a78f
    return neighbours[dir];
 }
 
