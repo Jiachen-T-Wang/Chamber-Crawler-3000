@@ -33,7 +33,6 @@ class Floor{
   
 public:
   Floor(int l, std::string fileName);  //read the map from the txt file
-   
   void display();
    
   ~Floor();

@@ -24,6 +24,11 @@ void Player::usePotion(Potion* p){
   else if (type == "Def") defEffect += (effect);
 }
 
+void Player::moveTo(Dir dir){
+    Character::moveTo(dir);
+    getPos()->notifyPlayerMove(dir);
+}
+
 
 
 
@@ -60,12 +65,7 @@ void Player::attack(Halfling* h){
 
 
 void Player::beAtkBy(Enemy* enemy){
-
 	enemy->attack(this);
-	
-	if(checkDead()){
-		//游戏结束
-	}
 }
 
 

@@ -12,8 +12,7 @@ class TextDisplay: public Observer {
   
  public:
   TextDisplay(std::string fileName);
-  void getMove(Character* c, int dir) override;
-  void display();
+   void display();
 
   ~TextDisplay();
 };

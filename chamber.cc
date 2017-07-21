@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <ctime>
 #include "cell.h"
+#include "player.h"
 
 Chamber::Chamber(): size{0}{
    
@@ -20,6 +21,13 @@ Cell *Chamber::randCell(){
 void Chamber::addCell(Cell *c){
    cells.emplace_back(c);
    size++;
+}
+
+void addPlayer(Player *p){
+   randCell()->spawnPlayer(Player *p);
+}
+void addStair(){
+   randCell()->spawnStair();
 }
 
 void Chamber::addEnemy(){

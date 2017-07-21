@@ -9,6 +9,7 @@
 #include "enemies/merchant.h"
 #include "enemies/orcs.h"
 #include "potion.h"
+#include "stair.h"
 #include "treasure/dragonHoard.h"
 #include "treasure/smallGold.h"
 #include "treasure/normalhoard.h"
@@ -32,11 +33,11 @@ int Cell::getRow(){
    return row;
 }
 
-Object* Cell::getContent(){
+std::shared_ptr<Object> Cell::getContent(){
    return content;
 }
 
-void Cell::setCont(Object* o){
+void Cell::setCont(std::shared_ptr<Object> o){
    content = o;
 }
 
@@ -58,8 +59,22 @@ void Cell::notify(){
 void Cell::attachNeighbour(Dir dir, Cell *c){
    neighbours[dir]=c;
 }
+<<<<<<< HEAD
+std::shared_ptr<Cell> Cell::getNeighbour(Dir dir){
+=======
+
 Cell *Cell::getNeighbour(Dir dir){
+>>>>>>> 3f06dca506a3425b099df294628fb302dcd5a78f
    return neighbours[dir];
+}
+
+void Cell::spawnPlayer(Player *p){
+   p->setPos(this);
+}
+
+void Cell::spawnStair(){
+   Stair *s = new Stair();
+   s->setPos(this);
 }
 
 void Cell::spawnEnemy(){

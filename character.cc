@@ -5,9 +5,8 @@
 using namespace std;
 
 void Character::moveTo(Dir dir){
-   Cell *neighbor = getPos()->getNeighbour(dir);
-   setPos(neighbor);
-   getPos()->notifyObservers();
+    std::shared_ptr<Cell> neighbour = getPos()->getNeighbour(dir);
+    setPos(neighbour);
 }
 
 int Character::getHP(){
@@ -26,7 +25,7 @@ int Character::getDef(){
 Character::Character(int HP, int atk, int def):
 Object{}, HP{HP}, atk{atk}, def{def} {}
 
-void Character::hurt(int damage){
+void Character::getHurt(int damage){
 	HP -= damage;
 }
 

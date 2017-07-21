@@ -22,7 +22,6 @@ TextDisplay::TextDisplay(string fileName) {
     height++;
   }
 }
-void TextDisplay::getMove(Character* c, int dir){}
 
 void TextDisplay::display() {
   for (int i = 0; i < height; i++) {

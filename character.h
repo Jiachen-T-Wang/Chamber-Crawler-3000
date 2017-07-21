@@ -11,28 +11,25 @@ class Character: public Object{
    
 protected:
    
-   void moveTo(Dir dir);
-   
-   int getHP();
-   int getAtk();
-   int getDef();
    
 public:
+<<<<<<< HEAD
+    int getHP();
+    int getAtk();
+    int getDef();
+    
+    Character(int HP, int atk, int def);
+    virtual void moveTo(Dir dir);
+=======
    
    Character(int HP, int atk, int def);
-   
+>>>>>>> 3f06dca506a3425b099df294628fb302dcd5a78f
 
-   void hurt(int damage);
+    void getHurt(int damage);
    
-   bool checkDead();
+    bool checkDead();
    
-   //virtual void move()=0;
-   
-  // virtual void attack(Character *defender)=0;
-   
-  // virtual void beAtkBy(Character &attacker)=0;
-   
-};
+   };
 
 #endif
 

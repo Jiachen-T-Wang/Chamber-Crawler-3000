@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <string>
-#include "player.h"
+#include "../player.h"
 
 class Floor;
 class Cell;
@@ -13,7 +13,7 @@ class Orcs;
 class Goblin: public Player{
    public:
    	Goblin(Floor* f);
-   	void attack(Enemy* e) override;
+//   	void attack(Enemy* e) override;
    	void beAtkBy(Orcs* e) override;
 };
 

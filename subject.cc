@@ -5,8 +5,8 @@
 #define TD 0
 using namespace std;
 
-void Subject::notifyPlayerMove(){
-    observers[TD]->displayPlayerMove();
+void Subject::notifyPlayerMove(Dir dir){
+    observers[TD]->displayPlayerMove(dir);
 }
 
 void Subject::notifyPlayerAttack(int damage){
@@ -26,13 +26,8 @@ void Subject::notifyDead(){
 }
  
 
-void Subject::attach(std::shared_ptr<observer> o) { observers.emplace_back(o); }
+void Subject::attach(std::shared_ptr<Observer> o) { observers.emplace_back(o); }
 
-
-/*
-void Subject::notifyObservers(){
-   for(auto ob:observers) ob->notify();
-}
 
 
 

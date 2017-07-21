@@ -10,8 +10,6 @@ class Object{
    
 protected:
    
-   
-   
    Cell* getPos();
    
 public:
@@ -19,7 +17,11 @@ public:
    void setPos(Cell* p);
    
    Object();
-   
+   bool isEnemy();
+   bool isPlayer();
+   bool isStair();
+   bool isPotion();
+   bool isTreasure();
    
 };
 

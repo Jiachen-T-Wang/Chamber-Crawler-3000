@@ -24,7 +24,7 @@ public:
   Player(int HP, int atk, int def, int maxHP, Floor* f, std::string race);
   int getMaxHP() const;
   void addHp(int hpEffect);
-
+  void moveTo(Dir dir);
 
   int realAtk();
   int realDef();

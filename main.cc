@@ -1,20 +1,56 @@
 #include <iostream>
+#include <memory>
 #include "floor.h"
+#include "players/drow.h"
+#include "players/goblin.h"
+#include "players/shade.h"
+#include "players/troll.h"
+#include "players/vampire.h"
+
+
 #include "textdisplay.h"
 using namespace std;
 
-int main(int ) {
+int main(int argc, const char * argv[]) {
+  if (argc == 1) {
+    // read map
+  } else {
+    Floor f(1, "cc3kfloor.txt");
+    f.display();
+  }
+  
+  shared_ptr<Player> p;
   string race;
-  cin >> race;
+  while (cin >> race) {
+    if (race == "s") {
+      p = make_shared<Shade>();
+      break;
+    }
+    else if (race == "d") {
+      p = make_shared<Drow>();
+      break;
+    }
+    else if (race == "v") {
+      p = make_shared<Vampire>();
+      break;
+    }
+    else if (race == "g") {
+      p = make_shared<Goblin>();
+      break;
+    }
+    else if (race == "t") {
+      p = make_shared<Troll>();
+      break;
+    }
+    else if (race == "q") {
+      exit(0);
+    }
+  };
   
   string cmd;
   string direction;
-   for(int i=0; i<5; i++){
-  Floor f(1, "cc3kfloor.txt");
-  f.display();
   
-  while (true) {
-    cin >> cmd;
+  while (cin >> cmd) {
     if (cmd == "no,so,ea,we,ne,nw,se,sw") { // move
 
     }
@@ -26,10 +62,6 @@ int main(int ) {
       cin >> direction;
       
     }
-    else if (cmd == "s, d, v, g, t") { // specify race
-      
-      
-    }
     else if (cmd == "f") { // enemies stop moving
       
     }
@@ -37,7 +69,7 @@ int main(int ) {
       
     }
     else if (cmd == "q") {
-      break;
+      exit(0);
     }
   }
 }

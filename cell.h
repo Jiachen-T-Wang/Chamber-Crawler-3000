@@ -8,24 +8,23 @@
 enum class Dir;
 enum class CellType;
 class Object;
+class Player;
 class Cell: public Subject, public Observer {//abstract
    
    int row;
    int col;
    CellType type;
-   Object* content;
-   std::map <Dir, Cell *> neighbours;
+   std::shared_ptr<Object> content;
+   std::map <Dir, std::shared_ptr<Cell>> neighbours;
    
 public:
-   
-   
    Cell(int row, int col, char c);
    
    int getCol();
    int getRow();
    
-   Object* getContent();   // nullptr means nobody on it
-   void setCont(Object* o);   //mutator
+   std::shared_ptr<Object> getContent();   // nullptr means nobody on it
+   void setCont(std::shared_ptr<Object> o);   //mutator
    
    bool canStand();   //return true if it can be stand on
    
@@ -33,10 +32,12 @@ public:
    
    void notify();
    
-   void attachNeighbour(Dir dir, Cell *c);
+   void attachNeighbour(Dir dir, std::shared_ptr<Cell> c);
    
-   Cell *getNeighbour(Dir dir);
+   std::shared_ptr<Cell> getNeighbour(Dir dir);
    
+   void spawnPlayer(Player *p);
+   void spawnStair();
    void spawnEnemy();
    void spawnPotion();
    void spawnGold();
