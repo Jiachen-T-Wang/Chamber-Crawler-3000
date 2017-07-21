@@ -16,7 +16,6 @@ class Cell: public Subject, public Observer {//abstract
    Object* content;
    std::map <Dir, Cell *> neighbours;
    
-   
 public:
    
    Cell(int row, int col, char c);
