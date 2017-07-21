@@ -11,25 +11,25 @@ class Goblin;
 //it should be an abstract class, so make dtor pure virtual
 class Enemy: public Character{
    
-  bool moveable;
-
+   bool moveable;
+   
 public:
-
-  Enemy(int HP, int atk, int def, std::string);
    
-  bool canMove();
-
-  void move();
+   Enemy(int HP, int atk, int def, std::string);
    
-   virtual void beAtkBy(Player& p);
+   bool canMove();
    
-  virtual void attack(Player* p);
-  virtual void attack(Drow* d);
-  virtual void attack(Vampire* v);
-  virtual void attack(Goblin* g);
-  
-  
-  virtual ~Enemy()=0;
+   void move();
+   
+   virtual void beAtkBy(Player* p);
+   
+   virtual void attack(Player* p);
+   virtual void attack(Drow* d);
+   virtual void attack(Vampire* v);
+   virtual void attack(Goblin* g);
+   
+   
+   virtual ~Enemy()=0;
 };
 
 #endif
