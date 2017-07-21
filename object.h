@@ -4,17 +4,17 @@
 
 class Cell;
 
-class Object{
+class Object: public std::enable_shared_from_this<Object>{
    
-   Cell* position;
+   std::shared_ptr<Cell> position;
    
 protected:
    
-   Cell* getPos();
+    std::shared_ptr<Cell> getPos();
    
 public:
    
-   void setPos(Cell* p);
+   void setPos(std::shared_ptr<Cell> p);
    
    Object();
    bool isEnemy();
