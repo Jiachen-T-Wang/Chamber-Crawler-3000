@@ -87,6 +87,7 @@ void Cell::spawnPotion(){
    else p = new Potion{-5, "Def"};
    p->setPos(this);
 }
+
 void Cell::spawnGold(){
    srand(time(0));
    int x=rand() % 8;

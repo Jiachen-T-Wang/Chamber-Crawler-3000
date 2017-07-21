@@ -3,7 +3,11 @@
 
 #include "character.h"
 #include "player.h"
+#include "players/vampire.h"
+#include "players/drow.h"
+#include "players/goblin.h"
 #include "treasure/treasure.h"
+#include "dir.h"
 
 class Drow;
 class Vampire;
@@ -14,6 +18,10 @@ class Enemy: public Character{
    bool moveable;
    std::string type;
    std::shared_ptr<Treasure> gold;
+   int calcDamage(Player* defender);
+    
+protected:
+    enum Dir numToDir(int d);
 
 public:
    

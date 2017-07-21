@@ -10,6 +10,10 @@ Chamber::Chamber(): size{0}{
 Cell *Chamber::randCell(){
    srand(time(0));
    int x=rand() % size;
+   while(cells[x]->getContent()){
+      srand(time(0));
+      int x=rand() % size;
+   }
    return cells[x];
 }
 

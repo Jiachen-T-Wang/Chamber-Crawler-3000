@@ -13,12 +13,6 @@ void Player::addHp(int hpEffect) {
   HP = (getHP() + hpEffect > maxHP) ? maxHP : getHP() + hpEffect;
 }
 
-void Player::move(int dir){
-	Cell* curP = getPosition();
-	curP->notifyMove(this, dir);
-}
-
-
 
 
 // Basic Implementation
@@ -42,7 +36,7 @@ int Player::realDef(){
 }
 
 int Player::calcDamage(Enemy* defender){
-  return ceil((100/(100+defender->getDef())) * this->realAtk());
+    return ceil((100/(100+defender->getDef())) * this->realAtk());
 }
 
 

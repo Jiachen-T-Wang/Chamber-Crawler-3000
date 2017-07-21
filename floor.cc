@@ -31,12 +31,18 @@ void Floor::createObjects(){
    ch_player->addPlayer();
 
    //second stairway
+   Chamber *ch_stair = randChamber();
+   while(ch_stair == ch_player) ch_stair = randChamber();
+   ch_stair->addStair();
+   
    for(int i=0; i<postionNum; i++){
       randChamber()->addPotion();
    }
+   
    for(int i=0; i<goldNum; i++){
       randChamber()->addGold();
    }
+   
    for(int i=0; i<enemyNum; i++){
       randChamber()->addEnemy();
    }

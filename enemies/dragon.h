@@ -6,9 +6,9 @@
 class DragonHoard;
 //does 50% more damage to goblins
 class Dragon: public Enemy{
-	DragonHoard* hoard;
+	std::shared_ptr<DragonHoard> hoard;
 public:
-	Dragon(DragonHoard* hoard);
+	Dragon(std::shared_ptr<DragonHoard> hoard);
 };
 
 #endif
