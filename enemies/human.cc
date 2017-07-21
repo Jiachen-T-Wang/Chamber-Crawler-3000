@@ -13,6 +13,11 @@ void Human::beAtkBy(Player* p){
             p->incScore(5);
         }
         getPos()->setCont(gold);
+        while (1){
+            int d = rand() % 8;
+            (getPos()->getNeighbour(numToDir(d)))->setCont(make_shared<NormalHoard>());
+            (getPos()->getNeighbour(numToDir(d)))->notifyGold();
+        }
         getPos()->notifyDead();
     }
 }
