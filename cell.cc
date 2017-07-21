@@ -60,8 +60,11 @@ void Cell::attachNeighbour(Dir dir, Cell *c){
    neighbours[dir]=c;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 std::shared_ptr<Cell> Cell::getNeighbour(Dir dir){
 =======
+=======
+>>>>>>> 3f06dca506a3425b099df294628fb302dcd5a78f
 
 Cell *Cell::getNeighbour(Dir dir){
 >>>>>>> 3f06dca506a3425b099df294628fb302dcd5a78f
