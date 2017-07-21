@@ -3,12 +3,13 @@
 #include "textdisplay.h"
 using namespace std;
 
-int main() {
+int main(int ) {
   string race;
   cin >> race;
   
   string cmd;
   string direction;
+   for(int i=0; i<5; i++){
   Floor f(1, "cc3kfloor.txt");
   f.display();
   

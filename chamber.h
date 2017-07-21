@@ -18,7 +18,8 @@ public:
    Chamber();
    
    void addCell(Cell *);
-   
+   void addPlayer();
+   void addStair();
    void addEnemy();
    void addPotion();
    void addGold();
