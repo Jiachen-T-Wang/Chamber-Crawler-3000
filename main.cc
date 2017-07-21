@@ -19,26 +19,27 @@ int main(int argc, const char * argv[]) {
     f.display();
   }
   
+  shared_ptr<Player> p;
   string race;
   while (cin >> race) {
     if (race == "s") {
-      shared_pointer_player = make_shared<Shade>();
+      p = make_shared<Shade>();
       break;
     }
     else if (race == "d") {
-      shared_pointer_player = make_shared<Drow>();
+      p = make_shared<Drow>();
       break;
     }
     else if (race == "v") {
-      shared_pointer_player = make_shared<Vampire>();
+      p = make_shared<Vampire>();
       break;
     }
     else if (race == "g") {
-      shared_pointer_player = make_shared<Goblin>();
+      p = make_shared<Goblin>();
       break;
     }
     else if (race == "t") {
-      shared_pointer_player = make_shared<Troll>();
+      p = make_shared<Troll>();
       break;
     }
     else if (race == "q") {
@@ -68,7 +69,7 @@ int main(int argc, const char * argv[]) {
       
     }
     else if (cmd == "q") {
-      break;
+      exit(0);
     }
   }
 }
