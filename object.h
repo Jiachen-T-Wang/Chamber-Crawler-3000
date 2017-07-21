@@ -17,11 +17,11 @@ public:
    void setPos(std::shared_ptr<Cell> p);
    
    Object();
-   bool isEnemy();
-   bool isPlayer();
-   bool isStair();
-   bool isPotion();
-   bool isTreasure();
+   virtual bool isEnemy();
+   virtual bool isPlayer();
+   virtual bool isStair();
+   virtual bool isPotion();
+   virtual bool isTreasure();
    
 };
 

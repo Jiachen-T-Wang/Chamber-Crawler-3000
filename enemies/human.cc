@@ -6,8 +6,8 @@ Human::Human()
         gold = make_shared<NormalHoard>();
     }
 
-void Human::beAtkBy(Player* p){
-    p->attack(this);
+void Human::beAtkBy(std::shared_ptr<Player> p){
+    p->attack(std::shared_ptr<Human>(this));
     if(checkDead()){
         if(p->race == "Goblin"){
             p->incScore(5);
@@ -15,8 +15,12 @@ void Human::beAtkBy(Player* p){
         getPos()->setCont(gold);
         while (1){
             int d = rand() % 8;
-            (getPos()->getNeighbour(numToDir(d)))->setCont(make_shared<NormalHoard>());
-            (getPos()->getNeighbour(numToDir(d)))->notifyGold();
+            std::shared_ptr<Cell> nb = getPos()->getNeighbour(numToDir(d));
+            if(!(nb->getContent())){
+                nb->setCont(make_shared<NormalHoard>());
+                nb->notifyGold();
+                break;
+            }
         }
         getPos()->notifyDead();
     }

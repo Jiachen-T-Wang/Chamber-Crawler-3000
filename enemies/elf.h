@@ -9,8 +9,8 @@ class Floor;
 class Elf: public Enemy{
 public:
 	Elf();
-	void attack(Player* p) override;
-	void attack(Drow* d) override;
+	void attack(std::shared_ptr<Player> p) override;
+	void attack(std::shared_ptr<Drow> d) override;
 };
 
 #endif

@@ -7,11 +7,9 @@ class Floor;
 
 //Vampires are allergic to dwarves and lose 5HP rather than gain
 class Dwarf: public Enemy{
-	
 public:
 	Dwarf();
-	void attack(Vampire* v) override;
-	void beAtkBy(Player* p) override;
+	void attack(std::shared_ptr<Vampire> v) override;
 };
 
 #endif

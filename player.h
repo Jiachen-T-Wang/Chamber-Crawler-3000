@@ -20,6 +20,8 @@ class Player: public Character{
   int calcDamage(Enemy* attacker);
 
 public:
+    
+    bool isPlayer() override;
   const std::string race;
   Player(int HP, int atk, int def, int maxHP, Floor* f, std::string race);
   int getMaxHP() const;

@@ -9,6 +9,9 @@ score{0}, race{race} {}
 
 int Player::getMaxHP() const { return maxHP; }
 
+
+bool Player::isPlayer() { return true;}
+
 void Player::addHp(int hpEffect) {
   HP = (getHP() + hpEffect > maxHP) ? maxHP : getHP() + hpEffect;
 }

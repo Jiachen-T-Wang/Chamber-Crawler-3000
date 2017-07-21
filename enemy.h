@@ -9,6 +9,8 @@
 #include "treasure/treasure.h"
 #include "dir.h"
 
+#include <memory>
+
 class Drow;
 class Vampire;
 class Goblin;
@@ -18,7 +20,7 @@ class Enemy: public Character{
    bool moveable;
    std::string type;
    std::shared_ptr<Treasure> gold;
-   int calcDamage(Player* defender);
+   int calcDamage(std::shared_ptr<Player> defender);
     
 protected:
     enum Dir numToDir(int d);
@@ -26,18 +28,18 @@ protected:
 public:
    
    Enemy(int HP, int atk, int def, std::string);
+    bool isEnemy() override;
    
    bool canMove();
    
    void move();
    
-   virtual void beAtkBy(Player* p);
+   virtual void beAtkBy(std::shared_ptr<Player> p);
    
-   virtual void attack(Player* p);
-   virtual void attack(Drow* d);
-   virtual void attack(Vampire* v);
-   virtual void attack(Goblin* g);
-   
+   virtual void attack(std::shared_ptr<Player> p);
+   virtual void attack(std::shared_ptr<Drow> d);
+   virtual void attack(std::shared_ptr<Vampire> v);
+   virtual void attack(std::shared_ptr<Goblin> g);
    
    virtual ~Enemy()=0;
 };

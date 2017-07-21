@@ -11,14 +11,15 @@ class Subject {
   std::vector<Observer*> observers;
     
 public:
-  void notifyPlayerMove(Dir dir);  //to move
-  void notifyPlayerAttack(int damage);
-  void notifyEnemyAttack(std::shared_ptr<Enemy> e, int damage);
-  void notifyMiss();
-  void notifyDead();
+    void notifyPlayerMove(Dir dir);  //to move
+    void notifyPlayerAttack(int damage);
+    void notifyEnemyAttack(std::shared_ptr<Enemy> e, int damage);
+    void notifyMiss();
+    void notifyDead();
+    void notifyGold();
 
-  void attach(std::shared_ptr<Observer> o);
-  virtual ~Subject() = default;
+    void attach(std::shared_ptr<Observer> o);
+    virtual ~Subject() = default;
     
 };
 
