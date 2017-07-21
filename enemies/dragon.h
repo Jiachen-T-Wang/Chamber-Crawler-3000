@@ -5,7 +5,7 @@
 
 class DragonHoard;
 //does 50% more damage to goblins
-class Orcs: public Enemy{
+class Dragon: public Enemy{
 	DragonHoard* hoard;
 public:
 	Dragon(DragonHoard* hoard);

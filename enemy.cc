@@ -23,7 +23,7 @@ void Enemy::attack(Player* player){
   int notMiss = rand() % 2;
   if (notMiss){
     int damage = calcDamage(player);
-    player->getHurt(damage);
+    player->hurt(damage);
     getPosition()->notifyEnemyAttack(this, damage);
   }
   else{

@@ -1,11 +1,8 @@
-#include <vector>
 #include "floor.h"
-#include <iostream>
 #include <fstream>
 #include <string>
-#include "cell.h"
 #include "chamber.h"
-#include "textdisplay.h"
+#include "dir.h"
 using namespace std;
 
 void Floor::addToChamber(Cell *c){
@@ -14,11 +11,11 @@ void Floor::addToChamber(Cell *c){
   if(x>=3 && x<=28 && y>=3 && y<=6) chambers[0]->addCell(c);
   else if((x>=39 && x<= 61 && y>=3 && y<=6) || (y==5 && x>=62 && x<=69) ||
           (y==6 && x>=62 && x<=72) || (x>=61 && x<=75 && y>=7 && y<=12))
-    chamber[1]->addCell(c);
+    chambers[1]->addCell(c);
   else if((x>=65 && x<=75 && x>=16 && x<=18) ||
-          (x>=37 && x<=75 && y>=19 && y<=21 )) chamber[2]->addCell(c);
-  else if(x>=4 && x<= 24 && y>=15 && y<=21) chamber[3]->addCell(c);
-  else if(x>=38 && x<= 49 && y>=10 && y<=12) chamber[4]->addCell(c);
+          (x>=37 && x<=75 && y>=19 && y<=21 )) chambers[2]->addCell(c);
+  else if(x>=4 && x<= 24 && y>=15 && y<=21) chambers[3]->addCell(c);
+  else if(x>=38 && x<= 49 && y>=10 && y<=12) chambers[4]->addCell(c);
   
 }
 
@@ -28,25 +25,25 @@ Chamber *Floor::randChamber(){
   return chambers[x];
 }
 
-void Floor::createEnemy(){
-  for(int i=0; i<enemyNum; i++){
-    randChamber()->addEnemy();
-  }
+void Floor::createObjects(){
+   //first player
+   Chamber *ch_player = randChamber();
+   ch_player->addPlayer();
+   
+   //second stairway
+   for(int i=0; i<postionNum; i++){
+      randChamber()->addPotion();
+   }
+   for(int i=0; i<goldNum; i++){
+      randChamber()->addGold();
+   }
+   for(int i=0; i<enemyNum; i++){
+      randChamber()->addEnemy();
+   }
 }
 
-void Floor::createPotion(){
-  for(int i=0; i<postionNum; i++){
-    randChamber()->addPotion();
-  }
-}
 
-void Floor::createGold(){
-  for(int i=0; i<goldNum; i++){
-    randChamber()->addGold();
-  }
-}
-
-void Floor::addNeighbours(Cell &c, string dir, int row, int col){
+void Floor::addNeighbours(Cell &c, Dir dir, int row, int col){
    try{
       c.attachNeighbour(dir, &board.at(row).at(col));
    } catch(out_of_range){
@@ -69,30 +66,28 @@ Floor::Floor(int l, string fileName):level{l}, length{79}, height{25}{
       cellLine.emplace_back(c);
     }
     board.emplace_back(cellLine);
-    
-    for(auto c: cellLine) { addToChamber(&c); }
+    for(auto c: cellLine) { addToChamber(&c); } // link cell to corresponding chamber
   }
-   for(int row=0; r<height; ++row){
-      for (int col=0; c< length; ++col){
+   // add neighbors to cell
+   for(int row=0; row<height; ++row){
+      for (int col=0; col< length; ++col){
          Cell &cell =board[row][col];
-         addNeighbours(cell, "no", row-1, col);
-         addNeighbours(cell, "so", row+1, col);
-         addNeighbours(cell, "ea", row, col+1);
-         addNeighbours(cell, "we", row, col-1);
-         addNeighbours(cell, "ne", row-1, col+1);
-         addNeighbours(cell, "nw", row-1, col-1);
-         addNeighbours(cell, "se", row+1, col+1);
-         addNeighbours(cell, "sw", row+1, col-1);
+         addNeighbours(cell, Dir::no, row-1, col);
+         addNeighbours(cell, Dir::so, row+1, col);
+         addNeighbours(cell, Dir::ea, row, col+1);
+         addNeighbours(cell, Dir::we, row, col-1);
+         addNeighbours(cell, Dir::ne, row-1, col+1);
+         addNeighbours(cell, Dir::nw, row-1, col-1);
+         addNeighbours(cell, Dir::se, row+1, col+1);
+         addNeighbours(cell, Dir::sw, row+1, col-1);
         
       }
    }
-
-  createEnemy();
-  createPotion();
-  createGold();
+   // randomly create objects on the floor
+  createObjects();
 }
 
-void Florr::display() {
+void Floor::display() {
   td->display();
 }
 

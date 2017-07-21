@@ -10,11 +10,13 @@ class Object{
    
 protected:
    
-   void setPos(Cell* p);
+   
    
    Cell* getPos();
    
 public:
+   
+   void setPos(Cell* p);
    
    Object();
    
