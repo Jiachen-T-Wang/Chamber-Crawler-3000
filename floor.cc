@@ -58,12 +58,16 @@ void Floor::addNeighbours(Cell &c, Dir dir, int row, int col){
    } // the cell at row, col is out of boundary
 }
 
-Floor::Floor(int l, string fileName):level{l}, length{79}, height{25}{
-  td = new TextDisplay(fileName);
+Floor::Floor(int l, Player *p, string fileName){
+   
+}
+
+Floor::Floor(int l, Player *p):level{l}, length{79}, height{25}{
+  td = new TextDisplay("emptyCC3K.txt");
   for(int i=0; i<chamberNum; ++i) {
     chambers.emplace_back(new Chamber());
   }
-  ifstream fs {fileName};
+  ifstream fs {"emptyCC3K.txt"};
   string line;
   while(getline(fs, line)){
     vector <Cell> cellLine;

@@ -32,7 +32,8 @@ class Floor{
    void addNeighbours(Cell &c, Dir dir, int row, int col);
   
 public:
-  Floor(int l, std::string fileName);  //read the map from the txt file
+   Floor(int l, Player *p);
+  Floor(int l, Player *p, std::string fileName);  //read the map from the txt file
   void display();
    
   ~Floor();
