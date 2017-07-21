@@ -46,8 +46,7 @@ void Enemy::attack(Goblin* g){
 
 //如果死了 通知TD
 void Enemy::beAtkBy(Player* p){
-  
-  //p->attack(this);
+  p->attack(this);
   if(checkDead()){
     if(p->race == "Goblin"){
       p->incScore(5);
