@@ -75,7 +75,7 @@ void Cell::spawnEnemy(){
    e->setPos(this);
 }
 
-void Cell::spawnPotion(){
+void Cell::spawnPotion(){//放到对应class
    srand(time(0));
    int x=rand() % 6;
    Potion *p = nullptr;
