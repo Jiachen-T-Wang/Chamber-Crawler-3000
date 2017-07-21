@@ -8,26 +8,18 @@ class Observer;
 class Subject {
 
   std::vector<Observer*> observers;
-
-   /*
-  void notifyMove(Player* p, std::string dir);  //to move
-  void notifyMove(Enemy* e);
-  void notifyEnemy(Player* player, int dir);
-  void notifyEnemyAttack(Enemy* e, int damage);  //通知TD Enemy攻击了造成damage的伤害
+    
+public:
+  void notifyMove(std::shared_ptr<Player> p, std::string dir);  //to move
+  void notifyMove(std::shared_ptr<Enemy> e);
+  void notifyEnemy();
+  void notifyEnemyAttack(Enemy* e, int damage);
   void notifyMiss();
   void notifyDead();
-*/
 
-   
-public:
-   void attach(Observer *o);
-   
-   void notifyObservers();
-   
-  // virtual Info getInfo() const = 0;
-   
-   virtual ~Subject() = default;
-
+    void attach(std::shared_ptr<Observer> o);
+    void notifyObservers();
+    virtual ~Subject() = default;
 };
 
 #endif
