@@ -53,8 +53,9 @@ void Subject::notifyEnemyAttack(Enemy* e, int damage){
 
 void Subject::notifyMiss(){
 	observers[TD]->displayMiss();
- */
+ 
 }
+ */
 
 void Subject::attach(Observer *o) { observers.emplace_back(o); }
 

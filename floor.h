@@ -4,9 +4,9 @@
 #include <iostream>
 #include <vector>
 #include "cell.h"
-#include "textdisplay.h"
 
 class Chamber;
+class TextDisplay;
 const int postionNum = 10;
 const int goldNum = 10;
 const int enemyNum = 20;

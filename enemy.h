@@ -3,7 +3,7 @@
 
 #include "character.h"
 #include "player.h"
-#include "treasure.h"
+#include "treasure/treasure.h"
 
 class Drow;
 class Vampire;
@@ -13,7 +13,7 @@ class Goblin;
 class Enemy: public Character{
    bool moveable;
    std::string type;
-   std::share_ptr<Treasure> gold;
+   std::shared_ptr<Treasure> gold;
 
 public:
    
