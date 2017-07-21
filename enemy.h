@@ -3,6 +3,9 @@
 
 #include "character.h"
 #include "player.h"
+#include "players/vampire.h"
+#include "players/drow.h"
+#include "players/goblin.h"
 #include "treasure/treasure.h"
 
 class Drow;
@@ -14,6 +17,8 @@ class Enemy: public Character{
    bool moveable;
    std::string type;
    std::shared_ptr<Treasure> gold;
+    
+    int calcDamage(Player* defender);
 
 public:
    

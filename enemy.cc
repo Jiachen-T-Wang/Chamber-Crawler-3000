@@ -23,7 +23,7 @@ Enemy::Enemy(int HP, int atk, int def, string type)
 bool Enemy::canMove(){ return moveable; }
 
 void Enemy::move(){
-  getPosition()->notifyMove(this);
+  getPos()->notifyMove(this);
 }
 
 int Enemy::calcDamage(Player* defender){
@@ -35,23 +35,23 @@ void Enemy::attack(Player* player){
   if (notMiss){
     int damage = calcDamage(player);
     player->hurt(damage);
-    getPosition()->notifyEnemyAttack(this, damage);
+    getPos()->notifyEnemyAttack(this, damage);
   }
   else{
-    getPosition()->notifyMiss();
+    getPos()->notifyMiss();
   }
 }
 
 void Enemy::attack(Vampire* v){
-  attack(static_cast<Player*>(v));
+    attack(static_cast<Player*>(v));
 }
 
 void Enemy::attack(Drow* d){
-  attack(static_cast<Player*>(d));
+    attack(static_cast<Player*>(d));
 }
 
 void Enemy::attack(Goblin* g){
-  attack(static_cast<Player*>(g));
+    attack(static_cast<Player*>(g));
 }
 
 
@@ -62,8 +62,8 @@ void Enemy::beAtkBy(Player* p){
     if(p->race == "Goblin"){
       p->incScore(5);
     }
-    getPosition()->setCont(nullptr);
-    getPosition()->notifyDead();
+    getPos()->setCont(nullptr);
+    getPos()->notifyDead();
   }
 }
 
