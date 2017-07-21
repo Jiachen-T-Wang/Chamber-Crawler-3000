@@ -8,6 +8,7 @@ class DragonHoard : public Treasure {
 	std::shared_ptr<Dragon> dragon;
  public:
  	DragonHoard();
+    std::shared_ptr<Dragon> getDragon();
 };
 
 #endif

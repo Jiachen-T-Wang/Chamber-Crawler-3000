@@ -1,7 +1,7 @@
 #include "merchant.h"
 
 Merchant::Merchant(): Enemy{30, 70, 5, "Merchant"} {
-    gold = make_shared<NormalHoard>();
+    gold = make_shared<MerchantHoard>();
 }
 
 void Merchant::attack(Player* p){
@@ -17,6 +17,5 @@ void Merchant::attack(Player* p){
 void Merchant::beAtkBy(Player* p){
     Player::beAtkBy(p);
 	angry = true;
-    
 }
 
