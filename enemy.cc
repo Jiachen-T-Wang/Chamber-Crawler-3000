@@ -4,6 +4,8 @@
 #include "enemy.h"
 #include "observer.h"
 #include "cell.h"
+#include "treasure"
+#include "treasure/*"
 using namespace std;
 
 Enemy::Enemy(int HP, int atk, int def, string type)
