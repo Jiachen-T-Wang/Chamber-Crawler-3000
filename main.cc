@@ -18,7 +18,7 @@ int main(int argc, const char * argv[]) {
     Floor f(1, "cc3kfloor.txt");
     f.display();
   }
-  
+
   shared_ptr<Player> p;
   string race;
   while (cin >> race) {

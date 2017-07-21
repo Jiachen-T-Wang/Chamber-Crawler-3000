@@ -23,10 +23,10 @@ void Chamber::addCell(Cell *c){
    size++;
 }
 
-void addPlayer(Player *p){
-   randCell()->spawnPlayer(Player *p);
+void Chamber::addPlayer(Player *p){
+   randCell()->spawnPlayer(p);
 }
-void addStair(){
+void Chamber::addStair(){
    randCell()->spawnStair();
 }
 

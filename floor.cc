@@ -29,13 +29,8 @@ Chamber *Floor::randChamber(){
 void Floor::createObjects(Player *p){
    //first player
    Chamber *ch_player = randChamber();
-<<<<<<< HEAD
    ch_player->addPlayer(p);
-   
-=======
-   ch_player->addPlayer();
 
->>>>>>> 3e8798632f4697d053dd9982aaf985d473b8ec84
    //second stairway
    Chamber *ch_stair = randChamber();
    while(ch_stair == ch_player) ch_stair = randChamber();

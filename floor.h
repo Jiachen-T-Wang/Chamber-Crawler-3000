@@ -27,7 +27,7 @@ class Floor{
    
   Chamber *randChamber();
    
-  void createObjects();
+  void createObjects(Player *p);
    
    void addNeighbours(Cell &c, Dir dir, int row, int col);
   
