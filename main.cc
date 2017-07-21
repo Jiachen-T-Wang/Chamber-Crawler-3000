@@ -11,7 +11,6 @@
 #include "textdisplay.h"
 using namespace std;
 
-<<<<<<< HEAD
 int main(int argc, const char * argv[]) {
   if (argc == 1) {
     // read map
@@ -20,9 +19,6 @@ int main(int argc, const char * argv[]) {
     f.display();
   }
   
-=======
-int main(int ) {
->>>>>>> 7e8b1dd808dabe4b4a800f6dd3dcc6201810e428
   string race;
   while (cin >> race) {
     if (race == "s") {
@@ -52,13 +48,6 @@ int main(int ) {
   
   string cmd;
   string direction;
-<<<<<<< HEAD
-=======
-   for(int i=0; i<5; i++){
-  Floor f(1, "cc3kfloor.txt");
-  f.display();
->>>>>>> 7e8b1dd808dabe4b4a800f6dd3dcc6201810e428
-  
   
   while (cin >> cmd) {
     if (cmd == "no,so,ea,we,ne,nw,se,sw") { // move
