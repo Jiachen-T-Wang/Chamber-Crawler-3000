@@ -1,16 +1,19 @@
 #include "object.h"
 #include "cell.h"
+#include <memory>
+
+
 Object::Object(): position{nullptr} {}
 
-Cell* Object::getPos(){
+std::shared_ptr<Cell> Object::getPos(){
    return position;
 }
 
 
-void Object::setPos(Cell* p){
+void Object::setPos(std::shared_ptr<Cell> p){
    if(position) position->setCont(nullptr);
    position = p;
-   p->setCont(this);
+   p->setCont(shared_from_this());
 }
 
 
