@@ -1,4 +1,5 @@
 #include <iostream>
+#include "dir.h"
 #include <cstdlib>
 #include <cmath>
 #include "enemy.h"
@@ -8,6 +9,27 @@
 #include "treasure/smallGold.h"
 #include "treasure/normalhoard.h"
 using namespace std;
+
+Dir Enemy::numToDir(int d){
+    switch (d) {
+        case 0:
+            return Dir::no; break;
+        case 1:
+            return Dir::ne; break;
+        case 2:
+            return Dir::nw; break;
+        case 3:
+            return Dir::so; break;
+        case 4:
+            return Dir::sw; break;
+        case 5:
+            return Dir::se; break;
+        case 6:
+            return Dir::we; break;
+        default:
+            return Dir::ea;break;
+    }
+}
 
 Enemy::Enemy(int HP, int atk, int def, string type)
 : Character{HP, atk, def}, moveable{false}, type{type} {
@@ -23,7 +45,8 @@ Enemy::Enemy(int HP, int atk, int def, string type)
 bool Enemy::canMove(){ return moveable; }
 
 void Enemy::move(){
-  getPos()->notifyMove(this);
+    int dir = rand() % 8;
+    Character::moveTo(numToDir(dir));
 }
 
 int Enemy::calcDamage(Player* defender){
@@ -62,7 +85,7 @@ void Enemy::beAtkBy(Player* p){
     if(p->race == "Goblin"){
       p->incScore(5);
     }
-    getPos()->setCont(nullptr);
+    getPos()->setCont(gold);
     getPos()->notifyDead();
   }
 }
