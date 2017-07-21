@@ -17,15 +17,15 @@ class Cell: public Subject, public Observer {//abstract
    std::map <Dir, Cell *> neighbours;
    
 public:
-
+   
    
    Cell(int row, int col, char c);
    
    int getCol();
    int getRow();
    
-  Object* getContent();   // nullptr means nobody on it
-  void setCont(Object* o);   //mutator
+   Object* getContent();   // nullptr means nobody on it
+   void setCont(Object* o);   //mutator
    
    bool canStand();   //return true if it can be stand on
    

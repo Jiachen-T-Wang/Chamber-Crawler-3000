@@ -17,12 +17,12 @@ using namespace std;
 
 Cell::Cell(int row, int col, char c): row{row}, col{col}, content{nullptr}{
    if (c == '.') type = CellType::Tile;
-   else if (c == '|' || c == '-') type = CellType::Wall;
-   else if (c == '+') type = CellType::Doorway;
-   else if (c == '#') type = CellType::Passage;
-   else if (c == '\\') type = CellType::Stairway;
-   else if (c == ' ') type = CellType::Empty;
-}
+      else if (c == '|' || c == '-') type = CellType::Wall;
+         else if (c == '+') type = CellType::Doorway;
+            else if (c == '#') type = CellType::Passage;
+               else if (c == '\\') type = CellType::Stairway;
+                  else if (c == ' ') type = CellType::Empty;
+                     }
 
 int Cell::getCol(){
    return col;
@@ -33,27 +33,27 @@ int Cell::getRow(){
 }
 
 Object* Cell::getContent(){
-	return content;
+   return content;
 }
 
 void Cell::setCont(Object* o){
-	content = o;
+   content = o;
 }
 
 bool Cell::canStand() {
-  if (type == CellType::Tile||
-      type == CellType::Doorway ||
-      type == CellType::Passage) return true;
-  return false;
+   if (type == CellType::Tile||
+       type == CellType::Doorway ||
+       type == CellType::Passage) return true;
+   return false;
 }
 
 bool Cell::canStandByAll() {
-  if (type == CellType::Tile) return true;
-  return false;
+   if (type == CellType::Tile) return true;
+   return false;
 }
 
 void Cell::notify(){
-   }
+}
 
 void Cell::attachNeighbour(Dir dir, Cell *c){
    neighbours[dir]=c;
@@ -75,7 +75,7 @@ void Cell::spawnEnemy(){
    e->setPos(this);
 }
 
-void Cell::spawnPotion(){//放到对应class
+void Cell::spawnPotion(){
    srand(time(0));
    int x=rand() % 6;
    Potion *p = nullptr;
