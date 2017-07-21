@@ -29,7 +29,7 @@ void Floor::createObjects(){
    //first player
    Chamber *ch_player = randChamber();
    ch_player->addPlayer();
-   
+
    //second stairway
    for(int i=0; i<postionNum; i++){
       randChamber()->addPotion();
