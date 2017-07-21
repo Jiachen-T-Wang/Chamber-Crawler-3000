@@ -30,7 +30,6 @@ public:
    
    bool canStandByAll();
    
-   void notify();
    
    void attachNeighbour(Dir dir, std::shared_ptr<Cell> c);
    

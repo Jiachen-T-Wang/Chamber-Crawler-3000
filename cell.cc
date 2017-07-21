@@ -53,8 +53,6 @@ bool Cell::canStandByAll() {
    return false;
 }
 
-void Cell::notify(){
-}
 
 void Cell::attachNeighbour(Dir dir, Cell *c){
    neighbours[dir]=c;
