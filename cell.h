@@ -32,7 +32,6 @@ public:
    
    bool canStandByAll();
    
-   void notify();
    
    void attachNeighbour(Dir dir, Cell *c);
    
