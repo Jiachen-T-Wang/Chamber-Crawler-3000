@@ -1,7 +1,7 @@
 #ifndef __DRAGON_H__
 #define __DRAGON_H__
 
-#include "enemy.h"
+#include "../enemy.h"
 
 class DragonHoard;
 //does 50% more damage to goblins

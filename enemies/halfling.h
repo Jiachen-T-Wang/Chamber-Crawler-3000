@@ -1,7 +1,7 @@
 #ifndef __HALFLING_H__
 #define __HALFLING_H__
 
-#include "enemy.h"
+#include "../enemy.h"
 
 //does 50% more damage to goblins
 class Halfling: public Enemy{

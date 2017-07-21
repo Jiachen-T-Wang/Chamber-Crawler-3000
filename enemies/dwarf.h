@@ -1,7 +1,7 @@
 #ifndef __DWARF_H__
 #define __DWARF_H__
 
-#include "enemy.h"
+#include "../enemy.h"
 
 class Floor;
 
