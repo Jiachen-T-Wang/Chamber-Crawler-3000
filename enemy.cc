@@ -7,7 +7,15 @@
 using namespace std;
 
 Enemy::Enemy(int HP, int atk, int def, string type)
-: Character{HP, atk, def}, moveable{false}, type{type} {}
+: Character{HP, atk, def}, moveable{false}, type{type} {
+  int x=rand() % 2;
+  if(x){
+    gold = make_share<SmallGold>();
+  }
+  else{
+    gold = make_share<NormalGold>();
+  }
+}
 
 bool Enemy::canMove(){ return moveable; }
 

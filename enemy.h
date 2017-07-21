@@ -3,6 +3,7 @@
 
 #include "character.h"
 #include "player.h"
+#include "treasure.h"
 
 class Drow;
 class Vampire;
@@ -10,9 +11,10 @@ class Goblin;
 
 //it should be an abstract class, so make dtor pure virtual
 class Enemy: public Character{
-   
    bool moveable;
-   
+   std::string type;
+   std::share_ptr<Treasure> gold;
+
 public:
    
    Enemy(int HP, int atk, int def, std::string);
