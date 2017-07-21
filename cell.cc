@@ -9,6 +9,7 @@
 #include "enemies/merchant.h"
 #include "enemies/orcs.h"
 #include "potion.h"
+#include "stair.h"
 #include "treasure/dragonHoard.h"
 #include "treasure/smallGold.h"
 #include "treasure/normalhoard.h"
@@ -58,8 +59,18 @@ void Cell::notify(){
 void Cell::attachNeighbour(Dir dir, Cell *c){
    neighbours[dir]=c;
 }
+
 Cell *Cell::getNeighbour(Dir dir){
    return neighbours[dir];
+}
+
+void Cell::spawnPlayer(Player *p){
+   p->setPos(this);
+}
+
+void Cell::spawnStair(){
+   Stair *s = new Stair();
+   s->setPos(this);
 }
 
 void Cell::spawnEnemy(){

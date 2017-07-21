@@ -8,6 +8,7 @@
 enum class Dir;
 enum class CellType;
 class Object;
+class Player;
 class Cell: public Subject, public Observer {//abstract
    
    int row;
@@ -37,6 +38,8 @@ public:
    
    Cell *getNeighbour(Dir dir);
    
+   void spawnPlayer(Player *p);
+   void spawnStair();
    void spawnEnemy();
    void spawnPotion();
    void spawnGold();

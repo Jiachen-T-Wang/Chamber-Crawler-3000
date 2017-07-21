@@ -3,6 +3,7 @@
 #include <string>
 #include "chamber.h"
 #include "dir.h"
+#include "player.h"
 using namespace std;
 
 void Floor::addToChamber(Cell *c){
@@ -25,10 +26,10 @@ Chamber *Floor::randChamber(){
   return chambers[x];
 }
 
-void Floor::createObjects(){
+void Floor::createObjects(Player *p){
    //first player
    Chamber *ch_player = randChamber();
-   ch_player->addPlayer();
+   ch_player->addPlayer(p);
    
    //second stairway
    Chamber *ch_stair = randChamber();
@@ -90,7 +91,7 @@ Floor::Floor(int l, string fileName):level{l}, length{79}, height{25}{
       }
    }
    // randomly create objects on the floor
-  createObjects();
+  createObjects(p);
 }
 
 void Floor::display() {

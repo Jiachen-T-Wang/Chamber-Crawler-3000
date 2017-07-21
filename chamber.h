@@ -5,6 +5,7 @@
 class Item;
 class Enemy;
 class Cell;
+class Player;
 
 class Chamber{
    
@@ -17,8 +18,8 @@ class Chamber{
 public:
    Chamber();
    
-   void addCell(Cell *);
-   void addPlayer();
+   void addCell(Cell *c);
+   void addPlayer(Player *p);
    void addStair();
    void addEnemy();
    void addPotion();

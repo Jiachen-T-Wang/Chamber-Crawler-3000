@@ -20,19 +20,12 @@ protected:
 public:
    
    Character(int HP, int atk, int def);
-   
 
    void hurt(int damage);
    
    bool checkDead();
    
-   //virtual void move()=0;
-   
-  // virtual void attack(Character *defender)=0;
-   
-  // virtual void beAtkBy(Character &attacker)=0;
-   
-};
+   };
 
 #endif
 

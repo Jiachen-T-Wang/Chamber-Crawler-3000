@@ -1,6 +1,6 @@
 #include "goblin.h"
 
-Goblin::Goblin(Floor* f): Player{110, 110, 15, 20, f, "Goblin"} {} 
+Goblin::Goblin(Floor* f): Player{110, 110, 15, 20, f, "Goblin"} {} // type 用？
 
 void Goblin::beAtkBy(Orcs* e){
 	int damage = 1.5 * calcDamage(enemy);
