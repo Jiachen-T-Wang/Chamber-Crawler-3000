@@ -33,7 +33,7 @@ public:
    bool canMove();
 
    void enableMove();
-   void move();
+   virtual void move();
 
    void changeMove(bool b);
    
