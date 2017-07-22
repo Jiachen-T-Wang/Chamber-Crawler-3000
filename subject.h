@@ -8,7 +8,7 @@ class Enemy;
 
 class Subject {
 
-  std::vector<Observer*> observers;
+    std::vector<std::shared_ptr<Observer>> observers;
     
 public:
     void notifyPlayerMove(Dir dir);  //to move
