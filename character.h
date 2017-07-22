@@ -20,8 +20,8 @@ public:
    
    Character(int HP, int atk, int def);
     
-   virtual bool isPlayer();
-   virtual bool isEnemy();
+   virtual bool isPlayer() override;
+   virtual bool isEnemy() override;
     
    virtual void moveTo(Dir dir);
    void getHurt(int damage);
