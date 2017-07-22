@@ -25,6 +25,8 @@ Dir stringToDir(string d){
 shared_ptr<Object> fetchNeighbourObject(shared_ptr<Object> p, string dir){
    return p->getPos()-> getNeighbour(stringToDir(dir))->getContent();
 }
+
+
 int main(int argc, const char * argv[]) {
    bool arg = false;
    string fileName;
@@ -61,12 +63,13 @@ int main(int argc, const char * argv[]) {
          exit(0);
       }
    }
-
+   
    
    for(int i=0; i<5; i++){
       
-      if(arg) Floor f {i, p, fileName};
-      else Floor f {i, p};
+      //    if(arg) Floor f {i, p, fileName};
+      //    else
+      Floor f {i, p};
       
       string cmd;
       string direction;
@@ -79,23 +82,24 @@ int main(int argc, const char * argv[]) {
          else if (cmd == "u") {
             if(cin >> direction) {
                shared_ptr<Object> o =fetchNeighbourObject(p, direction);
-                if (o->isPotion()){
-                    shared_ptr<Potion> drug;
-                    drug.reset((Potion*)o.get());
-                    p->usePotion(drug);
-                }
+               if (o.get() && o->isPotion()){
+                  shared_ptr<Potion> drug;
+                  drug.reset((Potion*)o.get());
+                  p->usePotion(drug);
+               }
                // else 不是potion
             }
          }
          else if (cmd == "a") { // attack enemy
             
             if(cin >> direction) {
-                  shared_ptr<Object> o = fetchNeighbourObject(p, direction);
-               if (o->isEnemy()){
+               shared_ptr<Object> o = fetchNeighbourObject(p, direction);
+               if (o.get() && o->isEnemy()){
                   shared_ptr<Enemy> e;
                   e.reset((Enemy*)o.get());
                   e->beAtkBy(p);
                }
+            }
          }
          else if (cmd == "f") { // enemies stop moving
             
@@ -108,4 +112,5 @@ int main(int argc, const char * argv[]) {
          }
       }
    }
+   
 }
