@@ -39,7 +39,7 @@ public:
 
    int getLevel();
    void display();
-   
+    friend class TextDisplay;
 };
 
 #endif
