@@ -20,10 +20,10 @@ class Enemy: public Character{
    bool moveable;
    std::string type;
    std::shared_ptr<Treasure> gold;
-   int calcDamage(std::shared_ptr<Player> defender);
-    
+   
 protected:
     Dir numToDir(int d);
+   int calcDamage(std::shared_ptr<Player> defender);
 
 public:
    
