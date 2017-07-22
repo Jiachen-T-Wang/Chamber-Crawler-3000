@@ -69,21 +69,23 @@ void Floor::addNeighbours(Cell &c, Dir dir, int row, int col){
 
 Floor::Floor(int l, shared_ptr<Player>p):level{l}, length{79}, height{25}{
    
-   auto td = make_shared<TextDisplay>("emptyCC3K.txt", std::shared_ptr<Player>(p));
+   auto td = make_shared<TextDisplay>("emptyCC3K.txt", p);
    for(int i=0; i<chamberNum; ++i) {
-      chambers.emplace_back(new Chamber());
+       chambers.emplace_back(std::shared_ptr<Chamber>());
    }
    ifstream fs {"emptyCC3K.txt"};
    string line;
+   int j=0;
    while(getline(fs, line)){
       vector <Cell> cellLine;
       for(int i=0; i< length; ++i){
-         Cell c {i, height, line[i]};
+         Cell c {i, j, line[i]};
          c.attach(td);
          cellLine.emplace_back(c);
       }
       board.emplace_back(cellLine);
       for(auto c: cellLine) { addToChamber(&c); } // link cell to corresponding chamber
+      j++;
    }
    
    // add neighbors to cell
@@ -104,6 +106,7 @@ Floor::Floor(int l, shared_ptr<Player>p):level{l}, length{79}, height{25}{
    
    // randomly create objects on the floor
    createObjects(p);
+   display();
 }
 
 
