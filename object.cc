@@ -16,7 +16,6 @@ void Object::setPos(Cell* p){
    p->setCont(std::shared_ptr<Object>(this));
 }
 
-
 bool Object::isEnemy(){
    return false;
 }

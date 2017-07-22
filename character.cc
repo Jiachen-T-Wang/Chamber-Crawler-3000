@@ -5,7 +5,7 @@
 using namespace std;
 
 void Character::moveTo(Dir dir){
-    std::shared_ptr<Cell> neighbour = getPos()->getNeighbour(dir);
+    Cell* neighbour = getPos()->getNeighbour(dir);
    if(neighbour->getContent()!=nullptr) return;
     setPos(neighbour);
 }
@@ -33,4 +33,12 @@ void Character::getHurt(int damage){
 
 bool Character::checkDead(){
   return (HP <= 0);
+}
+
+bool Character::isEnemy(){
+    return false;
+}
+
+bool Character::isPlayer(){
+    return false;
 }

@@ -40,23 +40,23 @@ int main(int argc, const char * argv[]) {
    string race;
    while (cin >> race) {
       if (race == "s") {
-         p = make_shared<Shade>();
+         p = make_shared<Shade>(nullptr);
          break;
       }
       else if (race == "d") {
-         p = make_shared<Drow>();
+         p = make_shared<Drow>(nullptr);
          break;
       }
       else if (race == "v") {
-         p = make_shared<Vampire>();
+         p = make_shared<Vampire>(nullptr);
          break;
       }
       else if (race == "g") {
-         p = make_shared<Goblin>();
+         p = make_shared<Goblin>(nullptr);
          break;
       }
       else if (race == "t") {
-         p = make_shared<Troll>();
+         p = make_shared<Troll>(nullptr);
          break;
       }
       else if (race == "q") {

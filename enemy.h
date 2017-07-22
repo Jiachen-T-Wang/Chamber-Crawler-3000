@@ -31,6 +31,9 @@ public:
     bool isEnemy() override;
    
    bool canMove();
+    
+  //  bool isPlayer() override;
+ //   bool isEnemy() override;
 
    void enableMove();
    virtual void move();

@@ -20,6 +20,9 @@ public:
    
    Character(int HP, int atk, int def);
     
+   virtual bool isPlayer();
+   virtual bool isEnemy();
+    
    virtual void moveTo(Dir dir);
    void getHurt(int damage);
    bool checkDead();

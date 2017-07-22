@@ -14,6 +14,7 @@ int Player::getMaxHP() const { return maxHP; }
 
 
 bool Player::isPlayer() { return true;}
+//bool Player::isEnemy() {return false;}
 
 void Player::addHp(int hpEffect) {
   HP = (getHP() + hpEffect > maxHP) ? maxHP : getHP() + hpEffect;
@@ -86,6 +87,9 @@ void Player::beAtkBy(std::shared_ptr<Enemy> enemy){
     enemy->attack(std::shared_ptr<Player>(this));
 }
 
+void Player::setFloor(Floor* f){
+    this->f = f;
+}
 
 int Player::showScore(){ return score; }
 

@@ -23,6 +23,7 @@ protected:
 public:
     
     bool isPlayer() override;
+//    bool isEnemy() override;
     const std::string race;
     Player(int HP, int atk, int def, int maxHP, Floor* f, std::string race);
     int getMaxHP() const;
@@ -43,6 +44,7 @@ public:
     virtual void beAtkBy(std::shared_ptr<Enemy> enemy);
     virtual void PickGold(std::shared_ptr<Treasure> gold);
     virtual void roundChange();   //每一轮都发生的变化
+    void setFloor(Floor* f);
     virtual ~Player() = 0;
 };
 
