@@ -13,12 +13,13 @@ class TextDisplay: public Observer {
   int width;
   std::vector<std::vector<char>> theDisplay;
   std::shared_ptr<Player> p;
+  Floor *f;
   
  protected:
   std::string dirtostr(Dir dir);
   
  public:
-  TextDisplay(std::string fileName, std::shared_ptr<Player> p);
+  TextDisplay(std::string fileName, std::shared_ptr<Player> p, Floor *f);
   void displayBoard();
   void displayPlayerMove(Dir dir) override;
   void displayPlayerAtk(std::shared_ptr<Enemy> e, int damage) override;

@@ -69,7 +69,7 @@ void Floor::addNeighbours(Cell &c, Dir dir, int row, int col){
 
 Floor::Floor(int l, shared_ptr<Player>p):level{l}, length{79}, height{25}{
    
-   auto td = make_shared<TextDisplay>("emptyCC3K.txt", p);
+   auto td = make_shared<TextDisplay>("emptyCC3K.txt", p, this);
    for(int i=0; i<chamberNum; ++i) {
        chambers.emplace_back(std::shared_ptr<Chamber>());
    }
@@ -153,6 +153,7 @@ void Floor::gothroughBoard(shared_ptr<Player>p){
 
 
 void Floor::display() {
+  
    td->displayBoard();
 }
 

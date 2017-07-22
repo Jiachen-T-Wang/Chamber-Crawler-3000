@@ -27,7 +27,7 @@ string TextDisplay::dirtostr(Dir dir) {
   }
 }
 
-TextDisplay::TextDisplay(string fileName, shared_ptr<Player> p): height{25}, width{79}, p{p} {
+TextDisplay::TextDisplay(string fileName, shared_ptr<Player> p, Floor *f): height{25}, width{79}, p{p}, f{f} {
   ifstream fs {fileName};
   string line;
   
@@ -45,6 +45,7 @@ void TextDisplay::displayBoard() {
   
   for (int i = 0; i < height; i++) {
     for (int j = 0; j < width; j++) {
+      theDisplay[i][j] = f.board[i][j].symbol();
       cout << theDisplay[i][j];
     }
     cout << endl;
