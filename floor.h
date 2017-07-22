@@ -35,7 +35,7 @@ public:
    Floor(int l, Player *p);
   Floor(int l, Player *p, std::string fileName);  //read the map from the txt file
   void display();
-   
+   void gothroughBoard(Player *p);
   ~Floor();
 };
 

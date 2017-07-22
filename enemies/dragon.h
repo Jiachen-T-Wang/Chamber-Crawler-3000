@@ -10,6 +10,7 @@ class Dragon: public Enemy{
 public:
 	Dragon(std::shared_ptr<DragonHoard> hoard);
     std::shared_ptr<DragonHoard> getHoard();
+   bool isDragon();
 };
 
 #endif

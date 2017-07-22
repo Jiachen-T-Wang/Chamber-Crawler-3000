@@ -57,15 +57,9 @@ bool Cell::canStandByAll() {
 void Cell::attachNeighbour(Dir dir, Cell *c){
    neighbours[dir]=c;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-std::shared_ptr<Cell> Cell::getNeighbour(Dir dir){
-=======
-=======
->>>>>>> 3f06dca506a3425b099df294628fb302dcd5a78f
 
-Cell *Cell::getNeighbour(Dir dir){
->>>>>>> 3f06dca506a3425b099df294628fb302dcd5a78f
+std::shared_ptr<Cell> Cell::getNeighbour(Dir dir){
+   
    return neighbours[dir];
 }
 
@@ -114,7 +108,11 @@ void Cell::spawnGold(){
    t->setPos(this);
 }
 
-
+bool Cell::isNeighbour(Cell *c1, Cell *c2){
+   int rowDiff = c1->row - c2->row;
+   int colDiff = c1->col - c2->col;
+   return (rowDiff>=-1 && rowDiff<=1 && colDiff>=-1 && colDiff<=1);
+}
 
 
 

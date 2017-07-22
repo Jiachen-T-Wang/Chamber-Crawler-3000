@@ -46,10 +46,13 @@ Enemy::Enemy(int HP, int atk, int def, string type)
 bool Enemy::isEnemy() { return true;}
 
 bool Enemy::canMove(){ return moveable; }
-
+void Enemy::enableMove(){
+   moveable = true;
+}
 void Enemy::move(){
     int dir = rand() % 8;
     Character::moveTo(numToDir(dir));
+   moveable = false;
 }
 
 int Enemy::calcDamage(std::shared_ptr<Player> defender){
@@ -92,6 +95,8 @@ void Enemy::beAtkBy(std::shared_ptr<Player> p){
     getPos()->notifyDead();
   }
 }
-
+bool Enemy::isDragon(){
+   return false;
+}
 Enemy::~Enemy() {}
 
