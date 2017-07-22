@@ -49,8 +49,14 @@ bool Enemy::isEnemy() { return true;}
 bool Enemy::canMove(){ return moveable; }
 
 void Enemy::move(){
-    int dir = rand() % 8;
-    Character::moveTo(numToDir(dir));
+    while(1){
+        int d = rand() % 8;
+        Cell* nb = getPos()->getNeighbour(numToDir(d));
+        if(!nb || !(nb->canStand())){
+            Character::moveTo(numToDir(d));
+            break;
+        }
+    }
 }
 
 int Enemy::calcDamage(std::shared_ptr<Player> defender){

@@ -5,12 +5,12 @@
 
 Object::Object(): position{nullptr} {}
 
-std::shared_ptr<Cell> Object::getPos(){
+Cell* Object::getPos(){
    return position;
 }
 
 
-void Object::setPos(std::shared_ptr<Cell> p){
+void Object::setPos(Cell* p){
    if(position) position->setCont(nullptr);
    position = p;
    p->setCont(std::shared_ptr<Object>(this));

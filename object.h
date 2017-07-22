@@ -6,15 +6,15 @@ class Cell;
 
 class Object{
    
-   std::shared_ptr<Cell> position;
+   Cell* position;
 
    
 public:
 
    Object();
-   std::shared_ptr<Cell> getPos();
+   Cell* getPos();
    
-   void setPos(std::shared_ptr<Cell> p);
+   void setPos(Cell* p);
    
    virtual bool isEnemy();
    virtual bool isPlayer();

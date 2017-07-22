@@ -34,6 +34,13 @@ void Player::usePotion(Potion* p){
 }
 
 void Player::moveTo(Dir dir){
+    Cell* nb = getPos()->getNeighbour(dir);
+    shared_ptr<Object> cont = nb->getContent();
+    if(cont && cont->isTreasure()){
+        shared_ptr<Treasure> gd;
+        gd.reset((Treasure*)cont.get());
+        this->PickGold(gd);
+    }
     Character::moveTo(dir);
     getPos()->notifyPlayerMove(dir);
 }
@@ -80,15 +87,13 @@ void Player::beAtkBy(std::shared_ptr<Enemy> enemy){
 }
 
 
-
-
 int Player::showScore(){ return score; }
 
 void Player::incScore(int value){ score += value; }
 
 void Player::PickGold(std::shared_ptr<Treasure> gold){
 	incScore(gold->getValue());
-    shared_ptr<Cell> newp = gold->getPos();
+    Cell* newp = gold->getPos();
     newp->setCont(nullptr);
 }
 

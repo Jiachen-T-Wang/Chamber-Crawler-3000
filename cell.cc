@@ -33,7 +33,7 @@ int Cell::getRow(){
    return row;
 }
 
-std::weak_ptr<Object> Cell::getContent(){
+std::shared_ptr<Object> Cell::getContent(){
    return content;
 }
 
@@ -54,7 +54,7 @@ bool Cell::canStandByAll() {
 }
 
 
-void Cell::attachNeighbour(Dir dir, std::shared_ptr<Cell> c){
+void Cell::attachNeighbour(Dir dir, Cell* c){
    neighbours[dir]=c;
 }
 
@@ -63,7 +63,7 @@ Cell* Cell::getNeighbour(Dir dir){
 }
 
 void Cell::spawnPlayer(std::shared_ptr<Player> p){
-   p->setPos(std::shared_ptr<Cell>(this));
+   p->setPos(this);
 }
 
 void Cell::spawnStair(){
