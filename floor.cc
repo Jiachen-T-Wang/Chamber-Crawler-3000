@@ -121,7 +121,7 @@ void Floor::gothroughBoard(shared_ptr<Player>p){
          shared_ptr<Object> o = cell.getContent();
          if(o.get()==nullptr) continue;
          else if(o->isEnemy()) {
-            shared_ptr<Enemy> e;
+            shared_ptr<Enemy> e;//dragon...
             e.reset((Enemy*)o.get());
             if(p->getPos()->isNeighbour(e->getPos())){
                p->beAtkBy(e);
