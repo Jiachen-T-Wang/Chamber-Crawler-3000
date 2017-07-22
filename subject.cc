@@ -9,8 +9,8 @@ void Subject::notifyPlayerMove(Dir dir){
     observers[TD]->displayPlayerMove(dir);
 }
 
-void Subject::notifyPlayerAttack(int damage){
-    observers[TD]->displayPlayerAtk(damage);
+void Subject::notifyPlayerAttack(std::shared_ptr<Enemy> e, int damage){
+    observers[TD]->displayPlayerAtk(e, damage);
 }
 
 void Subject::notifyEnemyAttack(std::shared_ptr<Enemy> e, int damage){

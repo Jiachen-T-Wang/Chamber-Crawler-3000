@@ -66,7 +66,7 @@ int Player::calcDamage(std::shared_ptr<Enemy> defender){
 void Player::attack(std::shared_ptr<Enemy> enemy){
 	int damage = calcDamage(enemy);
 	enemy->getHurt(damage);
-	getPos()->notifyPlayerAttack(damage);
+	getPos()->notifyPlayerAttack(enemy, damage);
 }
 
 void Player::attack(std::shared_ptr<Halfling> h){
