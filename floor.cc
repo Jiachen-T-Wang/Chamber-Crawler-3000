@@ -122,7 +122,7 @@ void Floor::gothroughBoard(Player *p){
          else if(o->isEnemy()) {
             shared_ptr<Enemy> e;
             e.reset((Enemy*)o.get());
-            if(isNeighbour(p->getPos(), e->getPos())){
+            if(p->getPos()->isNeighbour(e->getPos())){
                p->beAtkBy(e);
             } else {
                if(e->canMove()) e->move();

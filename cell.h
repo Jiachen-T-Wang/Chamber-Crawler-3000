@@ -43,7 +43,7 @@ public:
    void spawnPotion();
    void spawnGold();
    
-   bool isNeighbour(Cell *c1, Cell *c2);
+   bool isNeighbour(Cell *c);
 };
 
 #endif
