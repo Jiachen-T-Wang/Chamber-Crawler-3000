@@ -11,6 +11,6 @@ int Potion::getEffect() {
    return effect;
 }
 
-bool isPotion(){
+bool Potion::isPotion(){
    return true;
 }
