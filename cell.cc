@@ -107,9 +107,9 @@ void Cell::spawnGold(){
    t->setPos(this);
 }
 
-bool Cell::isNeighbour(Cell *c1, Cell *c2){
-   int rowDiff = c1->row - c2->row;
-   int colDiff = c1->col - c2->col;
+bool Cell::isNeighbour(Cell *c){
+   int rowDiff = this->row - c->row;
+   int colDiff = this->col - c->col;
    return (rowDiff>=-1 && rowDiff<=1 && colDiff>=-1 && colDiff<=1);
 }
 
