@@ -19,7 +19,7 @@ shared_ptr<Object> fetchNeighbourObject(shared_ptr<Object> p, string dir){
    return p->getPos()-> getNeighbour(stringToDir(dir))->getContent();
 }
 
-Merchant::angry = false;
+bool Merchant::angry{false};
 
 int main(int argc, const char * argv[]) {
    bool arg = false;
