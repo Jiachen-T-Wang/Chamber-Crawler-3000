@@ -42,6 +42,7 @@ TextDisplay::TextDisplay(string fileName, shared_ptr<Player> p): height{25}, wid
 }
 
 void TextDisplay::displayBoard() {
+  
   for (int i = 0; i < height; i++) {
     for (int j = 0; j < width; j++) {
       cout << theDisplay[i][j];
