@@ -40,7 +40,6 @@ public:
    int getLevel();
    void display();
    
-   ~Floor();
 };
 
 #endif
