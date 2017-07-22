@@ -19,7 +19,7 @@ Dir stringToDir(string d){
    else if (d =="we") return Dir::we;
    else if (d =="ne") return Dir::ne;
    else if (d =="nw") return Dir::nw;
-   else if (d =="sw") return Dir::sw;
+   else return Dir::sw;
 }
 
 shared_ptr<Object> fetchNeighbourObject(shared_ptr<Object> p, string dir){
@@ -79,7 +79,11 @@ int main(int argc, const char * argv[]) {
          else if (cmd == "u") {
             if(cin >> direction) {
                shared_ptr<Object> o =fetchNeighbourObject(p, direction);
-               if (o->isPotion()) p->usePotion(o);
+                if (o->isPotion()){
+                    shared_ptr<Potion> drug;
+                    drug.reset((Potion*)o.get());
+                    p->usePotion(drug);
+                }
                // else 不是potion
             }
          }
