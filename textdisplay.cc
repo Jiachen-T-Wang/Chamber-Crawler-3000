@@ -7,6 +7,27 @@
 
 using namespace std;
 
+string TextDisplay::dirtostr(Dir dir) {
+  switch (dir) {
+    case Dir::no:
+      return "North"; break;
+    case Dir::ne:
+      return "Northeast"; break;
+    case Dir::nw:
+      return "Northwest"; break;
+    case Dir::so:
+      return "South"; break;
+    case Dir::sw:
+      return "Southwest"; break;
+    case Dir::se:
+      return "Southeast"; break;
+    case Dir::we:
+      return "West"; break;
+    default:
+      return "East";break;
+  }
+}
+
 TextDisplay::TextDisplay(string fileName, shared_ptr<Player> p): height{25}, width{79}, p{p} {
   ifstream fs {fileName};
   string line;
@@ -38,15 +59,25 @@ void TextDisplay::displayBoard() {
 
 void TextDisplay::displayPlayerMove(Dir dir) {
   displayBoard();
-  cout << "PC moves " << dir << "." << endl;
+  cout << "PC moves " << dirtostr(dir) << "." << endl;
 }
 
 void TextDisplay::displayPlayerAtk(int damage) {
   displayBoard();
+  cout << "PC has made" << damage << "damage!" << endl;
 }
 
-void TextDisplay::displayMiss() {};
-void TextDisplay::displayDead() {};
-void TextDisplay::displayGold() {};
+void TextDisplay::displayMiss() {
+  displayBoard();
+  cout << "PC has missed a shot!" << endl;
+};
+void TextDisplay::displayDead() {
+  displayBoard();
+  cout << "PC has slain an enemy!" << endl;
+};
+void TextDisplay::displayGold() {
+  displayBoard();
+  cout << "PC has slain an enemy!" << endl;
+};
 
 TextDisplay::~TextDisplay() {}

@@ -14,6 +14,9 @@ class TextDisplay: public Observer {
   std::vector<std::vector<char>> theDisplay;
   std::shared_ptr<Player> p;
   
+ protected:
+  std::string dirtostr(Dir dir);
+  
  public:
   TextDisplay(std::string fileName, std::shared_ptr<Player> p);
   void displayBoard();
