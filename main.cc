@@ -19,6 +19,7 @@ shared_ptr<Object> fetchNeighbourObject(shared_ptr<Object> p, string dir){
    return p->getPos()-> getNeighbour(stringToDir(dir))->getContent();
 }
 
+Merchant::angry = false;
 
 int main(int argc, const char * argv[]) {
    bool arg = false;
@@ -27,7 +28,7 @@ int main(int argc, const char * argv[]) {
       fileName = argv[1];
       arg = true;
    }
-   
+//    Merchant::angry = false;
 
   shared_ptr<Player> p;
    string race;
@@ -72,6 +73,7 @@ int main(int argc, const char * argv[]) {
       
       string cmd;
       string direction;
+//       Merchant::angry = false;
       
       while (cin >> cmd) {
          if (cmd == "no"|| cmd == "so" ||cmd == "ea" ||cmd == "we"
