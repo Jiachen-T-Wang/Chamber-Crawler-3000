@@ -30,6 +30,9 @@ public:
     void addHp(int hpEffect);
     void moveTo(Dir dir) override;
 
+    void setAtkEffect(int effect);
+    void setDefEffect(int effect);
+    
     int realAtk();
     int realDef();
     void resetEffect();

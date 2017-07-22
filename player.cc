@@ -7,6 +7,12 @@ Player::Player(int HP, int atk, int def, int maxHP, Floor* f, std::string race)
 
 int Player::getMaxHP() const { return maxHP; }
 
+void Player::setAtkEffect(int effect){
+    atkEffect += effect;
+}
+void Player::setDefEffect(int effect){
+    defEffect += effect;
+}
 
 bool Player::isPlayer() { return true;}
 //bool Player::isEnemy() {return false;}
