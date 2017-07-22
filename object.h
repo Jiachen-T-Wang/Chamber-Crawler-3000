@@ -7,12 +7,10 @@ class Cell;
 class Object: public std::enable_shared_from_this<Object>{
    
    std::shared_ptr<Cell> position;
-   
-protected:
-   
-    std::shared_ptr<Cell> getPos();
+
    
 public:
+   std::shared_ptr<Cell> getPos();
    
    void setPos(std::shared_ptr<Cell> p);
    

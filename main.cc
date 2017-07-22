@@ -1,6 +1,7 @@
 #include <iostream>
 #include <memory>
 #include "floor.h"
+#include "enemy.h"
 #include "players/drow.h"
 #include "players/goblin.h"
 #include "players/shade.h"
@@ -19,6 +20,10 @@ Dir stringToDir(string d){
    else if (d =="ne") return Dir::ne;
    else if (d =="nw") return Dir::nw;
    else if (d =="sw") return Dir::sw;
+}
+
+shared_ptr<Object> fetchNeighbourObject(shared_ptr<Object> p, string dir){
+   return p->getPos()-> getNeighbour(stringToDir(dir))->getContent();
 }
 int main(int argc, const char * argv[]) {
    bool arg = false;
@@ -69,19 +74,24 @@ int main(int argc, const char * argv[]) {
       while (cin >> cmd) {
          if (cmd == "no"|| cmd == "so" ||cmd == "ea" ||cmd == "we"
              ||cmd == "ne" ||cmd == "nw" ||cmd == "se" ||cmd == "sw")
-            f.move(stringToDir(cmd));
+            p->moveTo(stringToDir(cmd));
          
          else if (cmd == "u") {
             if(cin >> direction) {
-                = p->getPos()->getNeighbour(stringToDir(direction))->getContent();
-               
+               shared_ptr<Object> o =fetchNeighbourObject(p, direction);
+               if (o->isPotion()) p->usePotion(o);
+               // else 不是potion
             }
          }
          else if (cmd == "a") { // attack enemy
             
-            if(cin >> direction)
-               p->attackEnemy(stringToDir(direction));
-            
+            if(cin >> direction) {
+                  shared_ptr<Object> o = fetchNeighbourObject(p, direction);
+               if (o->isEnemy()){
+                  shared_ptr<Enemy> e;
+                  e.reset((Enemy*)o.get());
+                  e->beAtkBy(p);
+               }
          }
          else if (cmd == "f") { // enemies stop moving
             
