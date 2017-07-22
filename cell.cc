@@ -1,3 +1,5 @@
+/*
+
 #include "cell.h"
 #include "cellType.h"
 #include <vector>
@@ -14,6 +16,10 @@
 #include "treasure/smallGold.h"
 #include "treasure/normalhoard.h"
 #include "object.h"
+ 
+*/
+#include <vector>
+#include "header.h"
 using namespace std;
 
 Cell::Cell(int row, int col, char c): row{row}, col{col}, content{nullptr}{

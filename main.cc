@@ -30,6 +30,7 @@
 #include "textdisplay.h"
 #include "stair.h"
 #include "object.h"
+#include "cellType.h"
 
 using namespace std;
 
