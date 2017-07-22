@@ -22,7 +22,7 @@ class TextDisplay: public Observer {
   void displayBoard();
   void displayPlayerMove(Dir dir) override;
   void displayPlayerAtk(std::shared_ptr<Enemy> e, int damage) override;
-  void displayEnemyAtk(std::shared_ptr<Enemy> e, int damage) override;
+ void displayEnemyAtk(std::shared_ptr<Enemy> e, int damage) override;
   void displayMiss() override;
   void displayDead() override;
   void displayGold() override;    //这个用在Human死的时候四周散落gold
