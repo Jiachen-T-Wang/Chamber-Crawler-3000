@@ -13,6 +13,7 @@ public:
 	Dragon(std::weak_ptr<DragonHoard> hoard);
     std::weak_ptr<DragonHoard> getHoard();
     void move() override;
+    char symbol() override;
 };
 
 #endif

@@ -13,3 +13,5 @@ bool Dragon::isDragon(){
 
 void Dragon::move(){}
 
+char Dragon::symbol() {return 'D';}
+

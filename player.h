@@ -48,6 +48,7 @@ public:
     virtual void PickGold(std::shared_ptr<Treasure> gold);
     virtual void roundChange();   //每一轮都发生的变化
     void setFloor(Floor* f);
+    char symbol() override;
     virtual ~Player() = 0;
 };
 
