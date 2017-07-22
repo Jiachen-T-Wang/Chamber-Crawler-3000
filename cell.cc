@@ -33,7 +33,7 @@ int Cell::getRow(){
    return row;
 }
 
-std::shared_ptr<Object> Cell::getContent(){
+std::weak_ptr<Object> Cell::getContent(){
    return content;
 }
 
@@ -54,23 +54,16 @@ bool Cell::canStandByAll() {
 }
 
 
-void Cell::attachNeighbour(Dir dir, Cell *c){
+void Cell::attachNeighbour(Dir dir, std::shared_ptr<Cell> c){
    neighbours[dir]=c;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-std::shared_ptr<Cell> Cell::getNeighbour(Dir dir){
-=======
-=======
->>>>>>> 3f06dca506a3425b099df294628fb302dcd5a78f
 
-Cell *Cell::getNeighbour(Dir dir){
->>>>>>> 3f06dca506a3425b099df294628fb302dcd5a78f
+Cell* Cell::getNeighbour(Dir dir){
    return neighbours[dir];
 }
 
-void Cell::spawnPlayer(Player *p){
-   p->setPos(this);
+void Cell::spawnPlayer(std::shared_ptr<Player> p){
+   p->setPos(std::shared_ptr<Cell>(this));
 }
 
 void Cell::spawnStair(){

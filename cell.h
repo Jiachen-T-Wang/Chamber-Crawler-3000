@@ -15,7 +15,7 @@ class Cell: public Subject{
    int col;
    CellType type;
    std::shared_ptr<Object> content;
-   std::map <Dir, std::shared_ptr<Cell>> neighbours;
+   std::map <Dir, Cell*> neighbours;
    
 public:
    Cell(int row, int col, char c);
@@ -32,11 +32,11 @@ public:
    bool canStandByAll();
    
    
-   void attachNeighbour(Dir dir, std::shared_ptr<Cell> c);
+   void attachNeighbour(Dir dir, Cell* c);
    
-   std::shared_ptr<Cell> getNeighbour(Dir dir);
+   Cell* getNeighbour(Dir dir);
    
-   void spawnPlayer(Player *p);
+   void spawnPlayer(std::shared_ptr<Player> p);
    void spawnStair();
    void spawnEnemy();
    void spawnPotion();

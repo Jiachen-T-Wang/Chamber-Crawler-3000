@@ -14,7 +14,7 @@ class Player: public Character{
   const int maxHP;
   int atkEffect; // set to 0 when change floor
   int defEffect; // set to 0 when change floor
-  std::shared_ptr<Floor> f;
+  Floor* f;
   int score;
 
 protected:
@@ -32,6 +32,7 @@ public:
     int realAtk();
     int realDef();
     void resetEffect();
+    int showFloor();
     virtual int showScore();
     virtual void incScore(int value);
     virtual void usePotion(Potion* p);

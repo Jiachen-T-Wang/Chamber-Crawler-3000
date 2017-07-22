@@ -4,6 +4,7 @@
 #include "chamber.h"
 #include "dir.h"
 #include "player.h"
+#include "textdisplay.h"
 using namespace std;
 
 void Floor::addToChamber(Cell *c){
@@ -97,6 +98,8 @@ Floor::Floor(int l, Player *p):level{l}, length{79}, height{25}{
    // randomly create objects on the floor
   createObjects(p);
 }
+
+int Floor::getLevel(){return level;}
 
 void Floor::display() {
   td->display();
