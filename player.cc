@@ -74,7 +74,7 @@ void Player::attack(std::shared_ptr<Halfling> h){
 	if (notMiss){
         int damage = calcDamage(h);
 		h->getHurt(damage);
-		getPos()->notifyPlayerAttack(damage);
+		getPos()->notifyPlayerAttack(h, damage);
 	}
 	else{
 		getPos()->notifyMiss();

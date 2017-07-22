@@ -24,7 +24,7 @@ public:
     
     bool isPlayer() override;
     const std::string race;
-    Player(int HP, int atk, int def, int maxHP, std::shared_ptr<Floor> f, std::string race);
+    Player(int HP, int atk, int def, int maxHP, Floor* f, std::string race);
     int getMaxHP() const;
     void addHp(int hpEffect);
     void moveTo(Dir dir) override;
