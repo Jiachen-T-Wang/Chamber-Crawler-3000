@@ -31,8 +31,10 @@ public:
     bool isEnemy() override;
    
    bool canMove();
+   void changeMove(bool b);
+    
    
-   void move();
+   virtual void move();
    
    virtual void beAtkBy(std::shared_ptr<Player> p);
    

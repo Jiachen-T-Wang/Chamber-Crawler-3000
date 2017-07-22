@@ -8,3 +8,5 @@ std::shared_ptr<DragonHoard> Dragon::getHoard(){
     return hoard;
 }
 
+void Dragon::move(){}
+
