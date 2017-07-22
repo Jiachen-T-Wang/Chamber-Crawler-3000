@@ -1,14 +1,7 @@
 #include <iostream>
-#include "dir.h"
 #include <cstdlib>
 #include <cmath>
-#include "enemy.h"
-#include "player.h"
-#include "observer.h"
-#include "cell.h"
-#include "treasure/treasure.h"
-#include "treasure/smallGold.h"
-#include "treasure/normalhoard.h"
+#include "header.h"
 
 using namespace std;
 

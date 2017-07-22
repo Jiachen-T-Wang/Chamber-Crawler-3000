@@ -1,4 +1,4 @@
-#include "treasure.h"
+#include "header.h"
 using namespace std;
 
 Treasure::Treasure(std::string type, int value)

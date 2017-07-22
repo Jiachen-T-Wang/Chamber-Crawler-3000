@@ -1,4 +1,4 @@
-#include "potion.h"
+#include "header.h"
 using namespace std;
 
 Potion::Potion(int effect, std::string type): effect{effect}, type{type} {}

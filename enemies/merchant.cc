@@ -1,4 +1,4 @@
-#include "merchant.h"
+#include "header.h"
 
 Merchant::Merchant(): Enemy{30, 70, 5, "Merchant"} {
     gold = make_shared<MerchantHoard>();

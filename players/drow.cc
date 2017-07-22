@@ -1,5 +1,4 @@
-#include "drow.h"
-#include "potion.h"
+#include "header.h"
 
 Drow::Drow(Floor* f): Player{150, 150, 25, 15, f, "Drow"} {}
 

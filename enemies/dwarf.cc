@@ -1,4 +1,4 @@
-#include "dwarf.h"
+#include "header.h"
 
 Dwarf::Dwarf()
 	: Enemy{100, 20, 30, "Dwarf"} {}

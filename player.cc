@@ -1,10 +1,5 @@
 #include <cmath>
-#include "floor.h"
-#include "player.h"
-#include "enemy.h"
-#include "enemies/halfling.h"
-#include "character.h"
-#include "treasure/treasure.h"
+#include "header.h"
 using namespace std;
 
 Player::Player(int HP, int atk, int def, int maxHP, Floor* f, std::string race)

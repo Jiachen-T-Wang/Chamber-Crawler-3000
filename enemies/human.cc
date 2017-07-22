@@ -1,5 +1,5 @@
 #include <cmath>
-#include "human.h"
+#include "header.h"
 
 Human::Human()
 	: Enemy{140, 20, 20, "Human"} {

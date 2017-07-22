@@ -1,8 +1,6 @@
-#include "chamber.h"
 #include <cstdlib>
 #include <ctime>
-#include "cell.h"
-#include "player.h"
+#include "header.h"
 
 Chamber::Chamber(): size{0}{
    

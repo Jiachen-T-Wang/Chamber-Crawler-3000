@@ -1,4 +1,4 @@
-#include "stair.h"
+#include "header.h"
 
 Stair::Stair():Object{} {}
 

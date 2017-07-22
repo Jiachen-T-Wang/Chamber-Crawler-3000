@@ -6,7 +6,7 @@
 #include "players/vampire.h"
 #include "players/drow.h"
 #include "players/goblin.h"
-#include "treasure/treasure.h"
+#include "Treasure/treasure.h"
 #include "dir.h"
 
 #include <memory>

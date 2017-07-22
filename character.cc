@@ -1,7 +1,6 @@
 #include <cstdlib>
 #include <cmath>
-#include "character.h"
-#include "cell.h"
+#include "header.h"
 
 using namespace std;
 

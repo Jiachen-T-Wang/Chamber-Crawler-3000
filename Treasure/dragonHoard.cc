@@ -1,4 +1,4 @@
-#include "dragonHoard.h"
+#include "header.h"
 
 DragonHoard::DragonHoard(): Treasure{"DragonHoard", 6}, dragon{make_weak(this)} {
     int d = rand() % 8;

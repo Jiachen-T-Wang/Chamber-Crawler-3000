@@ -1,5 +1,5 @@
 #include <climits>
-#include "vampire.h"
+#include "header.h"
 
 
 //has no maximum HP

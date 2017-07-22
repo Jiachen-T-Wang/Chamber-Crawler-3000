@@ -1,11 +1,7 @@
 #include "floor.h"
 #include <fstream>
 #include <string>
-#include "chamber.h"
-#include "dir.h"
-#include "player.h"
-#include "cell.h"
-#include "textdisplay.h"
+#include "header.h"
 using namespace std;
 
 void Floor::addToChamber(Cell *c){

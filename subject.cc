@@ -1,7 +1,6 @@
 #include <cstdlib>
 #include <iostream>
-#include "subject.h"
-#include "observer.h"
+#include "header.h"
 #define TD 0
 using namespace std;
 

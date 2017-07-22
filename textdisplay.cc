@@ -2,8 +2,7 @@
 #include <fstream>
 #include <utility>
 #include <string>
-#include "textdisplay.h"
-#include "player.h"
+#include "header.h"
 
 using namespace std;
 
