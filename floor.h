@@ -21,7 +21,7 @@ class Floor{
    
   std::vector <Chamber *> chambers;
    
-  TextDisplay *td;
+   std::shared_ptr<TextDisplay> td;
   
   void addToChamber(Cell *c);
    
@@ -33,18 +33,14 @@ class Floor{
   
 public:
    Floor(int l, Player *p);
-<<<<<<< HEAD
+
   Floor(int l, Player *p, std::string fileName);  //read the map from the txt file
-  void display();
    void gothroughBoard(Player *p);
-  ~Floor();
-=======
-   Floor(int l, Player *p, std::string fileName);  //read the map from the txt file
+
    int getLevel();
    void display();
    
    ~Floor();
->>>>>>> 6ebfa93a9337091e3a8fb67c3f1d9c71141a7d7a
 };
 
 #endif
