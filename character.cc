@@ -24,7 +24,7 @@ int Character::getDef(){
 
 
 Character::Character(int HP, int atk, int def):
-Object{}, HP{HP}, atk{atk}, def{def} {}
+    Object{}, HP{HP}, atk{atk}, def{def} {}
 
 void Character::getHurt(int damage){
 	HP -= damage;

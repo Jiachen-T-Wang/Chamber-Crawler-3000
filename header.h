@@ -9,6 +9,8 @@
 #ifndef header_h
 #define header_h
 #include <memory>
+#include <iostream>
+#include <cstdlib>
 #include "dir.h"
 #include "floor.h"
 #include "object.h"
@@ -41,5 +43,6 @@
 #include "stair.h"
 #include "object.h"
 #include "cellType.h"
+using namespace std;
 
 #endif /* header_h */

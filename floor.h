@@ -19,15 +19,15 @@ class Floor{
    
   std::vector<std::vector <Cell>> board;
    
-  std::vector <Chamber *> chambers;
+   std::vector <std::shared_ptr<Chamber>> chambers;
    
    std::shared_ptr<TextDisplay> td;
   
-  void addToChamber(Cell *c);
+   void addToChamber(Cell *c);
    
-  Chamber *randChamber();
+   std::shared_ptr<Chamber> randChamber();
    
-  void createObjects(std::shared_ptr<Player>p);
+   void createObjects(std::shared_ptr<Player>p);
    
    void addNeighbours(Cell &c, Dir dir, int row, int col);
   
