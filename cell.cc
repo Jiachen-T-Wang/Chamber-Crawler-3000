@@ -99,7 +99,9 @@ bool Cell::isNeighbour(Cell *c){
    return (rowDiff>=-1 && rowDiff<=1 && colDiff>=-1 && colDiff<=1);
 }
 
-
+CellType Cell::getCellType(){
+   return type;
+}
 
 
 

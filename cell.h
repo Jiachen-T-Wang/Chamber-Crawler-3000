@@ -44,6 +44,8 @@ public:
    void spawnGold();
    
    bool isNeighbour(Cell *c);
+   CellType getCellType();
+
 };
 
 #endif
