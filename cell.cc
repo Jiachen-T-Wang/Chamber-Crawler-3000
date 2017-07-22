@@ -1,23 +1,3 @@
-/*
-
-#include "cell.h"
-#include "cellType.h"
-#include <vector>
-#include "enemies/dragon.h"
-#include "enemies/dwarf.h"
-#include "enemies/elf.h"
-#include "enemies/halfling.h"
-#include "enemies/human.h"
-#include "enemies/merchant.h"
-#include "enemies/orcs.h"
-#include "potion.h"
-#include "stair.h"
-#include "treasure/dragonHoard.h"
-#include "treasure/smallGold.h"
-#include "treasure/normalhoard.h"
-#include "object.h"
- 
-*/
 #include <vector>
 #include "header.h"
 using namespace std;

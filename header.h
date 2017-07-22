@@ -22,6 +22,7 @@
 #include "players/vampire.h"
 #include "enemies/elf.h"
 #include "enemies/dragon.h"
+#include "enemies/halfling.h"
 #include "enemies/dwarf.h"
 #include "enemies/human.h"
 #include "enemies/merchant.h"
