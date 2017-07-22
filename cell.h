@@ -9,7 +9,7 @@ enum class Dir;
 enum class CellType;
 class Object;
 class Player;
-class Cell: public Subject, public Observer {//abstract
+class Cell: public Subject{
    
    int row;
    int col;
@@ -24,6 +24,7 @@ public:
    int getRow();
    
    std::shared_ptr<Object> getContent();   // nullptr means nobody on it
+    
    void setCont(std::shared_ptr<Object> o);   //mutator
    
    bool canStand();   //return true if it can be stand on
