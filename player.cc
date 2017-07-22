@@ -1,11 +1,13 @@
 #include <cmath>
 #include "player.h"
+#include "enemy.h"
+#include "enemies/halfling.h"
 #include "character.h"
+#include "Treasure/treasure.h"
 using namespace std;
 
-Player::Player(int HP, int atk, int def, int maxHP, Floor* f, std::string race)
-: Character{HP, atk, def}, maxHP{maxHP}, atkEffect{0}, defEffect{0}, f{f},
-score{0}, race{race} {}
+Player::Player(int HP, int atk, int def, int maxHP, std::shared_ptr<Floor> f, std::string race)
+: Character{HP, atk, def}, maxHP{maxHP}, atkEffect{0}, defEffect{0}, f{f}, score{0}, race{race} {}
 
 int Player::getMaxHP() const { return maxHP; }
 
@@ -16,7 +18,10 @@ void Player::addHp(int hpEffect) {
   HP = (getHP() + hpEffect > maxHP) ? maxHP : getHP() + hpEffect;
 }
 
-
+void Player::resetEffect(){
+    atkEffect = 0;
+    defEffect = 0;
+}
 
 // Basic Implementation
 void Player::usePotion(Potion* p){
@@ -43,43 +48,45 @@ int Player::realDef(){
   return (getDef() + defEffect < 0) ? 0 : getDef() + defEffect;
 }
 
-int Player::calcDamage(Enemy* defender){
+int Player::calcDamage(std::shared_ptr<Enemy> defender){
     return ceil((100/(100+defender->getDef())) * this->realAtk());
 }
 
 
-void Player::attack(Enemy* enemy){
+void Player::attack(std::shared_ptr<Enemy> enemy){
 	int damage = calcDamage(enemy);
 	enemy->getHurt(damage);
-	getPosition()->notifyPlayerAttack(damage);
+	getPos()->notifyPlayerAttack(damage);
 }
 
-void Player::attack(Halfling* h){
+void Player::attack(std::shared_ptr<Halfling> h){
 	int notMiss = rand() % 2;  
 	if (notMiss){
-		int damage = calcDamage(h);
+        int damage = calcDamage(h);
 		h->getHurt(damage);
-		getPosition()->notifyPlayerAttack(damage);
+		getPos()->notifyPlayerAttack(damage);
 	}
 	else{
-		getPosition()->notyfyMiss();
+		getPos()->notifyMiss();
 	}
 }
 
 
-void Player::beAtkBy(Enemy* enemy){
-	enemy->attack(this);
+void Player::beAtkBy(std::shared_ptr<Enemy> enemy){
+    enemy->attack(std::shared_ptr<Player>(this));
 }
 
 
 
 
-int showScore(){ return score; }
+int Player::showScore(){ return score; }
 
-void incScore(int value){ score += value; }
+void Player::incScore(int value){ score += value; }
 
-void Player::PickGold(Treasure* gold){
-	intScore(gold->getValue());
+void Player::PickGold(std::shared_ptr<Treasure> gold){
+	incScore(gold->getValue());
+    shared_ptr<Cell> newp = gold->getPos();
+    newp->setCont(nullptr);
 }
 
 void Player::roundChange(){}

@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <cmath>
 #include "enemy.h"
+#include "player.h"
 #include "observer.h"
 #include "cell.h"
 #include "treasure/treasure.h"

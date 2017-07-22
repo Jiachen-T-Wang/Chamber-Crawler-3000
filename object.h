@@ -4,19 +4,16 @@
 
 class Cell;
 
-class Object: public std::enable_shared_from_this<Object>{
+class Object{
    
    std::shared_ptr<Cell> position;
    
-protected:
-   
-    std::shared_ptr<Cell> getPos();
-   
 public:
-   
+
+   Object();
+   std::shared_ptr<Cell> getPos();
    void setPos(std::shared_ptr<Cell> p);
    
-   Object();
    virtual bool isEnemy();
    virtual bool isPlayer();
    virtual bool isStair();

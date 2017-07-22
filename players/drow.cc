@@ -1,7 +1,7 @@
 #include "drow.h"
 #include "potion.h"
 
-Drow::Drow(Floor* f): Player{150, 150, 25, 15, f, "Drow"} {}
+Drow::Drow(std::shared_ptr<Floor> f): Player{150, 150, 25, 15, f, "Drow"} {}
 
 //all potions have their effect magnified by 1.5
 void Drow::usePotion(Potion* p){

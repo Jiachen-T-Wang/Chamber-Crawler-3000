@@ -23,7 +23,7 @@ class Enemy: public Character{
    int calcDamage(std::shared_ptr<Player> defender);
     
 protected:
-    enum Dir numToDir(int d);
+    Dir numToDir(int d);
 
 public:
    
