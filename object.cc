@@ -11,7 +11,7 @@ Cell* Object::getPos(){
 
 
 void Object::setPos(Cell* p){
-   if(position) position->setCont(nullptr);
+   if(position) position->setCont(std::shared_ptr<Object>(nullptr));
    position = p;
    p->setCont(std::shared_ptr<Object>(this));
 }

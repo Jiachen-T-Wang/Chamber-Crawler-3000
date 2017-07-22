@@ -11,8 +11,8 @@ class Object{
 public:
 
    Object();
+    
    Cell* getPos();
-   
    void setPos(Cell* p);
    
    virtual bool isEnemy();
