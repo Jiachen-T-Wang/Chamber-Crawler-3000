@@ -19,14 +19,22 @@ class Goblin;
 class Enemy: public Character{
    bool moveable;
    std::string type;
+<<<<<<< HEAD
    std::shared_ptr<Treasure> gold;
    
 protected:
     Dir numToDir(int d);
    int calcDamage(std::shared_ptr<Player> defender);
+=======
+   int calcDamage(std::shared_ptr<Player> defender);
+    
+protected:
+    std::shared_ptr<Treasure> gold;
+ //   Dir numToDir(int d);
+>>>>>>> 39b7e5f54fd21bd79d5cbda9ffbffbac6cd01c02
 
 public:
-   
+   Dir numToDir(int d);
    Enemy(int HP, int atk, int def, std::string);
     
     bool isEnemy() override;

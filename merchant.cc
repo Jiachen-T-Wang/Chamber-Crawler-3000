@@ -6,7 +6,7 @@ Merchant::Merchant(): Enemy{30, 70, 5, "Merchant"} {
 
 void Merchant::attack(std::shared_ptr<Player> p){
 	if(angry){
-		Enemy::attack(std::shared_ptr<Player> p)
+        Enemy::attack(p);
 	}
 	else{
 		Enemy::move();
@@ -15,7 +15,7 @@ void Merchant::attack(std::shared_ptr<Player> p){
 
 //static 咋玩
 void Merchant::beAtkBy(std::shared_ptr<Player> p){
-    Player::beAtkBy(p);
+    p->attack(make_shared<Merchant>(this));
 	angry = true;
 }
 
