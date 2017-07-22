@@ -46,7 +46,7 @@ void Player::moveTo(Dir dir){
 }
 
 int Player::showFloor(){
-    f->getLevel();
+    return f->getLevel();
 }
 
 
