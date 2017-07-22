@@ -11,6 +11,7 @@ class Treasure : public Object {
  	Treasure(std::string type, int value);
  	std::string getType() const;
     int getValue() const;
+    bool isTreasure() override;
     virtual ~Treasure() = 0;
 };
 

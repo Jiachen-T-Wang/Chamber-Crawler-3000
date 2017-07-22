@@ -13,7 +13,7 @@ std::shared_ptr<Cell> Object::getPos(){
 void Object::setPos(std::shared_ptr<Cell> p){
    if(position) position->setCont(nullptr);
    position = p;
-   p->setCont(shared_from_this());
+   p->setCont(std::shared_ptr<Object>(this));
 }
 
 

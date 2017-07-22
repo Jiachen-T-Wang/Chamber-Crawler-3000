@@ -8,4 +8,6 @@ string Treasure::getType() { return type; }
 
 int Treasure::getValue() { return value; }
 
+bool Treasure::isTreasure() { return true;}
+
 Treasure::~Treasure() {}

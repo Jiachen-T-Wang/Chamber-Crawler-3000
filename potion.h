@@ -17,7 +17,7 @@ public:
    
    int getEffect();
    
-   bool isPotion();
+   bool isPotion() override;
 };
 
 #endif

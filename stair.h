@@ -7,7 +7,7 @@ class Stair: public Object{
    
 public:
    Stair();
-   bool isStair();
+   bool isStair() override;
    
 };
 #endif
