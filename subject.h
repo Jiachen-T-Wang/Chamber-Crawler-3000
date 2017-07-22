@@ -2,7 +2,7 @@
 #define __SUBJECT_H__
 #include <vector>
 #include "dir.h"
-
+#include <memory>
 class Observer;
 class Enemy;
 

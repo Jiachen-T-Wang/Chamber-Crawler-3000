@@ -1,7 +1,7 @@
 #ifndef __CHARACTER_H__
 #define __CHARACTER_H__
 
-
+#include <memory>
 #include "object.h"
 #include "dir.h"
 

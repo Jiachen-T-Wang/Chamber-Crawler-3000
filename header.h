@@ -8,7 +8,7 @@
 
 #ifndef header_h
 #define header_h
-
+#include <memory>
 #include "dir.h"
 #include "floor.h"
 #include "object.h"

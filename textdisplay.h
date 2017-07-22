@@ -4,7 +4,7 @@
 #include <vector>
 #include "observer.h"
 #include "enemy.h"
-
+#include <memory>
 class Cell;
 class Player;
 

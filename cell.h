@@ -4,7 +4,7 @@
 #include "subject.h"
 #include "observer.h"
 #include <vector>
-
+#include <memory>
 enum class Dir;
 enum class CellType;
 class Object;
