@@ -44,6 +44,8 @@ Enemy::Enemy(int HP, int atk, int def, string type)
   }
 }
 
+std::string Enemy::getType(){return type;}
+
 bool Enemy::isEnemy() { return true;}
 
 bool Enemy::canMove(){ return moveable; }

@@ -36,6 +36,8 @@ public:
    virtual void move();
 
    void changeMove(bool b);
+    
+    std::string getType();
    
    virtual void beAtkBy(std::shared_ptr<Player> p);
    
