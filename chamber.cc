@@ -23,7 +23,7 @@ void Chamber::addCell(Cell *c){
    size++;
 }
 
-void Chamber::addPlayer(Player *p){
+void Chamber::addPlayer(std::shared_ptr<Player>p){
    randCell()->spawnPlayer(p);
 }
 void Chamber::addStair(){
