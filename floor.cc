@@ -28,7 +28,7 @@ Chamber *Floor::randChamber(){
    return chambers[x];
 }
 
-void Floor::createObjects(Player *p){
+void Floor::createObjects(shared_ptr<Player>p){
    //first player
    Chamber *ch_player = randChamber();
    ch_player->addPlayer(p);
@@ -64,13 +64,14 @@ void Floor::addNeighbours(Cell &c, Dir dir, int row, int col){
 
 
 
-
+/*
 Floor::Floor(int l, Player *p, string fileName){
    
 }
+ */
 
 
-Floor::Floor(int l, Player *p):level{l}, length{79}, height{25}{
+Floor::Floor(int l, shared_ptr<Player>p):level{l}, length{79}, height{25}{
    
    auto td = make_shared<TextDisplay>("emptyCC3K.txt", std::shared_ptr<Player>(p));
    for(int i=0; i<chamberNum; ++i) {
@@ -114,7 +115,7 @@ Floor::Floor(int l, Player *p):level{l}, length{79}, height{25}{
 
 int Floor::getLevel(){return level;}
 
-void Floor::gothroughBoard(Player *p){
+void Floor::gothroughBoard(shared_ptr<Player>p){
    for(auto cellLine:board){
       for(auto cell:cellLine){
          shared_ptr<Object> o = cell.getContent();

@@ -19,7 +19,7 @@ public:
    Chamber();
    
    void addCell(Cell *c);
-   void addPlayer(Player *p);
+   void addPlayer(std::shared_ptr<Player>p);
    void addStair();
    void addEnemy();
    void addPotion();

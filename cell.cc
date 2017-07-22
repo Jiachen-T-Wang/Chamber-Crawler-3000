@@ -74,36 +74,36 @@ void Cell::spawnStair(){
 void Cell::spawnEnemy(){
    srand(time(0));
    int x=rand() % 18;
-   Enemy *e = nullptr;
-   if(x>=0 && x<4) e = new Human;
-   else if(x>=4 && x<7) e = new Dwarf;
-   else if(x>=7 && x<12) e = new Halfling;
-   else if(x>=12 && x<14) e = new Elf;
-   else if(x>=14 && x<16) e = new Orcs;
-   else e = new Merchant;
+   shared_ptr<Enemy> e;
+   if(x>=0 && x<4) e = make_shared<Human>();
+   else if(x>=4 && x<7) e = make_shared<Dwarf>();
+   else if(x>=7 && x<12) e = make_shared<Halfling>();
+   else if(x>=12 && x<14) e = make_shared<Elf>();
+   else if(x>=14 && x<16) e = make_shared<Orcs>();
+   else e = make_shared<Merchant>();
    e->setPos(this);
 }
 
 void Cell::spawnPotion(){
    srand(time(0));
    int x=rand() % 6;
-   Potion *p = nullptr;
-   if(x==0) p = new Potion{10, "Hp"};
-   else if(x==1) p = new Potion{-10, "Hp"};
-   else if(x==2) p = new Potion{5, "Atk"};
-   else if(x==3) p = new Potion{-5, "Atk"};
-   else if(x==4) p = new Potion{5, "Def"};
-   else p = new Potion{-5, "Def"};
+   shared_ptr<Potion> p;
+   if(x==0) p = make_shared<Potion>(10, "Hp");
+   else if(x==1) p = make_shared<Potion>(-10, "Hp");
+   else if(x==2) p = make_shared<Potion>(5, "Atk");
+   else if(x==3) p = make_shared<Potion>(-5, "Atk");
+   else if(x==4) p = make_shared<Potion>(5, "Def");
+   else p = make_shared<Potion>(-5, "Def");
    p->setPos(this);
 }
 
 void Cell::spawnGold(){
    srand(time(0));
    int x=rand() % 8;
-   Treasure *t = nullptr;
-   if(x==0) t = new DragonHoard;
-   if(x==1 || x==2) t = new SmallGold;
-   else t = new NormalHoard;
+   shared_ptr<Treasure> t;
+   if(x==0) t = make_shared<DragonHoard>();
+   if(x==1 || x==2) t = make_shared<SmallGold>();
+   else t = make_shared<NormalHoard>();
    t->setPos(this);
 }
 

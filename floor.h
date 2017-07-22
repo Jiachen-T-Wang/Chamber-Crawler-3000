@@ -27,15 +27,15 @@ class Floor{
    
   Chamber *randChamber();
    
-  void createObjects(Player *p);
+  void createObjects(std::shared_ptr<Player>p);
    
    void addNeighbours(Cell &c, Dir dir, int row, int col);
   
 public:
-   Floor(int l, Player *p);
+  // Floor(int l, Player *p, std::string fileName);
 
-  Floor(int l, Player *p, std::string fileName);  //read the map from the txt file
-   void gothroughBoard(Player *p);
+  Floor(int l, std::shared_ptr<Player>p);  //read the map from the txt file
+   void gothroughBoard(std::shared_ptr<Player>p);
 
    int getLevel();
    void display();
