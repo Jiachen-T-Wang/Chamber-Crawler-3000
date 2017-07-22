@@ -32,14 +32,15 @@ int main(int argc, const char * argv[]) {
 
   shared_ptr<Player> p;
    string race;
+  cout << "s - shade" << endl;
+  cout << "d - Drow" << endl;
+  cout << "v - Vampire" << endl;
+  cout << "g - Goblin" << endl;
+  cout << "t - Troll" << endl << endl;
+  cout << "q - quit" << endl;
    while (cin >> race) {
       if (race == "s") {
          p = make_shared<Shade>(nullptr);
-         break;
-      }
-      else if (race == "d") {
-         
-          p = make_shared<Shade>(nullptr);
          break;
       }
       else if (race == "d") {
