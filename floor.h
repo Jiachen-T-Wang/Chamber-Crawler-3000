@@ -13,7 +13,8 @@ const int enemyNum = 20;
 const int chamberNum = 5;
 class Floor{
    
-  int level;
+  int level;   void addToChamber(Cell *c);
+
   int length;
   int height;
    
@@ -23,7 +24,6 @@ class Floor{
    
    std::shared_ptr<TextDisplay> td;
   
-   void addToChamber(Cell *c);
    
    std::shared_ptr<Chamber> randChamber();
    
