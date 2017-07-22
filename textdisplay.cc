@@ -45,11 +45,8 @@ void TextDisplay::displayBoard() {
   
   for (int i = 0; i < height; i++) {
     for (int j = 0; j < width; j++) {
-      if (f->board[i][j].getContent().get() != nullptr) {
-        theDisplay[i][j] = f->board[i][j].getContent()->symbol();
-      } else {
-        theDisplay[i][j] = f->board[i][j].symbol();
-      }
+      theDisplay[i][j] = f->board[i][j].getSymbol();
+      
       cout << theDisplay[i][j];
     }
     cout << endl;

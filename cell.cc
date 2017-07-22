@@ -4,10 +4,10 @@ using namespace std;
 
 Cell::Cell(int row, int col, char c): row{row}, col{col}, content{nullptr}{
    if (c == '.') type = CellType::Tile;
-      else if (c == '|' || c == '-') type = CellType::Wall;
-         else if (c == '+') type = CellType::Doorway;
-            else if (c == '#') type = CellType::Passage;
-               else if (c == '\\') type = CellType::Stairway;
+      else if ( c == '-') type = CellType::Wall;
+         else if (c == '|') type = CellType::WallVertical;
+            else if (c == '+') type = CellType::Doorway;
+               else if (c == '#') type = CellType::Passage;
                   else if (c == ' ') type = CellType::Empty;
                      }
 
@@ -99,8 +99,16 @@ bool Cell::isNeighbour(Cell *c){
    return (rowDiff>=-1 && rowDiff<=1 && colDiff>=-1 && colDiff<=1);
 }
 
-CellType Cell::getCellType(){
-   return type;
+char Cell::getSymbol(){
+   if(content.get()!=nullptr){
+      return content->symbol();
+   }
+   else if(type==CellType::Tile) return '.';
+   else if(type==CellType::Doorway) return '+';
+   else if(type==CellType::Empty) return ' ';
+   else if(type==CellType::Passage) return '#';
+   else if(type==CellType::Wall) return '-';
+   else if(type==CellType::WallVertical) return '|';
 }
 
 

@@ -45,7 +45,7 @@ public:
    
    bool isNeighbour(Cell *c);
    CellType getCellType();
-
+   char getSymbol();
 };
 
 #endif
