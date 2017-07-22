@@ -61,9 +61,9 @@ void Floor::addNeighbours(Cell &c, Dir dir, int row, int col){
 
 
 /*
-Floor::Floor(int l, Player *p, string fileName){
-   
-}
+ Floor::Floor(int l, Player *p, string fileName){
+ 
+ }
  */
 
 
@@ -117,11 +117,17 @@ void Floor::gothroughBoard(shared_ptr<Player>p){
          shared_ptr<Object> o = cell.getContent();
          if(o.get()==nullptr) continue;
          else if(o->isEnemy()) {
-            shared_ptr<Enemy> e;//dragon...
+            shared_ptr<Enemy> e;
             e.reset((Enemy*)o.get());
             if(p->getPos()->isNeighbour(e->getPos())){
                p->beAtkBy(e);
-            } else {
+            } else if(e->isDragon()){
+               shared_ptr<Dragon> d;
+               d.reset((Dragon*)o.get());
+               shared_ptr<DragonHoard> h {d->getHoard()};
+               if(p->getPos()->isNeighbour(h->getPos()))
+                  p->beAtkBy(d);
+            }else {
                if(e->canMove()) e->move();
             }
          }
