@@ -10,4 +10,6 @@ int Treasure::getValue() const { return value; }
 
 bool Treasure::isTreasure() { return true;}
 
+char Treasure::symbol(){ return 'G';};
+
 Treasure::~Treasure() {}

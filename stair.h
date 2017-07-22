@@ -8,6 +8,7 @@ class Stair: public Object{
 public:
    Stair();
    bool isStair() override;
+    char symbol() override;
    
 };
 #endif

@@ -16,4 +16,6 @@ void Dwarf::attack(std::shared_ptr<Vampire> v){
 	}
 }
 
+char Dwarf::symbol(){ return 'W';}
+
 

@@ -19,3 +19,5 @@ void Merchant::beAtkBy(std::shared_ptr<Player> p){
 	angry = true;
 }
 
+char Merchant::symbol(){return 'M';};
+

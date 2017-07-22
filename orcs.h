@@ -7,7 +7,8 @@
 class Orcs: public Enemy{
 public:
 	Orcs();
-	void attack(std::shared_ptr<Goblin> g);
+	void attack(std::shared_ptr<Goblin> g) override;
+    char symbol() override;
 };
 
 #endif

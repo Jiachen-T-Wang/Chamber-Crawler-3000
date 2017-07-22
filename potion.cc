@@ -14,3 +14,5 @@ int Potion::getEffect() {
 bool Potion::isPotion(){
    return true;
 }
+
+char Potion::symbol(){return 'P';}

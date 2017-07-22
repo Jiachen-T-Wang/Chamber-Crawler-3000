@@ -11,6 +11,7 @@ public:
 	Elf();
 	void attack(std::shared_ptr<Player> p) override;
 	void attack(std::shared_ptr<Drow> d) override;
+    char symbol() override;
 };
 
 #endif

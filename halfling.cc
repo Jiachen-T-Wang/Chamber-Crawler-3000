@@ -11,4 +11,6 @@ void Halfling::beAtkBy(std::shared_ptr<Player> p){
         getPos()->setCont(gold);
         getPos()->notifyDead();
     }
-} 
+}
+
+char Halfling::symbol(){return 'L';}
