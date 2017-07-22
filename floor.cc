@@ -4,7 +4,11 @@
 #include "chamber.h"
 #include "dir.h"
 #include "player.h"
+<<<<<<< HEAD
 #include "cell.h"
+=======
+#include "textdisplay.h"
+>>>>>>> 6ebfa93a9337091e3a8fb67c3f1d9c71141a7d7a
 using namespace std;
 
 void Floor::addToChamber(Cell *c){
@@ -64,6 +68,7 @@ Floor::Floor(int l, Player *p, string fileName){
 }
 
 Floor::Floor(int l, Player *p):level{l}, length{79}, height{25}{
+<<<<<<< HEAD
    td = new TextDisplay("emptyCC3K.txt");
    for(int i=0; i<chamberNum; ++i) {
       chambers.emplace_back(new Chamber());
@@ -80,6 +85,24 @@ Floor::Floor(int l, Player *p):level{l}, length{79}, height{25}{
       board.emplace_back(cellLine);
       for(auto c: cellLine) { addToChamber(&c); } // link cell to corresponding chamber
    }
+=======
+  td = new TextDisplay("emptyCC3K.txt", std::shared_ptr<Player>(p));
+  for(int i=0; i<chamberNum; ++i) {
+    chambers.emplace_back(new Chamber());
+  }
+  ifstream fs {"emptyCC3K.txt"};
+  string line;
+  while(getline(fs, line)){
+    vector <Cell> cellLine;
+    for(int i=0; i< length; ++i){
+       Cell c {i, height, line[i]};
+       c.attach(td);
+      cellLine.emplace_back(c);
+    }
+    board.emplace_back(cellLine);
+    for(auto c: cellLine) { addToChamber(&c); } // link cell to corresponding chamber
+  }
+>>>>>>> 6ebfa93a9337091e3a8fb67c3f1d9c71141a7d7a
    // add neighbors to cell
    for(int row=0; row<height; ++row){
       for (int col=0; col< length; ++col){
@@ -96,7 +119,21 @@ Floor::Floor(int l, Player *p):level{l}, length{79}, height{25}{
       }
    }
    // randomly create objects on the floor
+<<<<<<< HEAD
    createObjects(p);
+=======
+  createObjects(p);
+}
+
+int Floor::getLevel(){return level;}
+
+void Floor::display() {
+  td->display();
+}
+
+Floor::~Floor() {
+  delete td;
+>>>>>>> 6ebfa93a9337091e3a8fb67c3f1d9c71141a7d7a
 }
 
 

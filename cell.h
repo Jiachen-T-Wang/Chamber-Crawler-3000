@@ -9,13 +9,17 @@ enum class Dir;
 enum class CellType;
 class Object;
 class Player;
+<<<<<<< HEAD
 class Cell: public Subject {//abstract
+=======
+class Cell: public Subject{
+>>>>>>> 6ebfa93a9337091e3a8fb67c3f1d9c71141a7d7a
    
    int row;
    int col;
    CellType type;
    std::shared_ptr<Object> content;
-   std::map <Dir, std::shared_ptr<Cell>> neighbours;
+   std::map <Dir, Cell*> neighbours;
    
 public:
    Cell(int row, int col, char c);
@@ -24,6 +28,7 @@ public:
    int getRow();
    
    std::shared_ptr<Object> getContent();   // nullptr means nobody on it
+    
    void setCont(std::shared_ptr<Object> o);   //mutator
    
    bool canStand();   //return true if it can be stand on
@@ -31,11 +36,11 @@ public:
    bool canStandByAll();
    
    
-   void attachNeighbour(Dir dir, std::shared_ptr<Cell> c);
+   void attachNeighbour(Dir dir, Cell* c);
    
-   std::shared_ptr<Cell> getNeighbour(Dir dir);
+   Cell* getNeighbour(Dir dir);
    
-   void spawnPlayer(Player *p);
+   void spawnPlayer(std::shared_ptr<Player> p);
    void spawnStair();
    void spawnEnemy();
    void spawnPotion();

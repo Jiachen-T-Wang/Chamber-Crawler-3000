@@ -13,7 +13,6 @@ class Orcs;
 class Goblin: public Player{
    public:
    	Goblin(std::shared_ptr<Floor> f);
-//   	void attack(Enemy* e) override;
    	void beAtkBy(std::shared_ptr<Enemy> e) override;
 };
 

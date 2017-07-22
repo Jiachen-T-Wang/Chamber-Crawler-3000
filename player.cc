@@ -1,4 +1,5 @@
 #include <cmath>
+#include "floor.h"
 #include "player.h"
 #include "enemy.h"
 #include "enemies/halfling.h"
@@ -6,7 +7,7 @@
 #include "treasure/treasure.h"
 using namespace std;
 
-Player::Player(int HP, int atk, int def, int maxHP, std::shared_ptr<Floor> f, std::string race)
+Player::Player(int HP, int atk, int def, int maxHP, Floor* f, std::string race)
 : Character{HP, atk, def}, maxHP{maxHP}, atkEffect{0}, defEffect{0}, f{f}, score{0}, race{race} {}
 
 int Player::getMaxHP() const { return maxHP; }
@@ -37,7 +38,9 @@ void Player::moveTo(Dir dir){
     getPos()->notifyPlayerMove(dir);
 }
 
-
+int Player::showFloor(){
+    f->getLevel();
+}
 
 
 int Player::realAtk(){

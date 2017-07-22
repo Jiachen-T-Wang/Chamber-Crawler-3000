@@ -9,6 +9,7 @@
 #include "treasure/treasure.h"
 #include "treasure/smallGold.h"
 #include "treasure/normalhoard.h"
+
 using namespace std;
 
 Dir Enemy::numToDir(int d){
