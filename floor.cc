@@ -4,6 +4,7 @@
 #include "chamber.h"
 #include "dir.h"
 #include "player.h"
+#include "textdisplay.h"
 using namespace std;
 
 void Floor::addToChamber(Cell *c){
@@ -63,7 +64,7 @@ Floor::Floor(int l, Player *p, string fileName){
 }
 
 Floor::Floor(int l, Player *p):level{l}, length{79}, height{25}{
-  td = new TextDisplay("emptyCC3K.txt");
+  td = new TextDisplay("emptyCC3K.txt", std::shared_ptr<Player>(p));
   for(int i=0; i<chamberNum; ++i) {
     chambers.emplace_back(new Chamber());
   }

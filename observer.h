@@ -1,9 +1,10 @@
 #ifndef __OBSERVER_H__
 #define __OBSERVER_H__
 
+#include "enemy.h"
+
 class Cell;
 class Character;
-class Enemy;
 
 class Observer {
    
