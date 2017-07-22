@@ -106,6 +106,7 @@ Floor::Floor(int l, shared_ptr<Player>p):level{l}, length{79}, height{25}{
    
    // randomly create objects on the floor
    createObjects(p);
+   display();
 }
 
 

@@ -32,11 +32,12 @@ int main(int argc, const char * argv[]) {
 
   shared_ptr<Player> p;
    string race;
+   cout << "Please choose a race." <<endl;
   cout << "s - shade" << endl;
   cout << "d - Drow" << endl;
   cout << "v - Vampire" << endl;
   cout << "g - Goblin" << endl;
-  cout << "t - Troll" << endl << endl;
+  cout << "t - Troll" << endl;
   cout << "q - quit" << endl;
    while (cin >> race) {
       if (race == "s") {
@@ -65,13 +66,13 @@ int main(int argc, const char * argv[]) {
       }
 
    }
-   
+
    for(int i=0; i<5; i++){
       
       //    if(arg) Floor f {i, p, fileName};
       //    else
       Floor f {i, p};
-      
+      f.display();
       string cmd;
       string direction;
 //       Merchant::angry = false;
