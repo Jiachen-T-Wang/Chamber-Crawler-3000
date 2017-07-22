@@ -66,6 +66,10 @@ void TextDisplay::displayPlayerAtk(std::shared_ptr<Enemy> e, int damage) {
   cout << "PC has made" << damage << "damage to " << e->getType() << "!" << endl;
 }
 
+void TextDisplay::displayEnemyAtk(std::shared_ptr<Enemy> e, int damage){
+   cout << "enemy atk" <<endl;
+}
+
 void TextDisplay::displayMiss() {
   displayBoard();
   cout << "PC has missed a shot!" << endl;
