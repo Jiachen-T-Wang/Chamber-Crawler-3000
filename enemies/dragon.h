@@ -6,10 +6,11 @@
 class DragonHoard;
 
 class Dragon: public Enemy{
-	std::shared_ptr<DragonHoard> hoard;
+	std::weak_ptr<DragonHoard> hoard;
 public:
-	Dragon(std::shared_ptr<DragonHoard> hoard);
-    std::shared_ptr<DragonHoard> getHoard();
+	Dragon(std::weak_ptr<DragonHoard> hoard);
+    std::weak_ptr<DragonHoard> getHoard();
+    void move() override;
 };
 
 #endif

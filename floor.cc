@@ -99,6 +99,8 @@ Floor::Floor(int l, Player *p):level{l}, length{79}, height{25}{
   createObjects(p);
 }
 
+int Floor::getLevel(){return level;}
+
 void Floor::display() {
   td->display();
 }

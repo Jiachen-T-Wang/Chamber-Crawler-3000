@@ -1,4 +1,5 @@
 #include <cmath>
+#include "floor.h"
 #include "player.h"
 #include "enemy.h"
 #include "enemies/halfling.h"
@@ -37,7 +38,9 @@ void Player::moveTo(Dir dir){
     getPos()->notifyPlayerMove(dir);
 }
 
-
+int Player::showFloor(){
+    f->getLevel();
+}
 
 
 int Player::realAtk(){

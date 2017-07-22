@@ -33,10 +33,11 @@ class Floor{
   
 public:
    Floor(int l, Player *p);
-  Floor(int l, Player *p, std::string fileName);  //read the map from the txt file
-  void display();
+   Floor(int l, Player *p, std::string fileName);  //read the map from the txt file
+   int getLevel();
+   void display();
    
-  ~Floor();
+   ~Floor();
 };
 
 #endif
