@@ -12,7 +12,7 @@ class Subject {
     
 public:
     void notifyPlayerMove(Dir dir);  //to move
-    void notifyPlayerAttack(int damage);
+    void notifyPlayerAttack(std::shared_ptr<Enemy> e, int damage);
     void notifyEnemyAttack(std::shared_ptr<Enemy> e, int damage);
     void notifyMiss();
     void notifyDead();
