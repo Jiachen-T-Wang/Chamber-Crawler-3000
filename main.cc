@@ -28,34 +28,37 @@ int main(int argc, const char * argv[]) {
       arg = true;
    }
    
-   
-   shared_ptr<Player> p;
+
+  shared_ptr<Player> p;
    string race;
    while (cin >> race) {
       if (race == "s") {
-         p = make_shared<Shade>(nullptr);
+         auto p = make_shared<Shade>(nullptr);
          break;
       }
       else if (race == "d") {
-         p = make_shared<Drow>(nullptr);
+         auto p = make_shared<Drow>(nullptr);
          break;
       }
       else if (race == "v") {
-         p = make_shared<Vampire>(nullptr);
+         auto p = make_shared<Vampire>(nullptr);
          break;
       }
       else if (race == "g") {
-         p = make_shared<Goblin>(nullptr);
+         auto p = make_shared<Goblin>(nullptr);
          break;
       }
       else if (race == "t") {
-         p = make_shared<Troll>(nullptr);
+         auto p = make_shared<Troll>(nullptr);
          break;
       }
       else if (race == "q") {
          exit(0);
       }
+
    }
+
+ //  auto p = make_shared<Drow>(nullptr);
    
    
    for(int i=0; i<5; i++){
