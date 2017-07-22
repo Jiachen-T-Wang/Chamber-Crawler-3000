@@ -11,7 +11,7 @@ class Potion;
 
 class Drow: public Player{
    public:
-   	Drow(std::shared_ptr<Floor> f);
+   	Drow(Floor* f);
    	void usePotion(std::shared_ptr<Potion> p) override; //potions have their effect magnified by 1.5
    	void beAtkBy(std::shared_ptr<Enemy> e) override;
 };

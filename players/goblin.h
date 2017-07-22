@@ -12,7 +12,7 @@ class Orcs;
 //steals 5 gold from every slain enemy
 class Goblin: public Player{
    public:
-   	Goblin(std::shared_ptr<Floor> f);
+   	Goblin(Floor* f);
    	void beAtkBy(std::shared_ptr<Enemy> e) override;
 };
 

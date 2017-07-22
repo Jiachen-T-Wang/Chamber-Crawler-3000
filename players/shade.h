@@ -10,7 +10,7 @@ class Cell;
 
 class Shade: public Player{
    public:
-   	Shade(std::shared_ptr<Floor> f);
+   	Shade(Floor* f);
    	int showScore() override;
 };
 

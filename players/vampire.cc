@@ -3,7 +3,7 @@
 
 
 //has no maximum HP
-Vampire::Vampire(std::shared_ptr<Floor> f)
+Vampire::Vampire(Floor* f)
 	: Player{INT_MAX, 50, 25, 25, f, "Vampire"}
 	, allerge{false} {}
 

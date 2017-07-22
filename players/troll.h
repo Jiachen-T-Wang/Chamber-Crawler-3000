@@ -11,7 +11,7 @@ class Cell;
 //regains HP every turn 
 class Troll: public Player{
    public:
-   	Troll(std::shared_ptr<Floor> f);
+   	Troll(Floor* f);
    	void roundChange() override;
 };
 

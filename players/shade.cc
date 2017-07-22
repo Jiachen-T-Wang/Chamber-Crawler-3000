@@ -1,6 +1,6 @@
 #include "shade.h"
 
-Shade::Shade(std::shared_ptr<Floor> f): Player{125, 125, 25, 25, f, "Shade"} {}
+Shade::Shade(Floor* f): Player{125, 125, 25, 25, f, "Shade"} {}
 
 int Shade::showScore(){
 	int random = rand() % 2;

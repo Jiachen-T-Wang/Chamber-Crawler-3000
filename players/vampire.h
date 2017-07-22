@@ -11,7 +11,7 @@ class Cell;
 class Vampire: public Player{
 	bool allerge; 
    public:
-   	Vampire(std::shared_ptr<Floor> f);
+   	Vampire(Floor* f);
    	void getAllerge();
    	void attack(std::shared_ptr<Enemy> p) override;  //gains 5 HP every successful attack
    	void attack(std::shared_ptr<Halfling> h) override;
