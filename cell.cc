@@ -60,7 +60,7 @@ void Cell::spawnStair(){
 void Cell::spawnEnemy(){
    srand(time(0));
    int x=rand() % 18;
-   shared_ptr<Enemy> e;
+   shared_ptr<Enemy> e(nullptr);
    if(x>=0 && x<4) e = make_shared<Human>();
    else if(x>=4 && x<7) e = make_shared<Dwarf>();
    else if(x>=7 && x<12) e = make_shared<Halfling>();
