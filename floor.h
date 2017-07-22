@@ -13,7 +13,8 @@ const int enemyNum = 20;
 const int chamberNum = 5;
 class Floor{
    
-  int level;   void addToChamber(Cell *c);
+  int level;
+   void addToChamber(Cell *c);
 
   int length;
   int height;

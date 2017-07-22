@@ -53,7 +53,7 @@ void Cell::spawnPlayer(std::shared_ptr<Player> p){
 }
 
 void Cell::spawnStair(){
-   Stair *s = new Stair();
+   auto s = make_shared<Stair>();
    s->setPos(this);
 }
 

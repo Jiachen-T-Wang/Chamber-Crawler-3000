@@ -79,9 +79,10 @@ int main(int argc, const char * argv[]) {
       
       while (cin >> cmd) {
          if (cmd == "no"|| cmd == "so" ||cmd == "ea" ||cmd == "we"
-             ||cmd == "ne" ||cmd == "nw" ||cmd == "se" ||cmd == "sw")
+             ||cmd == "ne" ||cmd == "nw" ||cmd == "se" ||cmd == "sw"){
             p->moveTo(stringToDir(cmd));
-         
+         f.gothroughBoard(p);
+         }
          else if (cmd == "u") {
             if(cin >> direction) {
                shared_ptr<Object> o =fetchNeighbourObject(p, direction);
@@ -89,6 +90,7 @@ int main(int argc, const char * argv[]) {
                   shared_ptr<Potion> drug;
                   drug.reset((Potion*)o.get());
                   p->usePotion(drug);
+                  f.gothroughBoard(p);
                }
                // else 不是potion
             }
@@ -101,6 +103,7 @@ int main(int argc, const char * argv[]) {
                   shared_ptr<Enemy> e;
                   e.reset((Enemy*)o.get());
                   e->beAtkBy(p);
+                  f.gothroughBoard(p);
                }
             }
          }
