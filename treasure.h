@@ -13,6 +13,7 @@ class Treasure : public Object {
     int getValue() const;
     bool isTreasure() override;
     virtual ~Treasure() = 0;
+    char symbol() override;
 };
 
 #endif

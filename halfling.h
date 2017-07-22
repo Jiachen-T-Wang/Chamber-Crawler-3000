@@ -8,6 +8,7 @@ class Halfling: public Enemy{
 public:
 	Halfling();
 	void beAtkBy(std::shared_ptr<Player> p) override;
+    char symbol() override;
 };
 
 #endif

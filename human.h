@@ -13,6 +13,7 @@ class Human: public Enemy{
 public:
 	Human();
     void beAtkBy(std::shared_ptr<Player> p) override;
+    char symbol() override;
 };
 
 #endif

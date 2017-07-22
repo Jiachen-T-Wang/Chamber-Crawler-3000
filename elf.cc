@@ -11,4 +11,6 @@ void Elf::attack(std::shared_ptr<Drow> d){
 	Enemy::attack(d);
 }
 
+char Elf::symbol(){return 'E';}
+
 

@@ -18,6 +18,7 @@ public:
    int getEffect();
    
    bool isPotion() override;
+    char symbol() override;
 };
 
 #endif

@@ -13,3 +13,5 @@ void Orcs::attack(std::shared_ptr<Goblin> g){
 		getPos()->notifyMiss();
 	}
 }
+
+char Orcs::symbol(){return 'O';}

@@ -10,6 +10,7 @@ public:
 	Merchant();
 	void attack(std::shared_ptr<Player> p) override;
 	void beAtkBy(std::shared_ptr<Player> p) override;
+    char symbol() override;
 };
 
 #endif

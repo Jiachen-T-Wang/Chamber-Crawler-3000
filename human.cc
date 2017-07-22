@@ -25,3 +25,5 @@ void Human::beAtkBy(std::shared_ptr<Player> p){
         getPos()->notifyDead();
     }
 }
+
+char Human::symbol(){return 'H';}
