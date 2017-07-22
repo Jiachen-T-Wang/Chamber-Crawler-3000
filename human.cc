@@ -15,7 +15,7 @@ void Human::beAtkBy(std::shared_ptr<Player> p){
         getPos()->setCont(gold);
         while (1){
             int d = rand() % 8;
-            std::shared_ptr<Cell> nb = getPos()->getNeighbour(numToDir(d));
+            Cell* nb = getPos()->getNeighbour(numToDir(d));
             if(!(nb->getContent())){
                 nb->setCont(make_shared<NormalHoard>());
                 nb->notifyGold();

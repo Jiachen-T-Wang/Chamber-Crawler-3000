@@ -1,6 +1,8 @@
 #include "header.h"
 
-DragonHoard::DragonHoard(): Treasure{"DragonHoard", 6}, dragon{make_shared<Dragon>(this)} {
+DragonHoard::DragonHoard():
+    Treasure{"DragonHoard", 6}
+    , dragon{make_shared<Dragon>(std::shared_ptr<DragonHoard>(this))} {
     int d = rand() % 8;
     dragon->setPos(getPos()->getNeighbour(dragon->numToDir(d)));
 }

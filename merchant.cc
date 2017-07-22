@@ -15,7 +15,7 @@ void Merchant::attack(std::shared_ptr<Player> p){
 
 //static 咋玩
 void Merchant::beAtkBy(std::shared_ptr<Player> p){
-    p->attack(make_shared<Merchant>(this));
+    p->attack(std::shared_ptr<Merchant>(this));
 	angry = true;
 }
 
