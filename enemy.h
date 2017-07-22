@@ -28,12 +28,13 @@ protected:
 public:
    
    Enemy(int HP, int atk, int def, std::string);
+    
     bool isEnemy() override;
    
    bool canMove();
     
   //  bool isPlayer() override;
- //   bool isEnemy() override;
+    //bool isEnemy() override;
 
    void enableMove();
    virtual void move();

@@ -1,8 +1,9 @@
 #ifndef __CHARACTER_H__
 #define __CHARACTER_H__
 
-#include "cell.h"
+
 #include "object.h"
+#include "dir.h"
 
 class Character: public Object{
     
@@ -20,8 +21,8 @@ public:
    
    Character(int HP, int atk, int def);
     
-   virtual bool isPlayer() override;
-   virtual bool isEnemy() override;
+//   virtual bool isPlayer() override;
+//   virtual bool isEnemy() override;
     
    virtual void moveTo(Dir dir);
    void getHurt(int damage);

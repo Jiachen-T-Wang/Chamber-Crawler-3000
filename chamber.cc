@@ -13,7 +13,7 @@ Cell *Chamber::randCell(){
    int x=rand() % size;
    while(cells[x]->getContent()){
       srand(time(0));
-      int x=rand() % size;
+      x=rand() % size;
    }
    return cells[x];
 }

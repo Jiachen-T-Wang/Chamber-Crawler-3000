@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <cmath>
 #include "character.h"
+#include "cell.h"
 
 using namespace std;
 
@@ -34,7 +35,7 @@ void Character::getHurt(int damage){
 bool Character::checkDead(){
   return (HP <= 0);
 }
-
+/*
 bool Character::isEnemy(){
     return false;
 }
@@ -42,3 +43,4 @@ bool Character::isEnemy(){
 bool Character::isPlayer(){
     return false;
 }
+ */
