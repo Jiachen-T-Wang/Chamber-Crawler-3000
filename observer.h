@@ -9,7 +9,7 @@ class Observer {
    
 public:
     virtual void displayPlayerMove(Dir dir)=0;
-    virtual void displayPlayerAtk(int damage)=0;
+    virtual void displayPlayerAtk(std::shared_ptr<Enemy> e, int damage)=0;
     virtual void displayEnemyAtk(std::shared_ptr<Enemy> e, int damage)=0;
     virtual void displayMiss()=0;
     virtual void displayDead()=0;
@@ -17,4 +17,5 @@ public:
     
     virtual ~Observer() = default;
 };
+
 #endif
