@@ -9,7 +9,11 @@ enum class Dir;
 enum class CellType;
 class Object;
 class Player;
+<<<<<<< HEAD
+class Cell: public Subject {//abstract
+=======
 class Cell: public Subject{
+>>>>>>> 6ebfa93a9337091e3a8fb67c3f1d9c71141a7d7a
    
    int row;
    int col;
@@ -41,6 +45,8 @@ public:
    void spawnEnemy();
    void spawnPotion();
    void spawnGold();
+   
+   bool isNeighbour(Cell *c1, Cell *c2);
 };
 
 #endif

@@ -47,8 +47,11 @@ Enemy::Enemy(int HP, int atk, int def, string type)
 bool Enemy::isEnemy() { return true;}
 
 bool Enemy::canMove(){ return moveable; }
-
+void Enemy::enableMove(){
+   moveable = true;
+}
 void Enemy::move(){
+<<<<<<< HEAD
     while(1){
         int d = rand() % 8;
         Cell* nb = getPos()->getNeighbour(numToDir(d));
@@ -57,6 +60,11 @@ void Enemy::move(){
             break;
         }
     }
+=======
+    int dir = rand() % 8;
+    Character::moveTo(numToDir(dir));
+   moveable = false;
+>>>>>>> d6c6d6f69e943cabfa1dcafe9f15509e77ad83af
 }
 
 int Enemy::calcDamage(std::shared_ptr<Player> defender){
@@ -99,6 +107,8 @@ void Enemy::beAtkBy(std::shared_ptr<Player> p){
     getPos()->notifyDead();
   }
 }
-
+bool Enemy::isDragon(){
+   return false;
+}
 Enemy::~Enemy() {}
 

@@ -58,7 +58,12 @@ void Cell::attachNeighbour(Dir dir, Cell* c){
    neighbours[dir]=c;
 }
 
+<<<<<<< HEAD
+std::shared_ptr<Cell> Cell::getNeighbour(Dir dir){
+   
+=======
 Cell* Cell::getNeighbour(Dir dir){
+>>>>>>> 6ebfa93a9337091e3a8fb67c3f1d9c71141a7d7a
    return neighbours[dir];
 }
 
@@ -107,7 +112,11 @@ void Cell::spawnGold(){
    t->setPos(this);
 }
 
-
+bool Cell::isNeighbour(Cell *c1, Cell *c2){
+   int rowDiff = c1->row - c2->row;
+   int colDiff = c1->col - c2->col;
+   return (rowDiff>=-1 && rowDiff<=1 && colDiff>=-1 && colDiff<=1);
+}
 
 
 

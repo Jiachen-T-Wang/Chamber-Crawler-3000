@@ -31,10 +31,15 @@ public:
     bool isEnemy() override;
    
    bool canMove();
+<<<<<<< HEAD
+   void enableMove();
+   void move();
+=======
    void changeMove(bool b);
     
    
    virtual void move();
+>>>>>>> 6ebfa93a9337091e3a8fb67c3f1d9c71141a7d7a
    
    virtual void beAtkBy(std::shared_ptr<Player> p);
    
@@ -42,7 +47,7 @@ public:
    virtual void attack(std::shared_ptr<Drow> d);
    virtual void attack(std::shared_ptr<Vampire> v);
    virtual void attack(std::shared_ptr<Goblin> g);
-   
+   virtual bool isDragon();
    virtual ~Enemy()=0;
 };
 

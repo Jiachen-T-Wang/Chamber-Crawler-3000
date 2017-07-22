@@ -4,7 +4,7 @@
 #include "enemy.h"
 #include "enemies/halfling.h"
 #include "character.h"
-#include "Treasure/treasure.h"
+#include "treasure/treasure.h"
 using namespace std;
 
 Player::Player(int HP, int atk, int def, int maxHP, Floor* f, std::string race)
