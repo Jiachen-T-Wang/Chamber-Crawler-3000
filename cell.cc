@@ -108,7 +108,7 @@ char Cell::getSymbol(){
    else if(type==CellType::Empty) return ' ';
    else if(type==CellType::Passage) return '#';
    else if(type==CellType::Wall) return '-';
-   else if(type==CellType::WallVertical) return '|';
+   else return '|';
 }
 
 
