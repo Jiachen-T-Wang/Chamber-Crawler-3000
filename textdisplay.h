@@ -21,7 +21,7 @@ class TextDisplay: public Observer {
   TextDisplay(std::string fileName, std::shared_ptr<Player> p);
   void displayBoard();
   void displayPlayerMove(Dir dir) override;
-  void displayPlayerAtk(int damage) override;
+  void displayPlayerAtk(std::shared_ptr<Enemy> e, int damage) override;
   void displayEnemyAtk(std::shared_ptr<Enemy> e, int damage) override;
   void displayMiss() override;
   void displayDead() override;

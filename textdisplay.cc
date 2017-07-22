@@ -62,9 +62,9 @@ void TextDisplay::displayPlayerMove(Dir dir) {
   cout << "PC moves " << dirtostr(dir) << "." << endl;
 }
 
-void TextDisplay::displayPlayerAtk(int damage) {
+void TextDisplay::displayPlayerAtk(std::shared_ptr<Enemy> e, int damage) {
   displayBoard();
-  cout << "PC has made" << damage << "damage!" << endl;
+  cout << "PC has made" << damage << "damage to " << e->getType() << "!" << endl;
 }
 
 void TextDisplay::displayMiss() {
