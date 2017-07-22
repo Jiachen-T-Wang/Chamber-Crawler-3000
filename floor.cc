@@ -18,7 +18,7 @@ void Floor::addToChamber(Cell *c){
    
 }
 
-Chamber *Floor::randChamber(){
+std::shared_ptr<Chamber> Floor::randChamber(){
    srand(time(0));
    int x=rand() % chamberNum;
    return chambers[x];
@@ -26,11 +26,11 @@ Chamber *Floor::randChamber(){
 
 void Floor::createObjects(shared_ptr<Player>p){
    //first player
-   Chamber *ch_player = randChamber();
+   std::shared_ptr<Chamber> ch_player = randChamber();
    ch_player->addPlayer(p);
    
    //second stairway
-   Chamber *ch_stair = randChamber();
+   std::shared_ptr<Chamber> ch_stair = randChamber();
    while(ch_stair == ch_player) ch_stair = randChamber();
    ch_stair->addStair();
    

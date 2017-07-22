@@ -33,11 +33,19 @@ int main(int argc, const char * argv[]) {
    string race;
    while (cin >> race) {
       if (race == "s") {
+<<<<<<< HEAD
          auto p = make_shared<Shade>(nullptr);
          break;
       }
       else if (race == "d") {
          auto p = make_shared<Drow>(nullptr);
+=======
+          p = make_shared<Shade>(nullptr);
+         break;
+      }
+      else if (race == "d") {
+          p = make_shared<Drow>(nullptr);
+>>>>>>> c80b65533432bcecbcc6c52563aa2674d7e96d11
          break;
       }
       else if (race == "v") {

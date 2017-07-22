@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <string>
-#include "../player.h"
+#include "player.h"
 
 class Floor;
 class Cell;

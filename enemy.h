@@ -3,10 +3,10 @@
 
 #include "character.h"
 #include "player.h"
-#include "players/vampire.h"
-#include "players/drow.h"
-#include "players/goblin.h"
-#include "Treasure/treasure.h"
+#include "vampire.h"
+#include "drow.h"
+#include "goblin.h"
+#include "treasure.h"
 #include "dir.h"
 
 #include <memory>

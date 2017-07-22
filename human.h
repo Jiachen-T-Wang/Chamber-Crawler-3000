@@ -1,7 +1,7 @@
 #ifndef __HUMAN_H__
 #define __HUMAN_H__
 
-#include "../enemy.h"
+#include "enemy.h"
 
 class Floor;
 

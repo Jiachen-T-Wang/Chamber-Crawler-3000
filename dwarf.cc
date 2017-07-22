@@ -3,7 +3,7 @@
 Dwarf::Dwarf()
 	: Enemy{100, 20, 30, "Dwarf"} {}
 
-Dwarf::attack(std::shared_ptr<Vampire> v){
+void Dwarf::attack(std::shared_ptr<Vampire> v){
 	int notMiss = rand() % 2;  
 	if (notMiss){
 		v->getAllerge();

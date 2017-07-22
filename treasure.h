@@ -1,6 +1,6 @@
 #ifndef __TREASURE_H__
 #define __TREASURE_H__
-#include "../object.h"
+#include "object.h"
 
 class Dragon;
 
