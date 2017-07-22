@@ -28,16 +28,22 @@ int main(int argc, const char * argv[]) {
       arg = true;
    }
    
-   
-   shared_ptr<Player> p;
+
+  shared_ptr<Player> p;
    string race;
    while (cin >> race) {
       if (race == "s") {
+         p = make_shared<Shade>(nullptr);
+         break;
+      }
+      else if (race == "d") {
+         
           p = make_shared<Shade>(nullptr);
          break;
       }
       else if (race == "d") {
           p = make_shared<Drow>(nullptr);
+
          break;
       }
       else if (race == "v") {
@@ -49,14 +55,14 @@ int main(int argc, const char * argv[]) {
          break;
       }
       else if (race == "t") {
-         p = make_shared<Troll>(nullptr);
+        p = make_shared<Troll>(nullptr);
          break;
       }
       else if (race == "q") {
          exit(0);
       }
+
    }
-   
    
    for(int i=0; i<5; i++){
       
