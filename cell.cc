@@ -58,12 +58,7 @@ void Cell::attachNeighbour(Dir dir, Cell* c){
    neighbours[dir]=c;
 }
 
-<<<<<<< HEAD
-std::shared_ptr<Cell> Cell::getNeighbour(Dir dir){
-   
-=======
 Cell* Cell::getNeighbour(Dir dir){
->>>>>>> 6ebfa93a9337091e3a8fb67c3f1d9c71141a7d7a
    return neighbours[dir];
 }
 
