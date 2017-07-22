@@ -104,4 +104,6 @@ void Player::PickGold(std::shared_ptr<Treasure> gold){
 
 void Player::roundChange(){}
 
+char Player::symbol(){return '@';}
+
 Player::~Player() {}
