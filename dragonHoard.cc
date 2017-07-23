@@ -1,7 +1,7 @@
 #include "header.h"
 
 DragonHoard::DragonHoard():
-Treasure{"DragonHoard", 6}, dragon{nullptr} {
+Treasure{"DragonHoard", 6}, dragon{nullptr}, canPick{false} {
   //  dragon->setPos(this->getPos()->getNeighbour(dragon->numToDir(d)));
 }
 
@@ -23,13 +23,10 @@ std::shared_ptr<Dragon> DragonHoard::getDragon(){
 }
 
 bool DragonHoard::canPickUp(){
-    if(dragon.get() != nullptr)
-        return false;
-    else
-        return true;
+    return canPick;
 }
 
 void DragonHoard::removeDragon(){
-    dragon = nullptr;
+    canPick = true;
 }
 

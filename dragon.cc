@@ -24,7 +24,7 @@ void Dragon::beAtkBy(Player* p){
         }
         hoard->removeDragon();
  //       gold->setPos(getPos());
- //       getPos()->setCont(gold);
+        getPos()->setCont(nullptr);
         getPos()->notifyDead();
     }
 }

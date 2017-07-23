@@ -6,6 +6,7 @@ class Dragon;
 
 class DragonHoard : public Treasure {
 	std::shared_ptr<Dragon> dragon;
+    bool canPick;
  public:
  	DragonHoard();
     std::shared_ptr<Dragon> getDragon();
