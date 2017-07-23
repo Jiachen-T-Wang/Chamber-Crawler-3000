@@ -64,7 +64,7 @@ int Enemy::calcDamage(Player* defender){
 
 void Enemy::attack(Player* player){
   int notMiss = rand() % 2;
-  if (notMiss){
+  if (notMiss == 1){
     int damage = calcDamage(player);
     player->getHurt(damage);
     getPos()->notifyEnemyAttack(this, damage);
