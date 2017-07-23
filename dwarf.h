@@ -9,7 +9,7 @@ class Floor;
 class Dwarf: public Enemy{
 public:
 	Dwarf();
-	void attack(std::shared_ptr<Vampire> v) override;
+	void attack(Vampire* v) override;
     char symbol() override;
 };
 
