@@ -40,27 +40,6 @@ void Player::usePotion(Potion* p){
 }
 
 void Player::moveTo(Dir dir){
-<<<<<<< HEAD
-    Cell* nb = getPos()->getNeighbour(dir);
-    shared_ptr<Object> cont = nb->getContent();
-    if(cont.get() && cont->isTreasure()){
-        Treasure* gd = (Treasure*)cont.get();
-        this->PickGold(gd);
-        nb->setCont(nullptr);
-        
-    }
-    
-    if(cont.get() && cont->isStair()){
-       changeFloor();
-    } else if(nb->getContent() == nullptr && nb->canStand()){
-        Character::moveTo(dir);
-        getPos()->notifyPlayerMove(dir);
-    }
-    
-    else{
-        getPos()->notifyCannotMove();
-    }
-=======
    Cell* nb = getPos()->getNeighbour(dir);
    shared_ptr<Object> cont = nb->getContent();
    if(cont.get() && cont->isTreasure()){
@@ -68,7 +47,9 @@ void Player::moveTo(Dir dir){
       this->PickGold(gd);
       nb->setCont(nullptr);
       
-   } else if(cont.get() && cont->isStair()){
+   }
+    
+   if(cont.get() && cont->isStair()){
       changeFloor();
    } else if(cont.get() == nullptr && nb->canStand()){
       Character::moveTo(dir);
@@ -78,7 +59,7 @@ void Player::moveTo(Dir dir){
    else{
       getPos()->notifyCannotMove();
    }
->>>>>>> f337833b1d40612b2113677d972439241c419de2
+
 }
 
 int Player::showFloor(){
