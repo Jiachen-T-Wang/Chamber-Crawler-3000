@@ -59,12 +59,12 @@ void Enemy::move(){
 }
 
 int Enemy::calcDamage(Player* defender){
-   return ceil((100/(100+defender->realDef())) * this->getAtk());
+   return ceil((100 * this->getAtk()/(100+defender->realDef())));
 }
 
 void Enemy::attack(Player* player){
   int notMiss = rand() % 2;
-  if (notMiss){
+  if (notMiss == 1){
     int damage = calcDamage(player);
     player->getHurt(damage);
     getPos()->notifyEnemyAttack(this, damage);
@@ -93,6 +93,7 @@ void Enemy::beAtkBy(Player* p){
       p->incScore(5);
     }
     gold->setPos(getPos());
+    getPos()->setCont(gold);
     getPos()->notifyDead();
   }
 }

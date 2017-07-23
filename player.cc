@@ -73,7 +73,7 @@ int Player::realDef(){
 }
 
 int Player::calcDamage(Enemy* defender){
-    return ceil((100/(100+defender->getDef())) * this->realAtk());
+    return ceil((100 * this->realAtk()/(100+defender->getDef())) );
 }
 
 
