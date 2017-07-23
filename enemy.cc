@@ -50,7 +50,7 @@ void Enemy::move(){
     while(1){
         int d = rand() % 8;
         Cell* nb = getPos()->getNeighbour(numToDir(d));
-        if(!nb || !(nb->canStand())){
+        if((nb->getContent().get() == nullptr) || (nb->canStandByAll())){
             Character::moveTo(numToDir(d));
             break;
         }
