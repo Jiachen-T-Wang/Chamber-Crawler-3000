@@ -21,7 +21,7 @@ public:
    virtual bool isStair();
    virtual bool isPotion();
    virtual bool isTreasure();
-    virtual char symbol()=0;
+    virtual char symbol();
    
 };
 

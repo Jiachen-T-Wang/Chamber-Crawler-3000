@@ -8,7 +8,7 @@ void Halfling::beAtkBy(std::shared_ptr<Player> p){
         if(p->race == "Goblin"){
             p->incScore(5);
         }
-        getPos()->setCont(gold);
+        gold->setPos(getPos());
         getPos()->notifyDead();
     }
 }

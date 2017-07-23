@@ -4,7 +4,7 @@
 
 //has no maximum HP
 Vampire::Vampire(Floor* f)
-	: Player{INT_MAX, 50, 25, 25, f, "Vampire"}
+	: Player{50, INT_MAX, 25, 25, f, "Vampire"}
 	, allerge{false} {}
 
 void Vampire::getAllerge(){

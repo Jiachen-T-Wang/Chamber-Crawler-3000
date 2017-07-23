@@ -12,7 +12,7 @@ void Human::beAtkBy(std::shared_ptr<Player> p){
         if(p->race == "Goblin"){
             p->incScore(5);
         }
-        getPos()->setCont(gold);
+        gold->setPos(getPos());
         while (1){
             int d = rand() % 8;
             Cell* nb = getPos()->getNeighbour(numToDir(d));
