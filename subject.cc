@@ -8,11 +8,19 @@ void Subject::notifyPlayerMove(Dir dir){
     observers[TD]->displayPlayerMove(dir);
 }
 
+<<<<<<< HEAD
 void Subject::notifyPlayerAttack(Enemy* e, int damage){
     observers[TD]->displayPlayerAtk(e, damage);
 }
 
 void Subject::notifyEnemyAttack(Enemy* e, int damage){
+=======
+void Subject::notifyPlayerAttack(Enemy *e, int damage){
+    observers[TD]->displayPlayerAtk(e, damage);
+}
+
+void Subject::notifyEnemyAttack(Enemy *e, int damage){
+>>>>>>> 796fcab1c92d652deb719bd59f12f522e8c7416c
 	observers[TD]->displayEnemyAtk(e, damage);
 }
 

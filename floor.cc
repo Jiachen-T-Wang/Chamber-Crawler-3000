@@ -19,13 +19,14 @@ void Floor::addToChamber(Cell *c){
 }
 
 std::shared_ptr<Chamber> Floor::randChamber(){
-   //srand(time(0));
+   //srand(time(NULL));
    int x=rand() % chamberNum;
    return chambers[x];
 }
 
 void Floor::createObjects(shared_ptr<Player>p){
    //first player
+   srand(time(0));
    std::shared_ptr<Chamber> ch_player = randChamber();
    ch_player->addPlayer(p);
    
