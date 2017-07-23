@@ -41,24 +41,24 @@ int main(int argc, const char * argv[]) {
   cout << "q - quit" << endl;
    while (cin >> race) {
       if (race == "s") {
-         p = make_shared<Shade>(nullptr);
+         p = make_shared<Shade>();
          break;
       }
       else if (race == "d") {
-          p = make_shared<Drow>(nullptr);
+          p = make_shared<Drow>();
 
          break;
       }
       else if (race == "v") {
-         p = make_shared<Vampire>(nullptr);
+         p = make_shared<Vampire>();
          break;
       }
       else if (race == "g") {
-         p = make_shared<Goblin>(nullptr);
+         p = make_shared<Goblin>();
          break;
       }
       else if (race == "t") {
-        p = make_shared<Troll>(nullptr);
+        p = make_shared<Troll>();
          break;
       }
       else if (race == "q") {
@@ -114,6 +114,8 @@ int main(int argc, const char * argv[]) {
          else if (cmd == "q") {
             exit(0);
          }
+         if(p->getGoToNext()) break;
+         if(p->checkDead()) p->getPos()->notifyPlayerDead();
       }
    }
    
