@@ -83,9 +83,19 @@ Floor::Floor(int l, shared_ptr<Player>p):level{l}, length{79}, height{25}{
          cellLine.emplace_back(c);
       }
       board.emplace_back(cellLine);
-     for(int i=0;i<length; i++) { addToChamber(&cellLine[i]); } // link cell to corresponding chamber
       j++;
    }
+   
+  
+   // link cell to corresponding chamber
+    for(int i=0;i<height; i++) {
+       for(int j=0; j<length; j++)
+       addToChamber(&board[i][j]);
+    }
+   
+   
+   
+   
    
    // add neighbors to cell
    for(int row=0; row<height; ++row){
