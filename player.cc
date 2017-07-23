@@ -45,7 +45,7 @@ void Player::moveTo(Dir dir){
         nb->setCont(nullptr);
         
     }
-    if(nb->canStand()){
+    if(nb->canStand() && cont.get() == nullptr){
         Character::moveTo(dir);
         getPos()->notifyPlayerMove(dir);
     }
