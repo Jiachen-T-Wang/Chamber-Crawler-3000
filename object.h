@@ -4,6 +4,8 @@
 #include <memory>
 
 class Cell;
+class Player;
+class Enemy;
 
 class Object{
    
@@ -22,6 +24,8 @@ public:
    virtual bool isPotion();
    virtual bool isTreasure();
     virtual char symbol();
+    
+ //   virtual void beAtkBy()
    
 };
 
