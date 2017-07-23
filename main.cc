@@ -102,6 +102,7 @@ int main(int argc, const char * argv[]) {
                   Enemy *e =(Enemy*)o.get();
                   e->beAtkBy(p.get());
                   f.gothroughBoard(p);
+                  f.display();
                }
             }
          }
@@ -114,8 +115,8 @@ int main(int argc, const char * argv[]) {
          else if (cmd == "q") {
             exit(0);
          }
-         if(p->getGoToNext()) break;
-         if(p->checkDead()) p->getPos()->notifyPlayerDead();
+         //if(p->getGoToNext()) break;
+         //if(p->checkDead()) p->getPos()->notifyPlayerDead();
       }
    }
    

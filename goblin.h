@@ -12,7 +12,7 @@ class Orcs;
 //steals 5 gold from every slain enemy
 class Goblin: public Player{
    public:
-   	Goblin(Floor* f);
+   	Goblin();
    	void beAtkBy(Enemy* e) override;
 };
 

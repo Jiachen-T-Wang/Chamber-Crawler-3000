@@ -11,7 +11,7 @@ class Potion;
 
 class Drow: public Player{
    public:
-   	Drow(Floor* f);
+   	Drow();
    	void usePotion(Potion* p) override; //potions have their effect magnified by 1.5
    	void beAtkBy(Enemy* e) override;
 };
