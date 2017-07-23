@@ -1,7 +1,7 @@
 #include "header.h"
 
 Dragon::Dragon(std::shared_ptr<DragonHoard> hoard)
-	: Enemy{150, 20, 20, "Dragon"}, hoard{hoard} {}
+: Enemy{150, 20, 20, "Dragon"}, hoard{std::weak_ptr<DragonHoard>(hoard)} {}
 
 
 std::weak_ptr<DragonHoard> Dragon::getHoard(){
