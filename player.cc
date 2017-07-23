@@ -109,6 +109,8 @@ void Player::setFloor(Floor* f){
 
 int Player::showScore(){ return score; }
 
+int Player::getGold(){ return score;}
+
 void Player::incScore(int value){ score += value; }
 
 void Player::PickGold(Treasure* gold){

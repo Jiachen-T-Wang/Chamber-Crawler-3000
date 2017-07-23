@@ -22,7 +22,7 @@ protected:
    int calcDamage(Enemy* defender);
    
 public:
-   
+    int getGold();
    bool isPlayer() override;
    //    bool isEnemy() override;
    const std::string race;
