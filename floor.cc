@@ -147,13 +147,13 @@ void Floor::gothroughBoard(shared_ptr<Player>p){
                
                //dragon
                
-               } else if(e->isDragon()){
-                 Dragon *d = (Dragon*)e;
-                DragonHoard *h = d->getHoard();
-                if(p->getPos()->isNeighbour(h->getPos()))
-                p->beAtkBy(e);
-                
-                
+            } else if(e->isDragon()){
+               Dragon *d = (Dragon*)e;
+               DragonHoard *h = d->getHoard();
+               if(p->getPos()->isNeighbour(h->getPos()))
+                  p->beAtkBy(e);
+               
+               
                
                /*
                 Dragon *d = (Dragon*)e;
@@ -170,13 +170,14 @@ void Floor::gothroughBoard(shared_ptr<Player>p){
       }
    }
    // enable enemies to move
-   for(auto cellLine:board){
-      for(auto cell:cellLine){
-         shared_ptr<Object> o = cell.getContent();
+   
+   for(int i=0; i<height; i++){
+      for(int j=0; j<length; j++){
+         Cell &cell = board[i][j];
+         shared_ptr<Object> o=cell.getContent();
          if(o.get()==nullptr) continue;
          else if(o->isEnemy()) {
-            shared_ptr<Enemy> e;
-            e.reset((Enemy*)o.get());
+            Enemy *e =(Enemy *)o.get();
             e->enableMove();
          }
       }
