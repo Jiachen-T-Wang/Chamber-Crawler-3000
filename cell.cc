@@ -49,11 +49,13 @@ Cell* Cell::getNeighbour(Dir dir){
 }
 
 void Cell::spawnPlayer(std::shared_ptr<Player> p){
+    this->setCont(p);
    p->setPos(this);
 }
 
 void Cell::spawnStair(){
    auto s = make_shared<Stair>();
+    this->setCont(s);
    s->setPos(this);
 }
 
