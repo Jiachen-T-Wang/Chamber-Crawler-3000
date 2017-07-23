@@ -15,7 +15,7 @@ void Floor::addToChamber(Cell *c){
            (x>=37 && x<=75 && y>=19 && y<=21 )) chambers[2]->addCell(c);
    else if(x>=4 && x<= 24 && y>=15 && y<=21) chambers[3]->addCell(c);
    else if(x>=38 && x<= 49 && y>=10 && y<=12) chambers[4]->addCell(c);
-  // cout << "add cell row "<< y<<" col "<<  x << endl;
+   // cout << "add cell row "<< y<<" col "<<  x << endl;
 }
 
 std::shared_ptr<Chamber> Floor::randChamber(){
@@ -68,11 +68,11 @@ void Floor::addNeighbours(Cell &c, Dir dir, int row, int col){
 
 
 Floor::Floor(int l, shared_ptr<Player>p):level{l}, length{79}, height{25}{
-  
+   
    p->setFloor(this);
    td = make_shared<TextDisplay>("emptyCC3K.txt", p, this);
    for(int i=0; i<chamberNum; ++i) {
-       chambers.emplace_back(make_shared<Chamber>());
+      chambers.emplace_back(make_shared<Chamber>());
    }
    ifstream fs {"emptyCC3K.txt"};
    string line;
@@ -88,12 +88,12 @@ Floor::Floor(int l, shared_ptr<Player>p):level{l}, length{79}, height{25}{
       j++;
    }
    
-  
+   
    // link cell to corresponding chamber
-    for(int i=0;i<height; i++) {
-       for(int j=0; j<length; j++)
-       addToChamber(&board[i][j]);
-    }
+   for(int i=0;i<height; i++) {
+      for(int j=0; j<length; j++)
+         addToChamber(&board[i][j]);
+         }
    
    
    
@@ -132,28 +132,40 @@ void Floor::gothroughBoard(shared_ptr<Player>p){
          shared_ptr<Object> o = cell.getContent();
          if(o.get()==nullptr) continue;
          else if(o->isEnemy()) {
-            /*shared_ptr<Enemy> e;
-            e.reset((Enemy*)o.get());
-            if(p->getPos()->isNeighbour(e->getPos())){
-               p->beAtkBy(e);*/
-            Enemy *e=(Enemy*)o.get();
-            if(p->getPos()->isNeighbour(e->getPos())){
-               p->beAtkBy(std::shared_ptr<Enemy>(e));
+            //shared_ptr<Enemy> e;
+            //e.reset((Enemy*)o.get());
+            if(p->getPos()->isNeighbour(o->getPos())){
+               p->beAtkBy(shared_ptr<Enemy>((Enemy *)o.get()));
                
-            } else if(e->isDragon()){
-               /*shared_ptr<Dragon> d;
-               d.reset((Dragon*)o.get());
-               shared_ptr<DragonHoard> h {d->getHoard()};
-               if(p->getPos()->isNeighbour(h->getPos()))
-                  p->beAtkBy(d);*/
-               Dragon *d = (Dragon*)e;
-               shared_ptr<DragonHoard> h {d->getHoard()};
-               if(p->getPos()->isNeighbour(h->getPos()))
-                  p->beAtkBy(std::shared_ptr<Dragon>(d));//enemy??
+               /*  Enemy *e=(Enemy*)o.get();
+                if(p->getPos()->isNeighbour(e->getPos())){
+                p->beAtkBy(std::shared_ptr<Enemy>(e));
+                */
+               //   e.reset((Object*)e.get());
+               
+               
+               
+               //dragon
+               /*} else if(shared_ptr<Enemy>((Enemy *)o.get())->isDragon()){
+                shared_ptr<Dragon> d;
+                d.reset((Dragon*)o.get());
+                shared_ptr<DragonHoard> h {d->getHoard()};
+                if(p->getPos()->isNeighbour(h->getPos()))
+                p->beAtkBy(d);
+                
+                */
+               
+               /*
+                Dragon *d = (Dragon*)e;
+                shared_ptr<DragonHoard> h {d->getHoard()};
+                if(p->getPos()->isNeighbour(h->getPos()))
+                p->beAtkBy(std::shared_ptr<Dragon>(d));//enemy??
+                */
                
             }else {
-               if(e->canMove()) e->move();
+               if(shared_ptr<Enemy>((Enemy *)o.get())->canMove()) shared_ptr<Enemy>((Enemy *)o.get())->move();
             }
+            //   e.reset(static_cast<Object*>(e.get()));//cast back
          }
       }
    }
@@ -174,7 +186,7 @@ void Floor::gothroughBoard(shared_ptr<Player>p){
 
 
 void Floor::display() {
-  
+   
    td->displayBoard();
 }
 
