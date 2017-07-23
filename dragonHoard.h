@@ -9,6 +9,7 @@ class DragonHoard : public Treasure {
  public:
  	DragonHoard();
     std::shared_ptr<Dragon> getDragon();
+    void setDragon() override;
 };
 
 #endif

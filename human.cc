@@ -7,7 +7,7 @@ Human::Human()
     }
 
 void Human::beAtkBy(std::shared_ptr<Player> p){
-    p->attack(std::shared_ptr<Human>(this));
+    p->attack(this);
     if(checkDead()){
         if(p->race == "Goblin"){
             p->incScore(5);

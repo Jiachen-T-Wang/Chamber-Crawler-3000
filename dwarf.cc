@@ -9,7 +9,7 @@ void Dwarf::attack(std::shared_ptr<Vampire> v){
 		v->getAllerge();
 		int damage = calcDamage(v);
 		v->getHurt(damage);
-		getPos()->notifyEnemyAttack(std::shared_ptr<Dwarf>{this}, damage);
+		getPos()->notifyEnemyAttack(this, damage);
 	}
 	else{
 		getPos()->notifyMiss();

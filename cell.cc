@@ -60,7 +60,7 @@ void Cell::spawnStair(){
 }
 
 void Cell::spawnEnemy(){
-  // srand(time(0));
+   //srand(time(0));
    int x=rand() % 18;
    shared_ptr<Enemy> e(nullptr);
    if(x>=0 && x<4) e = make_shared<Human>();
@@ -74,7 +74,7 @@ void Cell::spawnEnemy(){
 }
 
 void Cell::spawnPotion(){
-  // srand(time(0));
+   // srand(time(0));
    int x=rand() % 6;
    shared_ptr<Potion> p;
    if(x==0) p = make_shared<Potion>(10, "Hp");
@@ -92,12 +92,14 @@ void Cell::spawnGold(){
   // srand(time(0));
    int x=rand() % 8;
    shared_ptr<Treasure> t;
-   //if(x==0) t = make_shared<DragonHoard>();
-   //else
-  if(x==1 || x==2) t = make_shared<SmallGold>();
+    if(x==0){
+        t = make_shared<DragonHoard>();
+    }
+   else if(x==1 || x==2) t = make_shared<SmallGold>();
    else t = make_shared<NormalHoard>();
     this->setCont(t);
-   t->setPos(this);
+    t->setPos(this);
+    t->setDragon();
 }
 
 bool Cell::isNeighbour(Cell *c){

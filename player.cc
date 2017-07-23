@@ -60,18 +60,18 @@ int Player::realDef(){
   return (getDef() + defEffect < 0) ? 0 : getDef() + defEffect;
 }
 
-int Player::calcDamage(std::shared_ptr<Enemy> defender){
+int Player::calcDamage(Enemy* defender){
     return ceil((100/(100+defender->getDef())) * this->realAtk());
 }
 
 
-void Player::attack(std::shared_ptr<Enemy> enemy){
+void Player::attack(Enemy* enemy){
 	int damage = calcDamage(enemy);
 	enemy->getHurt(damage);
 	getPos()->notifyPlayerAttack(enemy, damage);
 }
 
-void Player::attack(std::shared_ptr<Halfling> h){
+void Player::attack(Halfling* h){
 	int notMiss = rand() % 2;  
 	if (notMiss){
         int damage = calcDamage(h);
@@ -84,7 +84,7 @@ void Player::attack(std::shared_ptr<Halfling> h){
 }
 
 
-void Player::beAtkBy(std::shared_ptr<Enemy> enemy){
+void Player::beAtkBy(Enemy* enemy){
     enemy->attack(std::shared_ptr<Player>(this));
 }
 

@@ -14,7 +14,7 @@ void Vampire::getAllerge(){
 //gains 5 HP every successful attack, wow!
 //but if it allerge, then lose 5 HP
 //may need to implement another function to handle the case of halfling!!!
-void Vampire::attack(std::shared_ptr<Enemy> e){
+void Vampire::attack(Enemy* e){
 	Player::attack(e);
 	if (allerge)
 		getHurt(5);    
@@ -22,7 +22,7 @@ void Vampire::attack(std::shared_ptr<Enemy> e){
 		getHurt(-5);
 }
 
-void Vampire::attack(std::shared_ptr<Halfling> h){
+void Vampire::attack(Halfling* h){
 	int notMiss = rand() % 2;  
 	if (notMiss){
 		int damage = calcDamage(h);
@@ -38,6 +38,6 @@ void Vampire::attack(std::shared_ptr<Halfling> h){
 	}
 }
 
-void Vampire::beAtkBy(std::shared_ptr<Enemy> e){
+void Vampire::beAtkBy(Enemy* e){
     e->attack(std::shared_ptr<Vampire>(this));
 }

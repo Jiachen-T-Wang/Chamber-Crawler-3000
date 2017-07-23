@@ -9,7 +9,7 @@ void Drow::usePotion(std::shared_ptr<Potion> p){
     else if (p->getType() == "Def") setDefEffect(1.5 * p->getEffect());
 }
 
-void Drow::beAtkBy(std::shared_ptr<Enemy> e){
+void Drow::beAtkBy(Enemy* e){
     e->attack(std::shared_ptr<Drow>(this));
 }
 

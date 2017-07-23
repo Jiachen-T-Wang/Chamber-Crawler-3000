@@ -4,14 +4,14 @@
 #include "enemy.h"
 
 class DragonHoard;
+class Treasure;
 
 class Dragon: public Enemy{
-	std::weak_ptr<DragonHoard> hoard;
+	DragonHoard* hoard;
 public:
-    Dragon(std::shared_ptr<DragonHoard> hoard);
+    Dragon(DragonHoard* hoard);
     bool isDragon() override;
-	Dragon(std::weak_ptr<DragonHoard> hoard);
-    std::weak_ptr<DragonHoard> getHoard();
+    DragonHoard* getHoard();
     void move() override;
     char symbol() override;
 };
