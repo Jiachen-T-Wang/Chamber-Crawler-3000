@@ -102,7 +102,11 @@ int main(int argc, const char * argv[]) {
                   Enemy *e =(Enemy*)o.get();
                   e->beAtkBy(p.get());
                   f.gothroughBoard(p);
+<<<<<<< HEAD
                   f.display();
+=======
+                 f.display();
+>>>>>>> 51682b3bde9c233be17db6c7b83e4e82622ddac6
                }
             }
          }

@@ -101,4 +101,9 @@ void TextDisplay::displayUsePotion(Potion *p) {
   else if (p->getType() == "Def") words += " Defense! ";
   else words += " HP! ";
 }
+
+void TextDisplay::displayPlayerDead() {
+  words += "You Are DEAD! ";
+}
+
 TextDisplay::~TextDisplay() {}
