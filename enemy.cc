@@ -27,7 +27,7 @@ Dir Enemy::numToDir(int d){
 }
 
 Enemy::Enemy(int HP, int atk, int def, string type)
-: Character{HP, atk, def}, moveable{false}, type{type} {
+: Character{HP, atk, def}, moveable{true}, type{type} {
   int x=rand() % 2;
   if(x){
     gold = make_shared<SmallGold>();
