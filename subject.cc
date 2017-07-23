@@ -32,6 +32,10 @@ void Subject::notifyGold(){
 void Subject::notifyCannotMove(){
   observers[TD]->displayCannotMove();
 }
+
+void Subject::notifyUsePotion(Potion* p){
+    observers[TD]->displayUsePotion();
+}
 void Subject::attach(std::shared_ptr<Observer> o) { observers.emplace_back(o); }
 
 
