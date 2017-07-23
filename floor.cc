@@ -11,7 +11,7 @@ void Floor::addToChamber(Cell *c){
    else if((x>=39 && x<= 61 && y>=3 && y<=6) || (y==5 && x>=62 && x<=69) ||
            (y==6 && x>=62 && x<=72) || (x>=61 && x<=75 && y>=7 && y<=12))
       chambers[1]->addCell(c);
-   else if((x>=65 && x<=75 && x>=16 && x<=18) ||
+   else if((x>=65 && x<=75 && y>=16 && y<=18) ||
            (x>=37 && x<=75 && y>=19 && y<=21 )) chambers[2]->addCell(c);
    else if(x>=4 && x<= 24 && y>=15 && y<=21) chambers[3]->addCell(c);
    else if(x>=38 && x<= 49 && y>=10 && y<=12) chambers[4]->addCell(c);
