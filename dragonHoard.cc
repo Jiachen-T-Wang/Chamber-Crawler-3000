@@ -22,3 +22,14 @@ std::shared_ptr<Dragon> DragonHoard::getDragon(){
     return dragon;
 }
 
+bool DragonHoard::canPickUp(){
+    if(dragon.get() != nullptr)
+        return false;
+    else
+        return true;
+}
+
+void DragonHoard::removeDragon(){
+    dragon = nullptr;
+}
+

@@ -16,3 +16,16 @@ void Dragon::move(){}
 
 char Dragon::symbol() {return 'D';}
 
+void Dragon::beAtkBy(Player* p){
+    p->attack(this);
+    if(checkDead()){
+        if(p->race == "Goblin"){
+            p->incScore(5);
+        }
+        hoard->removeDragon();
+ //       gold->setPos(getPos());
+ //       getPos()->setCont(gold);
+        getPos()->notifyDead();
+    }
+}
+

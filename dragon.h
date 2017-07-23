@@ -14,6 +14,7 @@ public:
     DragonHoard* getHoard();
     void move() override;
     char symbol() override;
+    void beAtkBy(Player* p) override;
 };
 
 #endif

@@ -14,4 +14,6 @@ char Treasure::symbol(){ return 'G';};
 
 void Treasure::setDragon(){}
 
+bool Treasure::canPickUp(){ return true;}
+
 Treasure::~Treasure() {}

@@ -10,6 +10,8 @@ class DragonHoard : public Treasure {
  	DragonHoard();
     std::shared_ptr<Dragon> getDragon();
     void setDragon() override;
+    void removeDragon();
+    bool canPickUp() override;
 };
 
 #endif
