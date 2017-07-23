@@ -22,6 +22,7 @@ void Human::beAtkBy(Player* p){
                 break;
             }
         }
+        getPos()->setCont(gold);
         getPos()->notifyDead();
     }
 }
