@@ -88,7 +88,7 @@ void Cell::spawnGold(){
    int x=rand() % 8;
    shared_ptr<Treasure> t;
    if(x==0) t = make_shared<DragonHoard>();
-   if(x==1 || x==2) t = make_shared<SmallGold>();
+   else if(x==1 || x==2) t = make_shared<SmallGold>();
    else t = make_shared<NormalHoard>();
    t->setPos(this);
 }
