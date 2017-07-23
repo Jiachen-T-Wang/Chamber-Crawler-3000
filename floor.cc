@@ -15,7 +15,6 @@ void Floor::addToChamber(Cell *c){
            (x>=37 && x<=75 && y>=19 && y<=21 )) chambers[2]->addCell(c);
    else if(x>=4 && x<= 24 && y>=15 && y<=21) chambers[3]->addCell(c);
    else if(x>=38 && x<= 49 && y>=10 && y<=12) chambers[4]->addCell(c);
-   
 }
 
 std::shared_ptr<Chamber> Floor::randChamber(){
@@ -84,7 +83,7 @@ Floor::Floor(int l, shared_ptr<Player>p):level{l}, length{79}, height{25}{
          cellLine.emplace_back(c);
       }
       board.emplace_back(cellLine);
-      for(auto c: cellLine) { addToChamber(&c); } // link cell to corresponding chamber
+     for(int i=0;i<length; i++) { addToChamber(&cellLine[i]); } // link cell to corresponding chamber
       j++;
    }
    
