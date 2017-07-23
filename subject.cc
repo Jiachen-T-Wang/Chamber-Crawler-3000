@@ -29,7 +29,9 @@ void Subject::notifyGold(){
     observers[TD]->displayGold();
 }
  
-
+void Subject::notifyCannotMove(){
+  observers[TD]->displayCannotMove();
+}
 void Subject::attach(std::shared_ptr<Observer> o) { observers.emplace_back(o); }
 
 

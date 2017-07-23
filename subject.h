@@ -18,6 +18,7 @@ public:
     void notifyMiss();
     void notifyDead();
     void notifyGold();
+    void notifyCannotMove();
 
     void attach(std::shared_ptr<Observer> o);
     virtual ~Subject() = default;
