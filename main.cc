@@ -16,7 +16,7 @@ Dir stringToDir(string d){
 }
 
 shared_ptr<Object> fetchNeighbourObject(shared_ptr<Object> p, string dir){
-   return p->getPos()-> getNeighbour(stringToDir(dir))->getContent();
+   return p->getPos()->getNeighbour(stringToDir(dir))->getContent();
 }
 
 bool Merchant::angry{false};
