@@ -4,7 +4,7 @@ Merchant::Merchant(): Enemy{30, 70, 5, "Merchant"} {
     gold = make_shared<MerchantHoard>();
 }
 
-void Merchant::attack(std::shared_ptr<Player> p){
+void Merchant::attack(Player* p){
 	if(angry){
         Enemy::attack(p);
 	}
@@ -14,7 +14,7 @@ void Merchant::attack(std::shared_ptr<Player> p){
 }
 
 //static 咋玩
-void Merchant::beAtkBy(std::shared_ptr<Player> p){
+void Merchant::beAtkBy(Player* p){
     p->attack(this);
 	angry = true;
 }

@@ -5,6 +5,8 @@
 #include <memory>
 class Observer;
 class Enemy;
+class Potion;
+
 
 class Subject {
 
@@ -18,6 +20,8 @@ public:
     void notifyMiss();
     void notifyDead();
     void notifyGold();
+    void notifyCannotMove();
+    void notifyUsePotion(Potion* p);
 
     void attach(std::shared_ptr<Observer> o);
     virtual ~Subject() = default;

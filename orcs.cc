@@ -2,7 +2,7 @@
 
 Orcs::Orcs(): Enemy{180, 30, 25, "Orcs"} {}
 
-void Orcs::attack(std::shared_ptr<Goblin> g){
+void Orcs::attack(Goblin* g){
 	int notMiss = rand() % 2;  
 	if (notMiss){
 		int damage = 1.5 * calcDamage(g);

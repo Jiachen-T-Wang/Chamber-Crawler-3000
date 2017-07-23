@@ -83,4 +83,7 @@ void TextDisplay::displayGold() {
   words += "PC has slain an enemy!";
 };
 
+void TextDisplay::displayCannotMove() {
+  words += "PC cannot move in this way!";
+}
 TextDisplay::~TextDisplay() {}

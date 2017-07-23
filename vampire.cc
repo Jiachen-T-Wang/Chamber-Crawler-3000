@@ -39,5 +39,5 @@ void Vampire::attack(Halfling* h){
 }
 
 void Vampire::beAtkBy(Enemy* e){
-    e->attack(std::shared_ptr<Vampire>(this));
+    e->attack(this);
 }

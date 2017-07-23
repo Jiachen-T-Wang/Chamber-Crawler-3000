@@ -12,7 +12,7 @@ class Floor;
 class Human: public Enemy{
 public:
 	Human();
-    void beAtkBy(std::shared_ptr<Player> p) override;
+    void beAtkBy(Player* p) override;
     char symbol() override;
 };
 
