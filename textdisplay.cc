@@ -64,12 +64,12 @@ void TextDisplay::displayPlayerMove(Dir dir) {
   cout << "PC moves " << dirtostr(dir) << "." << endl;
 }
 
-void TextDisplay::displayPlayerAtk(std::shared_ptr<Enemy> e, int damage) {
+void TextDisplay::displayPlayerAtk(Enemy *e, int damage) {
   displayBoard();
   cout << "PC has made" << damage << "damage to " << e->getType() << "!" << endl;
 }
 
-void TextDisplay::displayEnemyAtk(std::shared_ptr<Enemy> e, int damage){
+void TextDisplay::displayEnemyAtk(Enemy *e, int damage){
    cout << "enemy atk" <<endl;
 }
 
