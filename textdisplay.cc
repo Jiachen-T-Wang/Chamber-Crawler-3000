@@ -52,7 +52,7 @@ void TextDisplay::displayBoard() {
     }
     cout << endl;
   }
-  string firstLine = "Race: " + p->race + " Gold: " + std::to_string(p->showScore());
+  string firstLine = "Race: " + p->race + " Gold: " + std::to_string(p->getGold());
   int len = firstLine.length();
   for (int i = 0; i < 72 - len; i++) firstLine += " ";
   cout << firstLine << "Floor " << p->showFloor() << endl;
