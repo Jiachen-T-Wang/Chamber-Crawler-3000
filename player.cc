@@ -47,9 +47,11 @@ void Player::moveTo(Dir dir){
         this->PickGold(gd);
         nb->setCont(nullptr);
         
-    } else if(cont.get() && cont->isStair()){
+    }
+    
+    if(cont.get() && cont->isStair()){
        changeFloor();
-    } else if(cont.get() == nullptr && nb->canStand()){
+    } else if(nb->getContent() == nullptr && nb->canStand()){
         Character::moveTo(dir);
         getPos()->notifyPlayerMove(dir);
     }
