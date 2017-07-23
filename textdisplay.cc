@@ -66,7 +66,7 @@ void TextDisplay::displayPlayerMove(Dir dir) {
 
 void TextDisplay::displayPlayerAtk(Enemy *e, int damage) {
   displayBoard();
-  cout << "PC has made" << damage << "damage to " << e->getType() << "!" << endl;
+  cout << "PC delt " << damage << " damage to " << e->getType() << "!" << endl;
 }
 
 void TextDisplay::displayEnemyAtk(Enemy *e, int damage){
