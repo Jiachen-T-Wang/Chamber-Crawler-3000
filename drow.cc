@@ -10,6 +10,6 @@ void Drow::usePotion(Potion* p){
 }
 
 void Drow::beAtkBy(Enemy* e){
-    e->attack(std::shared_ptr<Drow>(this));
+    e->attack(this);
 }
 
