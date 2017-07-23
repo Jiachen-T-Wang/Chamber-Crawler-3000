@@ -86,9 +86,9 @@ int main(int argc, const char * argv[]) {
             if(cin >> direction) {
                shared_ptr<Object> o =fetchNeighbourObject(p, direction);
                if (o.get() && o->isPotion()){
-                  shared_ptr<Potion> drug;
-                  drug.reset((Potion*)o.get());
+                  Potion *drug=(Potion*)o.get();
                   p->usePotion(drug);
+                  o->getPos()->setCont(nullptr);
                   f.gothroughBoard(p);
                   f.display();
                }
