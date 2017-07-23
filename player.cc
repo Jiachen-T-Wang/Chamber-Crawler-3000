@@ -43,8 +43,15 @@ void Player::moveTo(Dir dir){
         this->PickGold(gd);
         nb->setCont(nullptr);
     }
-    Character::moveTo(dir);
-    getPos()->notifyPlayerMove(dir);
+    if(nb->canStand()){
+        Character::moveTo(dir);
+        getPos()->notifyPlayerMove(dir);
+    }
+    /*
+    else{
+        getPos()->notifyCannotMove();
+    }
+     */
 }
 
 int Player::showFloor(){
