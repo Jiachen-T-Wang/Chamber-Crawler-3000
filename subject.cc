@@ -34,7 +34,7 @@ void Subject::notifyCannotMove(){
 }
 
 void Subject::notifyUsePotion(Potion* p){
-    observers[TD]->displayUsePotion();
+    observers[TD]->displayUsePotion(p);
 }
 void Subject::attach(std::shared_ptr<Observer> o) { observers.emplace_back(o); }
 
