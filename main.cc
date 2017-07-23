@@ -77,7 +77,7 @@ int main(int argc, const char * argv[]) {
       while (cin >> cmd) {
          if (cmd == "no"|| cmd == "so" ||cmd == "ea" ||cmd == "we"
              ||cmd == "ne" ||cmd == "nw" ||cmd == "se" ||cmd == "sw"){
-            p.get()->moveTo(stringToDir(cmd));
+            p.get()->moveTo(stringToDir(cmd));//p
          f.gothroughBoard(p);
             f.display();
          }
@@ -86,7 +86,7 @@ int main(int argc, const char * argv[]) {
                shared_ptr<Object> o =fetchNeighbourObject(p, direction);
                if (o.get() && o->isPotion()){
                   Potion *drug=(Potion*)o.get();
-                  p.get()->usePotion(drug);
+                  p.get()->usePotion(drug);//p
                   o->getPos()->setCont(nullptr);
                   f.gothroughBoard(p);
                   f.display();
