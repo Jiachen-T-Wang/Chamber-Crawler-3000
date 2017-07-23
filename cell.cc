@@ -58,7 +58,7 @@ void Cell::spawnStair(){
 }
 
 void Cell::spawnEnemy(){
-   srand(time(0));
+  // srand(time(0));
    int x=rand() % 18;
    shared_ptr<Enemy> e(nullptr);
    if(x>=0 && x<4) e = make_shared<Human>();
@@ -72,7 +72,7 @@ void Cell::spawnEnemy(){
 }
 
 void Cell::spawnPotion(){
-   srand(time(0));
+  // srand(time(0));
    int x=rand() % 6;
    shared_ptr<Potion> p;
    if(x==0) p = make_shared<Potion>(10, "Hp");
@@ -87,7 +87,7 @@ void Cell::spawnPotion(){
 }
 
 void Cell::spawnGold(){
-   srand(time(0));
+  // srand(time(0));
    int x=rand() % 8;
    shared_ptr<Treasure> t;
    if(x==0) t = make_shared<DragonHoard>();
