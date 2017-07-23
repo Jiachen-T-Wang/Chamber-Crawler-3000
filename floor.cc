@@ -126,21 +126,31 @@ Floor::Floor(int l, shared_ptr<Player>p):level{l}, length{79}, height{25}{
 int Floor::getLevel(){return level;}
 
 void Floor::gothroughBoard(shared_ptr<Player>p){
-   for(auto cellLine:board){
-      for(auto cell:cellLine){
+   for(int i=0; i<height; i++){
+      for(int j=0; j<length; j++){
+         Cell &cell = board[i][j];
          shared_ptr<Object> o = cell.getContent();
          if(o.get()==nullptr) continue;
          else if(o->isEnemy()) {
-            shared_ptr<Enemy> e;
+            /*shared_ptr<Enemy> e;
             e.reset((Enemy*)o.get());
             if(p->getPos()->isNeighbour(e->getPos())){
-               p->beAtkBy(e);
+               p->beAtkBy(e);*/
+            Enemy *e=(Enemy*)o.get();
+            if(p->getPos()->isNeighbour(e->getPos())){
+               p->beAtkBy(std::shared_ptr<Enemy>(e));
+               
             } else if(e->isDragon()){
-               shared_ptr<Dragon> d;
+               /*shared_ptr<Dragon> d;
                d.reset((Dragon*)o.get());
                shared_ptr<DragonHoard> h {d->getHoard()};
                if(p->getPos()->isNeighbour(h->getPos()))
-                  p->beAtkBy(d);
+                  p->beAtkBy(d);*/
+               Dragon *d = (Dragon*)e;
+               shared_ptr<DragonHoard> h {d->getHoard()};
+               if(p->getPos()->isNeighbour(h->getPos()))
+                  p->beAtkBy(std::shared_ptr<Dragon>(d));//enemy??
+               
             }else {
                if(e->canMove()) e->move();
             }
