@@ -57,7 +57,7 @@ void TextDisplay::displayBoard() {
   cout << "HP: " << p->getHP() << endl;
   cout << "Attack: " << p->realAtk() << endl;
   cout << "Defense: " << p->realDef() << endl;
-  cout << "Action: " << words;
+  cout << "Action: " << words << endl;
   words = "";
 }
 
