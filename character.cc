@@ -6,7 +6,7 @@ using namespace std;
 
 void Character::moveTo(Dir dir){
     Cell* neighbour = getPos()->getNeighbour(dir);
-   if(neighbour->getContent()!=nullptr) return;
+   if(neighbour->getContent().get() !=nullptr) return;
     setPos(neighbour);
 }
 
