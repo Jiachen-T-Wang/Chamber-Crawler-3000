@@ -55,9 +55,6 @@ void Enemy::move(){
             break;
         }
     }
-
-    int dir = rand() % 8;
-    Character::moveTo(numToDir(dir));
     moveable = false;
 }
 
