@@ -39,7 +39,7 @@ public:
     int showFloor();
     virtual int showScore();
     virtual void incScore(int value);
-    virtual void usePotion(std::shared_ptr<Potion> p);
+    virtual void usePotion(Potion* p);
   
     virtual void attack(Enemy* p);
     virtual void attack(Halfling* h);

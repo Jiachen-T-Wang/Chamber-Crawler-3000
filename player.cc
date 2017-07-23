@@ -27,7 +27,7 @@ void Player::resetEffect(){
 }
 
 // Basic Implementation
-void Player::usePotion(std::shared_ptr<Potion> p){
+void Player::usePotion(Potion* p){
    string type = p->getType();
    int effect =p->getEffect();
   if (type == "Hp") addHp(effect);
