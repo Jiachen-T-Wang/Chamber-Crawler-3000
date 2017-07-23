@@ -10,7 +10,7 @@ class Dragon: public Enemy{
 public:
     Dragon(std::shared_ptr<DragonHoard> hoard);
     bool isDragon() override;
-	Dragon(std::weak_ptr<DragonHoard> hoard);
+//	Dragon(std::weak_ptr<DragonHoard> hoard);
     std::weak_ptr<DragonHoard> getHoard();
     void move() override;
     char symbol() override;
