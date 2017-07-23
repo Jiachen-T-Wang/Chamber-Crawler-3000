@@ -29,7 +29,7 @@ int main(int argc, const char * argv[]) {
       arg = true;
    }
 //    Merchant::angry = false;
-
+Restart:
   shared_ptr<Player> p;
    string race;
    cout << "Please choose a race." <<endl;
@@ -66,7 +66,7 @@ int main(int argc, const char * argv[]) {
       }
    }
    for(int i=0; i<5; i++){
-      
+      p->notGoToNext();
       //    if(arg) Floor f {i, p, fileName};
       //    else
       Floor f {i, p};
@@ -111,7 +111,7 @@ int main(int argc, const char * argv[]) {
             
          }
          else if (cmd == "r") { // restart
-            
+            goto Restart;
          }
          else if (cmd == "q") {
             exit(0);
