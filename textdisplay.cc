@@ -52,7 +52,7 @@ void TextDisplay::displayBoard() {
     cout << endl;
   }
   cout << "Race: " << p->race << " Gold: " << p->showScore();
-  cout << "         Floor" << p->showFloor() << endl;
+  cout << "         Floor " << p->showFloor() << endl;
   cout << "HP: " << p->getHP() << endl;
   cout << "Attack: " << p->realAtk() << endl;
   cout << "Defense: " << p->realDef() << endl;
