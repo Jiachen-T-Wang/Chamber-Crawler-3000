@@ -23,8 +23,8 @@ std::shared_ptr<Object> Cell::getContent(){
    return content;
 }
 
-void Cell::setCont(std::shared_ptr<Object> o){
-   content = o;
+void Cell::setCont(Object* o){
+    content = std::shared_ptr<Object>(o);
 }
 
 bool Cell::canStand() {
@@ -49,13 +49,13 @@ Cell* Cell::getNeighbour(Dir dir){
 }
 
 void Cell::spawnPlayer(std::shared_ptr<Player> p){
-    this->setCont(p);
+    this->setCont(p.get());
    p->setPos(this);
 }
 
 void Cell::spawnStair(){
    auto s = make_shared<Stair>();
-    this->setCont(s);
+    this->setCont(s.get());
    s->setPos(this);
 }
 
@@ -69,7 +69,7 @@ void Cell::spawnEnemy(){
    else if(x>=12 && x<14) e = make_shared<Elf>();
    else if(x>=14 && x<16) e = make_shared<Orcs>();
    else e = make_shared<Merchant>();
-    this->setCont(e);
+    this->setCont(e.get());
    e->setPos(this);
 }
 
@@ -84,7 +84,7 @@ void Cell::spawnPotion(){
    else if(x==4) p = make_shared<Potion>(5, "Def");
    else p = make_shared<Potion>(-5, "Def");
     
-    this->setCont(p);
+    this->setCont(p.get());
    p->setPos(this);
 }
 
@@ -97,7 +97,7 @@ void Cell::spawnGold(){
     }
    else if(x==1 || x==2) t = make_shared<SmallGold>();
    else t = make_shared<NormalHoard>();
-    this->setCont(t);
+    this->setCont(t.get());
     t->setPos(this);
     t->setDragon();
 }
