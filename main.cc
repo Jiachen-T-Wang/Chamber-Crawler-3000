@@ -101,6 +101,7 @@ int main(int argc, const char * argv[]) {
                if (o.get() && o->isEnemy()){
                   Enemy *e =(Enemy*)o.get();
                   e->beAtkBy(p.get());
+                  f.gothroughBoard(p);
                   f.display();
 
                }
