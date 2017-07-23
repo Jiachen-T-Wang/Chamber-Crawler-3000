@@ -35,7 +35,7 @@ void Chamber::addPotion(){
    randCell()->spawnPotion();
 }
 void Chamber::addGold(){
-   randCell()->spawnEnemy();
+   randCell()->spawnGold();
 }
 
 
