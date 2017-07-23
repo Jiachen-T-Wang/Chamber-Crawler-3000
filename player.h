@@ -16,7 +16,8 @@ class Player: public Character{
   int defEffect; // set to 0 when change floor
   Floor* f;
   int score;
-
+bool goToNext;
+   
 protected:
   int calcDamage(Enemy* defender);
 
@@ -25,7 +26,9 @@ public:
     bool isPlayer() override;
 //    bool isEnemy() override;
     const std::string race;
-    Player(int HP, int atk, int def, int maxHP, Floor* f, std::string race);
+   bool getGoToNext();
+   void changeFloor();
+    Player(int HP, int atk, int def, int maxHP, std::string race);
     int getMaxHP() const;
     void addHp(int hpEffect);
     void moveTo(Dir dir) override;

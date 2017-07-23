@@ -2,9 +2,12 @@
 #include "header.h"
 using namespace std;
 
-Player::Player(int HP, int atk, int def, int maxHP, Floor* f, std::string race)
-: Character{HP, atk, def}, maxHP{maxHP}, atkEffect{0}, defEffect{0}, f{f}, score{0}, race{race} {}
-
+Player::Player(int HP, int atk, int def, int maxHP, std::string race)
+: Character{HP, atk, def}, maxHP{maxHP}, atkEffect{0}, defEffect{0}, f{nullptr}, score{0}, goToNext{false},race{race} {}
+void Player::changeFloor(){
+   goToNext = true;
+   resetEffect();
+}
 int Player::getMaxHP() const { return maxHP; }
 
 void Player::setAtkEffect(int effect){
@@ -44,8 +47,9 @@ void Player::moveTo(Dir dir){
         this->PickGold(gd);
         nb->setCont(nullptr);
         
-    }
-    if(nb->canStand() && cont.get() == nullptr){
+    } else if(cont.get() && cont->isStair()){
+       changeFloor();
+    } else if(cont.get() == nullptr && nb->canStand()){
         Character::moveTo(dir);
         getPos()->notifyPlayerMove(dir);
     }

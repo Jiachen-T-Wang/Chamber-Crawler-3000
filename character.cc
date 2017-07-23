@@ -31,6 +31,7 @@ Character::Character(int HP, int atk, int def):
 void Character::getHurt(int damage){
     if(HP-damage <= 0)
         HP = 0;
+    else HP -= damage;
 }
 
 
