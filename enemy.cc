@@ -93,6 +93,7 @@ void Enemy::beAtkBy(Player* p){
       p->incScore(5);
     }
     gold->setPos(getPos());
+    getPos()->setCont(gold);
     getPos()->notifyDead();
   }
 }

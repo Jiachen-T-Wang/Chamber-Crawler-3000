@@ -29,12 +29,13 @@ Character::Character(int HP, int atk, int def):
     Object{}, HP{HP}, atk{atk}, def{def} {}
 
 void Character::getHurt(int damage){
-	HP -= damage;
+    if(HP-damage <= 0)
+        HP = 0;
 }
 
 
 bool Character::checkDead(){
-  return (HP <= 0);
+  return (HP == 0);
 }
 /*
 bool Character::isEnemy(){
