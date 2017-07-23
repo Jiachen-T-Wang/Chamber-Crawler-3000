@@ -114,11 +114,16 @@ Restart:
             goto Restart;
          }
          else if (cmd == "q") {
+            cout << "bye" <<endl;
             exit(0);
          }
          if(p->getGoToNext()) break;
-         if(p->checkDead()) p->getPos()->notifyPlayerDead();
+         if(p->checkDead()) {
+            p->getPos()->notifyPlayerDead();
+         }
       }
    }
+   cout << "Congratulations!" <<endl;
+   
    
 }
