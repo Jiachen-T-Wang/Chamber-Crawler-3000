@@ -99,8 +99,7 @@ int main(int argc, const char * argv[]) {
             if(cin >> direction) {
                shared_ptr<Object> o = fetchNeighbourObject(p, direction);
                if (o.get() && o->isEnemy()){
-                  shared_ptr<Enemy> e;
-                  e.reset((Enemy*)o.get());
+                  Enemy *e =(Enemy*)o.get();
                   e->beAtkBy(p.get());
                   f.gothroughBoard(p);
                }

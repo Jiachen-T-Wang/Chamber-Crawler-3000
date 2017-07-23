@@ -70,7 +70,7 @@ void TextDisplay::displayPlayerAtk(Enemy *e, int damage) {
 }
 
 void TextDisplay::displayEnemyAtk(Enemy *e, int damage){
-  words += "enemy atk ";
+  words += e->getType() + " delt " + std::to_string(damage) + " damage to PC! ";
 }
 
 void TextDisplay::displayMiss() {
