@@ -29,6 +29,7 @@ class TextDisplay: public Observer {
   void displayDead() override;
   void displayGold() override;    //这个用在Human死的时候四周散落gold
   void displayCannotMove() override;
+  void displayUsePotion(Potion *p) override;
 //use potion
   ~TextDisplay();
 };
