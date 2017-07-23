@@ -27,7 +27,8 @@ string TextDisplay::dirtostr(Dir dir) {
   }
 }
 
-TextDisplay::TextDisplay(string fileName, shared_ptr<Player> p, Floor *f): height{25}, width{79}, p{p}, f{f} {
+TextDisplay::TextDisplay(string fileName, shared_ptr<Player> p, Floor *f):
+height{25}, width{79}, words{""}, p{p}, f{f} {
   ifstream fs {fileName};
   string line;
   
@@ -56,34 +57,30 @@ void TextDisplay::displayBoard() {
   cout << "HP: " << p->getHP() << endl;
   cout << "Attack: " << p->realAtk() << endl;
   cout << "Defense: " << p->realDef() << endl;
-  cout << "Action: ";
+  cout << "Action: " << words << endl;
+  words = "";
 }
 
 void TextDisplay::displayPlayerMove(Dir dir) {
-  displayBoard();
-  cout << "PC moves " << dirtostr(dir) << "." << endl;
+  words += "PC moves " + dirtostr(dir) + ".";
 }
 
 void TextDisplay::displayPlayerAtk(Enemy *e, int damage) {
-  displayBoard();
-  cout << "PC delt " << damage << " damage to " << e->getType() << "!" << endl;
+  words += "PC delt " + std::to_string(damage) + " damage to " + e->getType() + "!";
 }
 
 void TextDisplay::displayEnemyAtk(Enemy *e, int damage){
-   cout << "enemy atk" <<endl;
+  words += "enemy atk";
 }
 
 void TextDisplay::displayMiss() {
-  displayBoard();
-  cout << "PC has missed a shot!" << endl;
+  words += "PC has missed a shot!";
 };
 void TextDisplay::displayDead() {
-  displayBoard();
-  cout << "PC has slain an enemy!" << endl;
+  words += "PC has slain an enemy!";
 };
 void TextDisplay::displayGold() {
-  displayBoard();
-  cout << "PC has slain an enemy!" << endl;
+  words += "PC has slain an enemy!";
 };
 
 TextDisplay::~TextDisplay() {}

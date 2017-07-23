@@ -11,6 +11,7 @@ class Player;
 class TextDisplay: public Observer {
   int height;
   int width;
+  std::string words;
   std::vector<std::vector<char>> theDisplay;
   std::shared_ptr<Player> p;
   Floor *f;
