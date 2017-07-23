@@ -38,7 +38,7 @@ void Player::usePotion(std::shared_ptr<Potion> p){
 void Player::moveTo(Dir dir){
     Cell* nb = getPos()->getNeighbour(dir);
     shared_ptr<Object> cont = nb->getContent();
-    if(cont && cont->isTreasure()){//cont.get()
+    if(cont.get() && cont->isTreasure()){
         shared_ptr<Treasure> gd;
         gd.reset((Treasure*)cont.get());
         this->PickGold(gd);
