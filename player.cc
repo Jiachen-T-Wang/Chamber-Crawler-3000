@@ -44,9 +44,10 @@ void Player::moveTo(Dir dir){
    shared_ptr<Object> cont = nb->getContent();
    if(cont.get() && cont->isTreasure()){
       Treasure* gd = (Treasure*)cont.get();
-      if(gd->canPickUp())
+       if(gd->canPickUp()){
            this->PickGold(gd);
-      nb->setCont(nullptr);
+           nb->setCont(nullptr);
+       }
    }
     
    if(cont.get() && cont->isStair()){
