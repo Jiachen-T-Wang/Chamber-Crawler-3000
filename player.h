@@ -45,7 +45,7 @@ public:
     virtual void attack(Halfling* h);
 
     virtual void beAtkBy(Enemy* enemy);
-    virtual void PickGold(std::shared_ptr<Treasure> gold);
+    virtual void PickGold(Treasure* gold);
     virtual void roundChange();   //每一轮都发生的变化
     void setFloor(Floor* f);
     char symbol() override;

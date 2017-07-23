@@ -39,9 +39,9 @@ void Player::moveTo(Dir dir){
     Cell* nb = getPos()->getNeighbour(dir);
     shared_ptr<Object> cont = nb->getContent();
     if(cont.get() && cont->isTreasure()){
-        shared_ptr<Treasure> gd;
-        gd.reset((Treasure*)cont.get());
+        Treasure* gd = (Treasure*)cont.get();
         this->PickGold(gd);
+        nb->setCont(nullptr);
     }
     Character::moveTo(dir);
     getPos()->notifyPlayerMove(dir);
@@ -96,10 +96,10 @@ int Player::showScore(){ return score; }
 
 void Player::incScore(int value){ score += value; }
 
-void Player::PickGold(std::shared_ptr<Treasure> gold){
+void Player::PickGold(Treasure* gold){
 	incScore(gold->getValue());
-    Cell* newp = gold->getPos();
-    newp->setCont(nullptr);
+//    Cell* newp = gold->getPos();
+//    newp->setCont(nullptr);
 }
 
 void Player::roundChange(){}
