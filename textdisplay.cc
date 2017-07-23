@@ -74,7 +74,7 @@ void TextDisplay::displayEnemyAtk(Enemy *e, int damage){
 }
 
 void TextDisplay::displayMiss() {
-  words += "PC has missed a shot! ";
+  words += "MISS! ";
 };
 void TextDisplay::displayDead() {
   words += "PC has slain an enemy! ";
