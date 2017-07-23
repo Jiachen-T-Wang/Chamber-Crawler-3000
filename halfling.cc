@@ -2,7 +2,7 @@
 
 Halfling::Halfling(): Enemy{100, 15, 20, "Halfling"} {}
 
-void Halfling::beAtkBy(std::shared_ptr<Player> p){
+void Halfling::beAtkBy(Player* p){
     p->attack(this);
     if(checkDead()){
         if(p->race == "Goblin"){

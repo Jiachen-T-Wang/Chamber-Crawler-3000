@@ -8,8 +8,8 @@ class Merchant: public Enemy{
 public:
 	static bool angry;
 	Merchant();
-	void attack(std::shared_ptr<Player> p) override;
-	void beAtkBy(std::shared_ptr<Player> p) override;
+	void attack(Player* p) override;
+	void beAtkBy(Player* p) override;
     char symbol() override;
 };
 

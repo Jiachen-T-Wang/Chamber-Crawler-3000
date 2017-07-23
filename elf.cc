@@ -2,12 +2,12 @@
 
 Elf::Elf(): Enemy{140, 30, 10, "Elf"} {}
 
-void Elf::attack(std::shared_ptr<Player> p){
+void Elf::attack(Player* p){
 	Enemy::attack(p);
 	Enemy::attack(p);
 }
 
-void Elf::attack(std::shared_ptr<Drow> d){
+void Elf::attack(Drow* d){
 	Enemy::attack(d);
 }
 

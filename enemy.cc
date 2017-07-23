@@ -58,11 +58,11 @@ void Enemy::move(){
     moveable = false;
 }
 
-int Enemy::calcDamage(std::shared_ptr<Player> defender){
+int Enemy::calcDamage(Player* defender){
    return ceil((100/(100+defender->realDef())) * this->getAtk());
 }
 
-void Enemy::attack(std::shared_ptr<Player> player){
+void Enemy::attack(Player* player){
   int notMiss = rand() % 2;
   if (notMiss){
     int damage = calcDamage(player);
@@ -74,19 +74,19 @@ void Enemy::attack(std::shared_ptr<Player> player){
   }
 }
 
-void Enemy::attack(std::shared_ptr<Vampire> v){
-    attack(std::shared_ptr<Player>(v));
+void Enemy::attack(Vampire* v){
+    attack((Player*)(v));
 }
 
-void Enemy::attack(std::shared_ptr<Drow> d){
-    attack(std::shared_ptr<Player>(d));
+void Enemy::attack(Drow* d){
+    attack((Player*)(d));
 }
 
-void Enemy::attack(std::shared_ptr<Goblin>(g)){
-    attack(std::shared_ptr<Player>(g));
+void Enemy::attack(Goblin* g){
+    attack((Player*)(g));
 }
 
-void Enemy::beAtkBy(std::shared_ptr<Player> p){
+void Enemy::beAtkBy(Player* p){
   p->attack(this);
   if(checkDead()){
     if(p->race == "Goblin"){

@@ -6,7 +6,7 @@ Human::Human()
         gold = make_shared<NormalHoard>();
     }
 
-void Human::beAtkBy(std::shared_ptr<Player> p){
+void Human::beAtkBy(Player* p){
     p->attack(this);
     if(checkDead()){
         if(p->race == "Goblin"){

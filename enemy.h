@@ -21,7 +21,7 @@ class Enemy: public Character{
    std::string type;
    
 protected:
-   int calcDamage(std::shared_ptr<Player> defender);
+   int calcDamage(Player* defender);
    std::shared_ptr<Treasure> gold;
     
 public:
@@ -37,12 +37,12 @@ public:
     
    std::string getType();
    
-   virtual void beAtkBy(std::shared_ptr<Player> p);
+   virtual void beAtkBy(Player* p);
    
-   virtual void attack(std::shared_ptr<Player> p);
-   virtual void attack(std::shared_ptr<Drow> d);
-   virtual void attack(std::shared_ptr<Vampire> v);
-   virtual void attack(std::shared_ptr<Goblin> g);
+   virtual void attack(Player* p);
+   virtual void attack(Drow* d);
+   virtual void attack(Vampire* v);
+   virtual void attack(Goblin* g);
    virtual bool isDragon();
    virtual ~Enemy()=0;
 };

@@ -47,11 +47,10 @@ void Player::moveTo(Dir dir){
         Character::moveTo(dir);
         getPos()->notifyPlayerMove(dir);
     }
-    /*
+    
     else{
         getPos()->notifyCannotMove();
     }
-     */
 }
 
 int Player::showFloor(){
@@ -92,7 +91,7 @@ void Player::attack(Halfling* h){
 
 
 void Player::beAtkBy(Enemy* enemy){
-    enemy->attack(std::shared_ptr<Player>(this));
+    enemy->attack(this);
 }
 
 void Player::setFloor(Floor* f){
