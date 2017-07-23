@@ -7,7 +7,7 @@ void Orcs::attack(std::shared_ptr<Goblin> g){
 	if (notMiss){
 		int damage = 1.5 * calcDamage(g);
 		g->getHurt(damage);
-       getPos()->notifyEnemyAttack(std::shared_ptr<Orcs>{this}, damage);
+       getPos()->notifyEnemyAttack(this, damage);
 	}
 	else{
 		getPos()->notifyMiss();
