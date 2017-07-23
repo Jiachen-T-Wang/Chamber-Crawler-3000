@@ -120,8 +120,12 @@ void Player::PickGold(Treasure* gold){
 void Player::roundChange(){}
 
 char Player::symbol(){return '@';}
+
 bool Player::getGoToNext(){
    return goToNext;
+}
+void Player::notGoToNext(){
+   goToNext = false;
 }
 
 Player::~Player() {}

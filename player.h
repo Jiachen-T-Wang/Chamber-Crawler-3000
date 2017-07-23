@@ -27,6 +27,7 @@ public:
    //    bool isEnemy() override;
    const std::string race;
    bool getGoToNext();
+   void notGoToNext();
    void changeFloor();
    Player(int HP, int atk, int def, int maxHP, std::string race);
    int getMaxHP() const;
