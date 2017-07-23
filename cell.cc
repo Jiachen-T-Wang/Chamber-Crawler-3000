@@ -67,6 +67,7 @@ void Cell::spawnEnemy(){
    else if(x>=12 && x<14) e = make_shared<Elf>();
    else if(x>=14 && x<16) e = make_shared<Orcs>();
    else e = make_shared<Merchant>();
+    this->setCont(e);
    e->setPos(this);
 }
 
@@ -80,6 +81,8 @@ void Cell::spawnPotion(){
    else if(x==3) p = make_shared<Potion>(-5, "Atk");
    else if(x==4) p = make_shared<Potion>(5, "Def");
    else p = make_shared<Potion>(-5, "Def");
+    
+    this->setCont(p);
    p->setPos(this);
 }
 
@@ -90,6 +93,7 @@ void Cell::spawnGold(){
    if(x==0) t = make_shared<DragonHoard>();
    else if(x==1 || x==2) t = make_shared<SmallGold>();
    else t = make_shared<NormalHoard>();
+    this->setCont(t);
    t->setPos(this);
 }
 
