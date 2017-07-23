@@ -62,28 +62,43 @@ void TextDisplay::displayBoard() {
 }
 
 void TextDisplay::displayPlayerMove(Dir dir) {
-  words += "PC moves " + dirtostr(dir) + ".";
+  words += "PC moves " + dirtostr(dir) + ". ";
 }
 
 void TextDisplay::displayPlayerAtk(Enemy *e, int damage) {
-  words += "PC delt " + std::to_string(damage) + " damage to " + e->getType() + "!";
+  words += "PC delt " + std::to_string(damage) + " damage to " + e->getType() + "! ";
 }
 
 void TextDisplay::displayEnemyAtk(Enemy *e, int damage){
-  words += "enemy atk";
+  words += "enemy atk ";
 }
 
 void TextDisplay::displayMiss() {
-  words += "PC has missed a shot!";
+  words += "PC has missed a shot! ";
 };
 void TextDisplay::displayDead() {
-  words += "PC has slain an enemy!";
+  words += "PC has slain an enemy! ";
 };
 void TextDisplay::displayGold() {
-  words += "PC has slain an enemy!";
+  words += "PC has slain an enemy! ";
 };
 
 void TextDisplay::displayCannotMove() {
-  words += "PC cannot move in this way!";
+  words += "PC cannot move in this way! ";
+}
+
+void TextDisplay::displayUsePotion(Potion *p) {
+  words += "PC has used a potion ";
+  int Effect = p->getEffect();
+  if (Effect > 0) {
+    words += "and gains ";
+  } else {
+    Effect *= -1;
+    words += "and loses ";
+  }
+  words += std::to_string(Effect);
+  if (p->getType() == "Atk") words += " Attack! ";
+  else if (p->getType() == "Def") words += " Defense! ";
+  else words += " HP! ";
 }
 TextDisplay::~TextDisplay() {}
