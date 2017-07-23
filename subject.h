@@ -12,8 +12,8 @@ class Subject {
     
 public:
     void notifyPlayerMove(Dir dir);  //to move
-    void notifyPlayerAttack(std::shared_ptr<Enemy> e, int damage);
-    void notifyEnemyAttack(std::shared_ptr<Enemy> e, int damage);
+    void notifyPlayerAttack(Enemy* e, int damage);
+    void notifyEnemyAttack(Enemy* e, int damage);
     void notifyMiss();
     void notifyDead();
     void notifyGold();

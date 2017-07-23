@@ -18,7 +18,7 @@ class Player: public Character{
   int score;
 
 protected:
-  int calcDamage(std::shared_ptr<Enemy> defender);
+  int calcDamage(Enemy* defender);
 
 public:
     
@@ -41,10 +41,10 @@ public:
     virtual void incScore(int value);
     virtual void usePotion(std::shared_ptr<Potion> p);
   
-    virtual void attack(std::shared_ptr<Enemy> p);
-    virtual void attack(std::shared_ptr<Halfling> h);
+    virtual void attack(Enemy* p);
+    virtual void attack(Halfling* h);
 
-    virtual void beAtkBy(std::shared_ptr<Enemy> enemy);
+    virtual void beAtkBy(Enemy* enemy);
     virtual void PickGold(std::shared_ptr<Treasure> gold);
     virtual void roundChange();   //每一轮都发生的变化
     void setFloor(Floor* f);

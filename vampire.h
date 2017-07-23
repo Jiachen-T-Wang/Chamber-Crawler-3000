@@ -13,9 +13,9 @@ class Vampire: public Player{
    public:
    	Vampire(Floor* f);
    	void getAllerge();
-   	void attack(std::shared_ptr<Enemy> p) override;  //gains 5 HP every successful attack
-   	void attack(std::shared_ptr<Halfling> h) override;
-   	void beAtkBy(std::shared_ptr<Enemy> e) override;
+   	void attack(Enemy* p) override;  //gains 5 HP every successful attack
+   	void attack(Halfling* h) override;
+   	void beAtkBy(Enemy* e) override;
 };
 
 #endif

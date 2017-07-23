@@ -70,7 +70,7 @@ void Enemy::attack(std::shared_ptr<Player> player){
   if (notMiss){
     int damage = calcDamage(player);
     player->getHurt(damage);
-    getPos()->notifyEnemyAttack(std::shared_ptr<Enemy>{this}, damage);
+    getPos()->notifyEnemyAttack(this, damage);
   }
   else{
     getPos()->notifyMiss();
@@ -90,7 +90,7 @@ void Enemy::attack(std::shared_ptr<Goblin>(g)){
 }
 
 void Enemy::beAtkBy(std::shared_ptr<Player> p){
-  p->attack(std::shared_ptr<Enemy>(this));
+  p->attack(this);
   if(checkDead()){
     if(p->race == "Goblin"){
       p->incScore(5);
