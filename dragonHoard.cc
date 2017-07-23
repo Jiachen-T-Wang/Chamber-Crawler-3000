@@ -11,7 +11,7 @@ void DragonHoard::setDragon(){
         int d = rand() % 8;
         Cell* nb = this->getPos()->getNeighbour(dragon->numToDir(d));
         if (nb->getContent().get() == nullptr && nb->canStandByAll()){
-            nb->setCont(dragon.get());
+            nb->setCont(dragon);
             dragon->setPos(nb);
             break;
         }

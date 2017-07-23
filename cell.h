@@ -26,7 +26,7 @@ public:
    
    std::shared_ptr<Object> getContent();   // nullptr means nobody on it
     
-   void setCont(Object* o);   //mutator
+    void setCont(std::shared_ptr<Object> o);   //mutator
    
    bool canStand();   //return true if it can be stand on
    
