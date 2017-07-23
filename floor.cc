@@ -71,7 +71,7 @@ Floor::Floor(int l, shared_ptr<Player>p):level{l}, length{79}, height{25}{
    
    auto td = make_shared<TextDisplay>("emptyCC3K.txt", p, this);
    for(int i=0; i<chamberNum; ++i) {
-       chambers.emplace_back(std::shared_ptr<Chamber>());
+       chambers.emplace_back(make_shared<Chamber>());
    }
    ifstream fs {"emptyCC3K.txt"};
    string line;
