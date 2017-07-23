@@ -31,7 +31,7 @@ void Floor::createObjects(shared_ptr<Player>p){
    
    //second stairway
    std::shared_ptr<Chamber> ch_stair = randChamber();
-   while(ch_stair == ch_player) ch_stair = randChamber();
+   while(ch_stair.get() == ch_player.get()) ch_stair = randChamber();
    ch_stair->addStair();
    
    for(int i=0; i<postionNum; i++){
