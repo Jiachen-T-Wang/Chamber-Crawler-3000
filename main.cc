@@ -64,8 +64,6 @@ int main(int argc, const char * argv[]) {
       else if (race == "q") {
          exit(0);
       }
-      else {}
-
    }
 
    for(int i=0; i<5; i++){
