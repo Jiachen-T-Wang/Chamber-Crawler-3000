@@ -144,6 +144,7 @@ void Floor::gothroughBoard(shared_ptr<Player>p){
                if(p->getPos()->isNeighbour(h->getPos()))
                   p->beAtkBy(e);
                
+               
             }else {
                if(e->canMove()) e->move();
             }

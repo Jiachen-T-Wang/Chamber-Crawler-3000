@@ -33,6 +33,7 @@ void Player::usePotion(Potion* p){
   if (type == "Hp") addHp(effect);
   else if (type == "Atk") atkEffect += (effect);
   else if (type == "Def") defEffect += (effect);
+    getPos()->notifyUsePotion(p);
 }
 
 void Player::moveTo(Dir dir){
@@ -42,6 +43,7 @@ void Player::moveTo(Dir dir){
         Treasure* gd = (Treasure*)cont.get();
         this->PickGold(gd);
         nb->setCont(nullptr);
+        
     }
     if(nb->canStand()){
         Character::moveTo(dir);
