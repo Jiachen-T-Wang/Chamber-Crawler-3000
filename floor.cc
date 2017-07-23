@@ -149,7 +149,7 @@ void Floor::gothroughBoard(shared_ptr<Player>p){
                
                } else if(e->isDragon()){
                  Dragon *d = (Dragon*)e;
-                shared_ptr<DragonHoard> h {d->getHoard()};
+                DragonHoard *h = d->getHoard();
                 if(p->getPos()->isNeighbour(h->getPos()))
                 p->beAtkBy(e);
                 
