@@ -136,15 +136,6 @@ void Floor::gothroughBoard(shared_ptr<Player>p){
             Enemy *e =(Enemy *)o.get();
             if(p->getPos()->isNeighbour(e->getPos())){
                p->beAtkBy(e);
-               
-               /*  Enemy *e=(Enemy*)o.get();
-                if(p->getPos()->isNeighbour(e->getPos())){
-                p->beAtkBy(std::shared_ptr<Enemy>(e));
-                */
-               //   e.reset((Object*)e.get());
-               
-               
-               
                //dragon
                
             } else if(e->isDragon()){
@@ -152,15 +143,6 @@ void Floor::gothroughBoard(shared_ptr<Player>p){
                DragonHoard *h = d->getHoard();
                if(p->getPos()->isNeighbour(h->getPos()))
                   p->beAtkBy(e);
-               
-               
-               
-               /*
-                Dragon *d = (Dragon*)e;
-                shared_ptr<DragonHoard> h {d->getHoard()};
-                if(p->getPos()->isNeighbour(h->getPos()))
-                p->beAtkBy(std::shared_ptr<Dragon>(d));//enemy??
-                */
                
             }else {
                if(e->canMove()) e->move();
