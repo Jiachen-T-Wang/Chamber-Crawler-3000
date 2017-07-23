@@ -52,8 +52,10 @@ void TextDisplay::displayBoard() {
     }
     cout << endl;
   }
-  cout << "Race: " << p->race << " Gold: " << p->showScore();
-  cout << "         Floor " << p->showFloor() << endl;
+  string firstLine = "Race: " + p->race + " Gold: " + std::to_string(p->showScore());
+  int len = firstLine.length();
+  for (int i = 0; i < 72 - len; i++) firstLine += " ";
+  cout << firstLine << "Floor " << p->showFloor() << endl;
   cout << "HP: " << p->getHP() << endl;
   cout << "Attack: " << p->realAtk() << endl;
   cout << "Defense: " << p->realDef() << endl;
@@ -80,7 +82,7 @@ void TextDisplay::displayDead() {
   words += "PC has slain an enemy! ";
 };
 void TextDisplay::displayGold() {
-  words += "PC has slain an enemy! ";
+  words += "Human drops extra gold! ";
 };
 
 void TextDisplay::displayCannotMove() {
