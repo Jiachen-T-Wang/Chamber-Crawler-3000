@@ -16,7 +16,7 @@ void Human::beAtkBy(Player* p){
         while (1){
             int d = rand() % 8;
             Cell* nb = getPos()->getNeighbour(numToDir(d));
-            if(!(nb->getContent())){
+            if(!(nb->getContent()) && nb->canStandByAll()){
                 nb->setCont(make_shared<NormalHoard>());
                 nb->notifyGold();
                 break;
