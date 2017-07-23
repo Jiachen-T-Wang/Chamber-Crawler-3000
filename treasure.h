@@ -14,6 +14,7 @@ class Treasure : public Object {
     bool isTreasure() override;
     virtual ~Treasure() = 0;
     char symbol() override;
+    virtual void setDragon();
 };
 
 #endif

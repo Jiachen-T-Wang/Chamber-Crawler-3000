@@ -12,4 +12,6 @@ bool Treasure::isTreasure() { return true;}
 
 char Treasure::symbol(){ return 'G';};
 
+void Treasure::setDragon(){}
+
 Treasure::~Treasure() {}
