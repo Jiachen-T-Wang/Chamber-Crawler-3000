@@ -15,7 +15,7 @@ Dir stringToDir(string d){
    else return Dir::sw;
 }
 
-shared_ptr<Object> fetchNeighbourObject(shared_ptr<Object> p, string dir){
+shared_ptr<Object> fetchNeighbourObject(shared_ptr<Player> p, string dir){
    return p->getPos()->getNeighbour(stringToDir(dir))->getContent();
 }
 
@@ -65,7 +65,6 @@ int main(int argc, const char * argv[]) {
          exit(0);
       }
    }
-
    for(int i=0; i<5; i++){
       
       //    if(arg) Floor f {i, p, fileName};
@@ -78,7 +77,7 @@ int main(int argc, const char * argv[]) {
       while (cin >> cmd) {
          if (cmd == "no"|| cmd == "so" ||cmd == "ea" ||cmd == "we"
              ||cmd == "ne" ||cmd == "nw" ||cmd == "se" ||cmd == "sw"){
-            p->moveTo(stringToDir(cmd));
+            p.get()->moveTo(stringToDir(cmd));
          f.gothroughBoard(p);
             f.display();
          }
@@ -87,7 +86,7 @@ int main(int argc, const char * argv[]) {
                shared_ptr<Object> o =fetchNeighbourObject(p, direction);
                if (o.get() && o->isPotion()){
                   Potion *drug=(Potion*)o.get();
-                  p->usePotion(drug);
+                  p.get()->usePotion(drug);
                   o->getPos()->setCont(nullptr);
                   f.gothroughBoard(p);
                   f.display();
@@ -102,7 +101,7 @@ int main(int argc, const char * argv[]) {
                if (o.get() && o->isEnemy()){
                   shared_ptr<Enemy> e;
                   e.reset((Enemy*)o.get());
-                  e->beAtkBy(p);
+                  e->beAtkBy(p.get());
                   f.gothroughBoard(p);
                }
             }
