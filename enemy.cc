@@ -59,7 +59,7 @@ void Enemy::move(){
 }
 
 int Enemy::calcDamage(Player* defender){
-   return ceil((100/(100+defender->realDef())) * this->getAtk());
+   return ceil((100 * this->getAtk()/(100+defender->realDef())));
 }
 
 void Enemy::attack(Player* player){
