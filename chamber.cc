@@ -10,7 +10,7 @@ Cell *Chamber::randCell(){
    srand(time(0));
    int x=rand() % size;
    while(cells[x]->getContent().get()){
-      srand(time(0));
+      //srand(time(0));
       x=rand() % size;
    }
    return cells[x];
