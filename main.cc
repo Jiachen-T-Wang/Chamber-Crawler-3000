@@ -72,7 +72,6 @@ int main(int argc, const char * argv[]) {
       //    if(arg) Floor f {i, p, fileName};
       //    else
       Floor f {i, p};
-      f.display();
       string cmd;
       string direction;
 //       Merchant::angry = false;
@@ -82,6 +81,7 @@ int main(int argc, const char * argv[]) {
              ||cmd == "ne" ||cmd == "nw" ||cmd == "se" ||cmd == "sw"){
             p->moveTo(stringToDir(cmd));
          f.gothroughBoard(p);
+            f.display();
          }
          else if (cmd == "u") {
             if(cin >> direction) {
@@ -91,6 +91,7 @@ int main(int argc, const char * argv[]) {
                   drug.reset((Potion*)o.get());
                   p->usePotion(drug);
                   f.gothroughBoard(p);
+                  f.display();
                }
                // else 不是potion
             }
