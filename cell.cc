@@ -124,7 +124,10 @@ bool Cell::isInvisible(){
    return invisible;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> ac5d5eef98f8011e30001f787c28f27eb096e167
 =======
 >>>>>>> ac5d5eef98f8011e30001f787c28f27eb096e167
 
