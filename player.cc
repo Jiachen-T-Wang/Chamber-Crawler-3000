@@ -67,13 +67,10 @@ void Player::moveTo(Dir dir){
            Treasure* gd = (Treasure*)getPos()->getContent().get();
            gd->switchPlayer();
            setPos(nb);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
            
            Cell* current = getPos();
-           Cell* origin;
-           for(int i=0, i < 8; ++i){
+           Cell* origin = nullptr;
+           for(int i=0; i < 8; ++i){
                if(current->getNeighbour(numToDir(i))->getContent()->isPlayer())
                    origin = current->getNeighbour(numToDir(i));
            }
@@ -85,15 +82,6 @@ void Player::moveTo(Dir dir){
            nb->setCont(origin->getContent());
            origin->setInvisible(false);
            origin->setCont(nullptr);
-=======
-           nb->setCont(std::shared_ptr<Player>(this));
->>>>>>> 73728f4f54c88b8b3ba4dff11bc9d3bceb598300
-=======
-           nb->setCont(std::shared_ptr<Player>(this));
->>>>>>> ac5d5eef98f8011e30001f787c28f27eb096e167
-=======
-           nb->setCont(std::shared_ptr<Player>(this));
->>>>>>> ac5d5eef98f8011e30001f787c28f27eb096e167
        }
        else{
            Character::moveTo(dir);
