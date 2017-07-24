@@ -65,7 +65,7 @@ void Player::moveTo(Dir dir){
            Treasure* gd = (Treasure*)getPos()->getContent().get();
            gd->switchPlayer();
            setPos(nb);
-           nb->setCont(std::shared_ptr<Object>(this));
+           nb->setCont(std::shared_ptr<Player>(this));
        }
        else{
            Character::moveTo(dir);
