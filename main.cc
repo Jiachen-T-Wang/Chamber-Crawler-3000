@@ -22,25 +22,37 @@ shared_ptr<Object> fetchNeighbourObject(shared_ptr<Player> p, string dir){
 bool Merchant::angry{false};
 
 void printcover() {
-  cout << "|-----------------------------------------------------------------------------|" << endl;
-  for (int i=0; i<6;i++)
-    cout << "|                                                                             |" << endl;
-  cout << "|                      The Game of ChamberCrawler3000                         |" << endl;
-  cout << "|                                                                             |" << endl;
-  cout << "|           s - shade                                                         |" << endl;
-  cout << "|           d - Drow                                                          |" << endl;
-  cout << "|           v - Vampire                                                       |" << endl;
-  cout << "|           g - Goblin                                                        |" << endl;
-  cout << "|           t - Troll                                                         |" << endl;
-  cout << "|                                                                             |" << endl;
-  cout << "|           q - quit                                                          |" << endl;
-  for (int i=0; i<8;i++)
-    cout << "|                                                                             |" << endl;
-  cout << "|-----------------------------------------------------------------------------|" << endl;
-  cout << endl << "DESIGNED BY" << endl;
-  cout << "Yuxin Zhu" << endl;
-  cout << "Tianhao Wang" << endl;
-  cout << "Jiayang Fan" << endl;
+   cout << "|-----------------------------------------------------------------------------|" << endl;
+   for (int i=0; i<6;i++)
+      cout << "|                                                                             |" << endl;
+   cout << "|                      The Game of ChamberCrawler3000                         |" << endl;
+   cout << "|                                                                             |" << endl;
+   cout << "|           s - shade                                                         |" << endl;
+   cout << "|           d - Drow                                                          |" << endl;
+   cout << "|           v - Vampire                                                       |" << endl;
+   cout << "|           g - Goblin                                                        |" << endl;
+   cout << "|           t - Troll                                                         |" << endl;
+   cout << "|                                                                             |" << endl;
+   cout << "|           q - quit                                                          |" << endl;
+   for (int i=0; i<8;i++)
+      cout << "|                                                                             |" << endl;
+   cout << "|-----------------------------------------------------------------------------|" << endl;
+   cout << endl << "DESIGNED BY" << endl;
+   cout << "Yuxin Zhu" << endl;
+   cout << "Tianhao Wang" << endl;
+   cout << "Jiayang Fan" << endl;
+}
+
+bool oneRound(Floor &f, shared_ptr<Player> p){
+   f.gothroughBoard(p);
+   f.display();
+   if(p->checkDead()) {
+      cout <<"u r dead!" <<endl;
+      return true;
+   }
+   p->roundChange();
+   if(p->getGoToNext()) return true;
+   return false;
 }
 
 int main(int argc, const char * argv[]) {
@@ -53,12 +65,12 @@ int main(int argc, const char * argv[]) {
    }
    //    Merchant::angry = false;
 Restart:
-
+   
    shared_ptr<Player> p;
    string race;
-  
+   
    printcover();
-  
+   
    while (cin >> race) {
       if (race == "s") {
          p = make_shared<Shade>();
@@ -92,11 +104,12 @@ Restart:
    }
    int level=0;
    string cmd;
+   bool enemyMove = true;
    while(level<levelNum){
       p->notGoToNext();
       //    if(arg) Floor f {i, p, fileName};
       //    else
-      Floor f {level, p};
+      Floor f {level, p, enemyMove};
       
       string direction;
       //       Merchant::angry = false;
@@ -105,8 +118,7 @@ Restart:
          if (cmd == "no"|| cmd == "so" ||cmd == "ea" ||cmd == "we"
              ||cmd == "ne" ||cmd == "nw" ||cmd == "se" ||cmd == "sw"){
             p.get()->moveTo(stringToDir(cmd));//p
-            f.gothroughBoard(p);
-            f.display();
+            if(oneRound(f, p)) break;
          }
          else if (cmd == "u") {
             if(cin >> direction) {
@@ -115,8 +127,7 @@ Restart:
                   Potion *drug=(Potion*)o.get();
                   p.get()->usePotion(drug);//p
                   o->getPos()->setCont(nullptr);
-                  f.gothroughBoard(p);
-                  f.display();
+                  if(oneRound(f,p)) break;
                }
                // else 不是potion
             }
@@ -128,13 +139,13 @@ Restart:
                if (o.get() && o->isEnemy()){
                   Enemy *e =(Enemy*)o.get();
                   e->beAtkBy(p.get());
-                  f.gothroughBoard(p);
-                  f.display();
-                  
+                  if(oneRound(f,p)) break;
                }
             }
          }
          else if (cmd == "f") { // enemies stop moving
+            enemyMove = !enemyMove;
+            f.changeEnemyMove();
             
          }
          else if (cmd == "r") { // restart
@@ -143,11 +154,6 @@ Restart:
          else if (cmd == "q") {
             cout << "bye" <<endl;
             exit(0);
-         }
-         if(p->getGoToNext()) break;
-         if(p->checkDead()) {
-            cout <<"u r dead!" <<endl;
-            break;
          }
       }// end cmd while
       if(p->checkDead()) break;

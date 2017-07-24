@@ -32,14 +32,17 @@ class Floor{
    
    void addNeighbours(Cell &c, Dir dir, int row, int col);
   
+   bool enemyMove;
 public:
   // Floor(int l, Player *p, std::string fileName);
 
-  Floor(int l, std::shared_ptr<Player>p);  //read the map from the txt file
+  Floor(int l, std::shared_ptr<Player>p, bool enemyMove);  //read the map from the txt file
    void gothroughBoard(std::shared_ptr<Player>p);
 
    int getLevel();
    void display();
+   bool getEnemyMove();
+   void changeEnemyMove();
     friend class TextDisplay;
 };
 

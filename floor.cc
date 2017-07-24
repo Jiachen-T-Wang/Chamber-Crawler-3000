@@ -68,7 +68,7 @@ void Floor::addNeighbours(Cell &c, Dir dir, int row, int col){
  */
 
 
-Floor::Floor(int l, shared_ptr<Player>p):level{l}, length{79}, height{25}{
+Floor::Floor(int l, shared_ptr<Player>p, bool enemyMove):level{l}, length{79}, height{25}, enemyMove{enemyMove}{
    
    p->setFloor(this);
    td = make_shared<TextDisplay>("emptyCC3K.txt", p, this);
@@ -143,10 +143,9 @@ void Floor::gothroughBoard(shared_ptr<Player>p){
                DragonHoard *h = d->getHoard();
                if(p->getPos()->isNeighbour(h->getPos()))
                   p->beAtkBy(e);
-               
-               
+            
             }else {
-               if(e->canMove()) e->move();
+               if(e->canMove() && enemyMove) e->move();
             }
             //   e.reset(static_cast<Object*>(e.get()));//cast back
          }
@@ -172,6 +171,13 @@ void Floor::gothroughBoard(shared_ptr<Player>p){
 void Floor::display() {
    
    td->displayBoard();
+}
+
+bool Floor::getEnemyMove(){
+   return enemyMove;
+}
+void Floor::changeEnemyMove(){
+   enemyMove = !enemyMove;
 }
 
 
