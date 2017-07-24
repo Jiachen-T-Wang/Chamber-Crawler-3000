@@ -130,11 +130,17 @@ Floor::Floor(int l, Player *p, string fileName): level{l}, length{79}, height{25
           Treasure* t = (Treasure*)board[i][j].getContent().get();
           if(!t->canPickUp()){
             DragonHoard* dh = (DragonHoard*)t;
-            for(int i = 0; i < 7; ++i){
-              
+            Dragon* dragon;
+            for (int x = -1; x <= 1; x++) {
+              for (int y = -1; y <= 1; y++) {
+                if(!(board[i+x][j+y].getContent()) && board[i+x][j+y].getContent()->isDragon()){
+                  dragon = (Dragon*) board[i+x][j+y].getContent().get();
+                  break;
+                }
+              }
             }
-            Dragon* dragon = (Dragon*) board[i][j].getNeighbour()
-            dh->setDragon()
+            dh->setDragon(dragon);
+            dragon->setHoard(dh);
           }
         }
       }
