@@ -31,8 +31,10 @@ int main(int argc, const char * argv[]) {
    }
    //    Merchant::angry = false;
 Restart:
+
    shared_ptr<Player> p;
    string race;
+  
    cout << "Please choose a race." <<endl;
    cout << "s - shade" << endl;
    cout << "d - Drow" << endl;
@@ -127,7 +129,7 @@ Restart:
          }
          if(p->getGoToNext()) break;
          if(p->checkDead()) {
-            p->getPos()->notifyPlayerDead();
+            cout <<"u r dead!" <<endl;
             break;
          }
       }// end cmd while
