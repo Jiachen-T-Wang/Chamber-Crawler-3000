@@ -86,10 +86,10 @@ Floor::Floor(int l, Player *p, string fileName): level{l}, length{79}, height{25
         Cell c {j, i, '.'};
         shared_ptr<Object> o;
         if (line[i] >= '0' && line[i] <= '5') o = make_shared<Potion>(line[i] - '0');
-        else if(line[i] == '6') o = make_shared<NormalHoard>();
-        else if(line[i] == '7') o = make_shared<SmallGold>();
-        else if(line[i] == '8') o = make_shared<MerchantHoard>();
-        else if(line[i] == '9') o = make_shared<DragonHoard>();
+        else if (line[i] == '6') o = make_shared<NormalHoard>();
+        else if (line[i] == '7') o = make_shared<SmallGold>();
+        else if (line[i] == '8') o = make_shared<MerchantHoard>();
+        else if (line[i] == '9') o = make_shared<DragonHoard>();
         else if (line[i] == 'H') o = make_shared<Human>();
         else if (line[i] == 'W') o = make_shared<Dwarf>();
         else if (line[i] == 'E') o = make_shared<Elf>();
