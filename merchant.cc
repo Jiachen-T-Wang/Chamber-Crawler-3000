@@ -15,8 +15,10 @@ void Merchant::attack(Player* p){
 
 //static 咋玩
 void Merchant::beAtkBy(Player* p){
-    p->attack(this);
-	angry = true;
+    angry = true;
+    Enemy::beAtkBy(p);
+//    p->attack(this);
+//	angry = true;
 }
 
 char Merchant::symbol(){return 'M';}
