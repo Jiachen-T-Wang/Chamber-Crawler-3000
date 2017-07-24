@@ -4,7 +4,6 @@
 #include "header.h"
 using namespace std;
 
-Floor::Floor(){}
 void Floor::addToChamber(Cell *c){
    int x = c->getCol();
    int y = c->getRow();
@@ -62,27 +61,9 @@ void Floor::addNeighbours(Cell &c, Dir dir, int row, int col){
 
 
 
-void Floor::attachNeighbours(){
-   for(int row=0; row<height; ++row){
-      for (int col=0; col< length; ++col){
-         Cell &cell =board[row][col];
-         addNeighbours(cell, Dir::no, row-1, col);
-         addNeighbours(cell, Dir::so, row+1, col);
-         addNeighbours(cell, Dir::ea, row, col+1);
-         addNeighbours(cell, Dir::we, row, col-1);
-         addNeighbours(cell, Dir::ne, row-1, col+1);
-         addNeighbours(cell, Dir::nw, row-1, col-1);
-         addNeighbours(cell, Dir::se, row+1, col+1);
-         addNeighbours(cell, Dir::sw, row+1, col-1);
-         
-      }
-   }
-}
 
-
-Floor::Floor(int l, shared_ptr<Player> p, bool enemyMove, string fileName): level{l}, length{79}, height{25}, enemyMove{enemyMove}{
-  td = make_shared<TextDisplay>("fileName", p, this);
-  p->setFloor(this);
+Floor::Floor(int l, Player *p, string fileName): level{l}, length{79}, height{25}{
+  
   ifstream fs {fileName};
   string line;
   for (int i = 0; i < l * height; i++) getline(fs, line);
@@ -117,8 +98,6 @@ Floor::Floor(int l, shared_ptr<Player> p, bool enemyMove, string fileName): leve
         else if (line[i] == 'L') o = make_shared<Halfling>();
         else if (line[i] == 'D') o = make_shared<Dragon>();
         else if (line[i] == '\\') o = make_shared<Stair>();
-        else if(line[i] == '@') o = p;
-          
         c.setCont(o);
         o->setPos(&c);
         c.attach(td);
@@ -129,20 +108,32 @@ Floor::Floor(int l, shared_ptr<Player> p, bool enemyMove, string fileName): leve
     j++;
   }
   
-  attachNeighbours();
-  /*
-  for (int i = 1; i < height -1; i++) {
-    for (int j = 1 ; j < length -1; j++) {
+  for(int row=0; row<height; ++row){
+    for (int col=0; col< length; ++col){
+      Cell &cell =board[row][col];
+      addNeighbours(cell, Dir::no, row-1, col);
+      addNeighbours(cell, Dir::so, row+1, col);
+      addNeighbours(cell, Dir::ea, row, col+1);
+      addNeighbours(cell, Dir::we, row, col-1);
+      addNeighbours(cell, Dir::ne, row-1, col+1);
+      addNeighbours(cell, Dir::nw, row-1, col-1);
+      addNeighbours(cell, Dir::se, row+1, col+1);
+      addNeighbours(cell, Dir::sw, row+1, col-1);
+      
+    }
+  }
+
+  for (int i = 0; i < height; i++) {
+    for (int j = 0 ; j < length; j++) {
       if (board[i][j].getContent() != nullptr) {
         if (board[i][j].getContent()->isTreasure()) {
           Treasure* t = (Treasure*)board[i][j].getContent().get();
           if(!t->canPickUp()){
             DragonHoard* dh = (DragonHoard*)t;
-             Dragon* dragon = nullptr;
+            Dragon* dragon;
             for (int x = -1; x <= 1; x++) {
               for (int y = -1; y <= 1; y++) {
-                if(!(board[i+x][j+y].getContent()) &&
-                   board[i+x][j+y].getContent()->isDragon()){
+                if(!(board[i+x][j+y].getContent()) && board[i+x][j+y].getContent()->isDragon()){
                   dragon = (Dragon*) board[i+x][j+y].getContent().get();
                   break;
                 }
@@ -155,8 +146,6 @@ Floor::Floor(int l, shared_ptr<Player> p, bool enemyMove, string fileName): leve
       }
     }
   }
-   */
-   display();
 }
 
 
@@ -194,7 +183,20 @@ Floor::Floor(int l, shared_ptr<Player>p, bool enemyMove):level{l}, length{79}, h
    
    
    // add neighbors to cell
-   attachNeighbours();
+   for(int row=0; row<height; ++row){
+      for (int col=0; col< length; ++col){
+         Cell &cell =board[row][col];
+         addNeighbours(cell, Dir::no, row-1, col);
+         addNeighbours(cell, Dir::so, row+1, col);
+         addNeighbours(cell, Dir::ea, row, col+1);
+         addNeighbours(cell, Dir::we, row, col-1);
+         addNeighbours(cell, Dir::ne, row-1, col+1);
+         addNeighbours(cell, Dir::nw, row-1, col-1);
+         addNeighbours(cell, Dir::se, row+1, col+1);
+         addNeighbours(cell, Dir::sw, row+1, col-1);
+         
+      }
+   }
    
    // randomly create objects on the floor
    createObjects(p);

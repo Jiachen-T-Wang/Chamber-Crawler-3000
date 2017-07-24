@@ -58,13 +58,13 @@ bool oneRound(Floor &f, shared_ptr<Player> p){
 
 int main(int argc, const char * argv[]) {
    int levelNum = 5;
-   string fileName="";
-   for (int i = argc - 1; i != 0; i --)
-   {
-      string temp = argv[i];
-      if (temp == "drop") Enemy::canDrop();
-      else fileName = argv[i];
-   }
+   string fileName;
+  for (int i = argc - 1; i != 0; i --)
+  {
+    string temp = argv[i];
+    if (temp == "drop") Enemy::canDrop();
+    else fileName = argv[i];
+  }
    
 Restart:
    
@@ -109,15 +109,12 @@ Restart:
    bool enemyMove = true;
    while(level<levelNum){
       p->notGoToNext();
-      Floor f;
-      if(fileName==""){
-         Floor f {level, p, enemyMove};
-      }
-      else{
-         Floor f {level, p, enemyMove, fileName};
-      }
+      //    if(arg) Floor f {i, p, fileName};
+      //    else
+      Floor f {level, p, enemyMove};
       
       string direction;
+      //       Merchant::angry = false;
       
       while (cin >> cmd) {
          if (cmd == "no"|| cmd == "so" ||cmd == "ea" ||cmd == "we"
