@@ -21,6 +21,28 @@ shared_ptr<Object> fetchNeighbourObject(shared_ptr<Player> p, string dir){
 
 bool Merchant::angry{false};
 
+void printcover() {
+  cout << "|-----------------------------------------------------------------------------|" << endl;
+  for (int i=0; i<6;i++)
+    cout << "|                                                                             |" << endl;
+  cout << "|                      The Game of ChamberCrawler3000                         |" << endl;
+  cout << "|                                                                             |" << endl;
+  cout << "|           s - shade                                                         |" << endl;
+  cout << "|           d - Drow                                                          |" << endl;
+  cout << "|           v - Vampire                                                       |" << endl;
+  cout << "|           g - Goblin                                                        |" << endl;
+  cout << "|           t - Troll                                                         |" << endl;
+  cout << "|                                                                             |" << endl;
+  cout << "|           q - quit                                                          |" << endl;
+  for (int i=0; i<8;i++)
+    cout << "|                                                                             |" << endl;
+  cout << "|-----------------------------------------------------------------------------|" << endl;
+  cout << endl << "DESIGNED BY" << endl;
+  cout << "Yuxin Zhu" << endl;
+  cout << "Tianhao Wang" << endl;
+  cout << "Jiayang Fan" << endl;
+}
+
 int main(int argc, const char * argv[]) {
    int levelNum = 5;
    bool arg = false;
@@ -35,13 +57,8 @@ Restart:
    shared_ptr<Player> p;
    string race;
   
-   cout << "Please choose a race." <<endl;
-   cout << "s - shade" << endl;
-   cout << "d - Drow" << endl;
-   cout << "v - Vampire" << endl;
-   cout << "g - Goblin" << endl;
-   cout << "t - Troll" << endl;
-   cout << "q - quit" << endl;
+   printcover();
+  
    while (cin >> race) {
       if (race == "s") {
          p = make_shared<Shade>();
