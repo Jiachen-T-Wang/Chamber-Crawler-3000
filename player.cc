@@ -42,19 +42,35 @@ void Player::usePotion(Potion* p){
 void Player::moveTo(Dir dir){
    Cell* nb = getPos()->getNeighbour(dir);
    shared_ptr<Object> cont = nb->getContent();
+    
    if(cont.get() && cont->isTreasure()){
       Treasure* gd = (Treasure*)cont.get();
        if(gd->canPickUp()){
            this->PickGold(gd);
            nb->setCont(nullptr);
        }
+       else{
+           gd->switchPlayer();
+           getPos()->setCont(nullptr);
+           setPos(nb);
+           getPos()->notifyPlayerMove(dir);
+           return;
+       }
    }
     
    if(cont.get() && cont->isStair()){
       changeFloor();
-   } else if(nb->getContent() == nullptr && nb->canStand()){
-      Character::moveTo(dir);
-      getPos()->notifyPlayerMove(dir);
+   } else if((nb->getContent() == nullptr && nb->canStand())){
+       if(getPos()->getContent()->isTreasure()){
+           Treasure* gd = (Treasure*)getPos()->getContent().get();
+           gd->switchPlayer();
+           setPos(nb);
+           nb->setCont(std::shared_ptr<Object>(this));
+       }
+       else{
+           Character::moveTo(dir);
+           getPos()->notifyPlayerMove(dir);
+       }
    }
    
    else{

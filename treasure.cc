@@ -16,4 +16,6 @@ void Treasure::setDragon(){}
 
 bool Treasure::canPickUp(){ return true;}
 
+void Treasure::switchPlayer(){}
+
 Treasure::~Treasure() {}

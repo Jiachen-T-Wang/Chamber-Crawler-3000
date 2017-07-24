@@ -16,6 +16,7 @@ class Treasure : public Object {
     char symbol() override;
     virtual void setDragon();
     virtual bool canPickUp();
+    virtual void switchPlayer();
 };
 
 #endif
