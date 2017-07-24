@@ -148,6 +148,7 @@ Restart:
          else if (cmd == "f") { // enemies stop moving
             enemyMove = !enemyMove;
             f.changeEnemyMove();
+            f.display();
             
          }
          else if (cmd == "r") { // restart
