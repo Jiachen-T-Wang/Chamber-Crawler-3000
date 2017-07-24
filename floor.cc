@@ -70,6 +70,7 @@ Floor::Floor(int l, Player *p, string fileName): level{l}, length{79}, height{25
   int j=0;
   while(getline(fs, line)){
     vector <Cell> cellLine;
+     
     for(int i=0; i< length; ++i){
       if (line[i] == '|' ||
           line[i] == '-' ||

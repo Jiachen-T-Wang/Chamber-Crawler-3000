@@ -9,6 +9,7 @@ Human::Human()
 void Human::beAtkBy(Player* p){
     p->attack(this);
     if(checkDead()){
+        getPos()->notifyDead();
         if(p->race == "Goblin"){
             p->incScore(5);
         }
@@ -23,7 +24,6 @@ void Human::beAtkBy(Player* p){
             }
         }
         getPos()->setCont(gold);
-        getPos()->notifyDead();
     }
 }
 
