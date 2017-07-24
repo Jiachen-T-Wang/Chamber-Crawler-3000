@@ -31,7 +31,8 @@ int main(int argc, const char * argv[]) {
 //    Merchant::angry = false;
 Restart:
   shared_ptr<Player> p;
-   string race;
+  string race;
+  
    cout << "Please choose a race." <<endl;
   cout << "s - shade" << endl;
   cout << "d - Drow" << endl;
