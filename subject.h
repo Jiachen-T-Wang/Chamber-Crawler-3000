@@ -22,7 +22,6 @@ public:
     void notifyGold();
     void notifyCannotMove();
     void notifyUsePotion(Potion* p);
-    void notifyPlayerDead();
 
     void attach(std::shared_ptr<Observer> o);
     virtual ~Subject() = default;

@@ -16,7 +16,7 @@ public:
     virtual void displayGold()=0;    //这个用在Human死的时候四周散落gold
   virtual void displayCannotMove()=0;
   virtual void displayUsePotion(Potion *p)=0;
-  virtual void displayPlayerDead()=0;
+  
   
     virtual ~Observer() = default;
 };
