@@ -36,7 +36,7 @@ char DragonHoard::symbol(){
     if(bePlayer)
         return '@';
     else
-        return 'D';
+        return 'G';
 }
 
 void DragonHoard::switchPlayer(){
