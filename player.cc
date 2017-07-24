@@ -4,6 +4,7 @@ using namespace std;
 
 Player::Player(int HP, int atk, int def, int maxHP, std::string race)
 : Character{HP, atk, def}, maxHP{maxHP}, atkEffect{0}, defEffect{0}, f{nullptr}, score{0}, goToNext{false},race{race} {}
+
 void Player::changeFloor(){
    goToNext = true;
    resetEffect();
@@ -145,8 +146,6 @@ void Player::incScore(int value){ score += value; }
 
 void Player::PickGold(Treasure* gold){
    incScore(gold->getValue());
-   //    Cell* newp = gold->getPos();
-   //    newp->setCont(nullptr);
 }
 
 void Player::roundChange(){}

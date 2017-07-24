@@ -8,11 +8,8 @@ Cell* Object::getPos(){
    return position;
 }
 
-
 void Object::setPos(Cell* p){
-//   if(position) position->setCont(std::shared_ptr<Object>(nullptr));
    position = p;
-//   p->setCont(std::shared_ptr<Object>(this));
 }
 
 bool Object::isEnemy(){

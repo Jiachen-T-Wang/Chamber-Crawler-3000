@@ -23,10 +23,7 @@ public:
    virtual bool isStair();
    virtual bool isPotion();
    virtual bool isTreasure();
-    virtual char symbol();
-    
- //   virtual void beAtkBy()
-   
+   virtual char symbol();
 };
 
 #endif
