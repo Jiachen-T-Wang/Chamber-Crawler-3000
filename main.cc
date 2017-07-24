@@ -137,8 +137,8 @@ Restart:
       level++;
    }// end game
    
-   if(level==levelNum) cout << "Congratulations!" <<endl;
-   
+   if(level==levelNum) cout << "Congratulations! You won!" <<endl;
+   cout << "Your score: " << p->showScore() << endl;
    cout << "please choose one of the following options:" << endl;
    cout << "r - restart" << endl;
    cout << "q - quit" <<endl;
