@@ -51,8 +51,10 @@ void Player::moveTo(Dir dir){
        }
        else{
            gd->switchPlayer();
-           getPos()->setCont(nullptr);
+           getPos()->setInvisible(true);
+ //          getPos()->setCont(nullptr);
            setPos(nb);
+           
            getPos()->notifyPlayerMove(dir);
            return;
        }
@@ -65,7 +67,21 @@ void Player::moveTo(Dir dir){
            Treasure* gd = (Treasure*)getPos()->getContent().get();
            gd->switchPlayer();
            setPos(nb);
-           nb->setCont(std::shared_ptr<Player>(this));
+           
+           Cell* current = getPos();
+           Cell* origin = nullptr;
+           for(int i=0; i < 8; ++i){
+               if(current->getNeighbour(numToDir(i))->getContent()->isPlayer())
+                   origin = current->getNeighbour(numToDir(i));
+           }
+           /*
+           if(current->getNeighbour(Dir::ea)->getContent()->isPlayer())
+               Cell* origin = current->getNeighbour(Dir::ea);
+           else if(current->getNeighbour(Dir::ea)->getContent()->isPlayer())
+               Cell* origin = current->getNeighbour(Dir::ea);*/
+           nb->setCont(origin->getContent());
+           origin->setInvisible(false);
+           origin->setCont(nullptr);
        }
        else{
            Character::moveTo(dir);

@@ -25,7 +25,6 @@ protected:
    std::shared_ptr<Treasure> gold;
     
 public:
-   Dir numToDir(int d);
    Enemy(int HP, int atk, int def, std::string);
     
    bool isEnemy() override;
