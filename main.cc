@@ -31,14 +31,10 @@ int main(int argc, const char * argv[]) {
    }
    //    Merchant::angry = false;
 Restart:
-<<<<<<< HEAD
-  shared_ptr<Player> p;
-  string race;
-  
-=======
+
    shared_ptr<Player> p;
    string race;
->>>>>>> 316a11d5fabca109a7f90e7d5fdcbb39ed0eb760
+  
    cout << "Please choose a race." <<endl;
    cout << "s - shade" << endl;
    cout << "d - Drow" << endl;
