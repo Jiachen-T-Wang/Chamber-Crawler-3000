@@ -81,93 +81,63 @@ Floor::Floor(int l, Player *p, string fileName): level{l}, length{79}, height{25
         c.attach(td);
         cellLine.emplace_back(c);
       }
-      else if (line[i] >= '0' && line[i] <= '5') {
+      else {
         Cell c {j, i, '.'};
-        shared_ptr<Potion> p = make_shared<Potion>(line[i] - '0');
-        c.setCont(p);
-        p->setPos(&c);
-        c.attach(td);
-        cellLine.emplace_back(c);
-      }
-      else if (line[i] >= '6' && line[i] <= '9') {
-        Cell c {j, i, '.'};
-        shared_ptr<Treasure> t;
-        if(line[i] == '6') t = make_shared<NormalHoard>();
-        else if(line[i] == '7') t = make_shared<SmallGold>();
-        else if(line[i] == '8') t = make_shared<MerchantHoard>();
-        else t = make_shared<DragonHoard>();
-        c.setCont(t);
-        t->setPos(&c);
-        c.attach(td);
-        cellLine.emplace_back(c);
-      }
-      else if (line[i] == 'H') {
-        Cell c {j, i, '.'};
-        shared_ptr<Human> h = make_shared<Human>();
-        c.setCont(h);
-        h->setPos(&c);
-        c.attach(td);
-        cellLine.emplace_back(c);
-      }
-      else if (line[i] == 'W') {
-        Cell c {j, i, '.'};
-        shared_ptr<Dwarf> w = make_shared<Dwarf>();
-        c.setCont(w);
-        w->setPos(&c);
-        c.attach(td);
-        cellLine.emplace_back(c);
-      }
-      else if (line[i] == 'E') {
-        Cell c {j, i, '.'};
-        shared_ptr<Elf> e = make_shared<Elf>();
-        c.setCont(e);
-        e->setPos(&c);
-        c.attach(td);
-        cellLine.emplace_back(c);
-      }
-      else if (line[i] == 'O') {
-        Cell c {j, i, '.'};
-        shared_ptr<Orcs> o = make_shared<Orcs>();
+        shared_ptr<Object> o;
+        if (line[i] >= '0' && line[i] <= '5') o = make_shared<Potion>(line[i] - '0');
+        else if(line[i] == '6') o = make_shared<NormalHoard>();
+        else if(line[i] == '7') o = make_shared<SmallGold>();
+        else if(line[i] == '8') o = make_shared<MerchantHoard>();
+        else if(line[i] == '9') o = make_shared<DragonHoard>();
+        else if (line[i] == 'H') o = make_shared<Human>();
+        else if (line[i] == 'W') o = make_shared<Dwarf>();
+        else if (line[i] == 'E') o = make_shared<Elf>();
+        else if (line[i] == 'O') o = make_shared<Orcs>();
+        else if (line[i] == 'M') o = make_shared<Merchant>();
+        else if (line[i] == 'L') o = make_shared<Halfling>();
+        else if (line[i] == 'D') o = make_shared<Dragon>();
+        else if (line[i] == '\\') o = make_shared<Stair>();
         c.setCont(o);
         o->setPos(&c);
-        c.attach(td);
-        cellLine.emplace_back(c);
-      }
-      else if (line[i] == 'M') {
-        Cell c {j, i, '.'};
-        shared_ptr<Merchant> m = make_shared<Merchant>();
-        c.setCont(m);
-        m->setPos(&c);
-        c.attach(td);
-        cellLine.emplace_back(c);
-      }
-      else if (line[i] == 'L') {
-        Cell c {j, i, '.'};
-        shared_ptr<Halfling> l = make_shared<Halfling>();
-        c.setCont(l);
-        l->setPos(&c);
-        c.attach(td);
-        cellLine.emplace_back(c);
-      }
-      else if (line[i] == 'D') {
-        Cell c {j, i, '.'};
-        shared_ptr<Dragon> d = make_shared<Dragon>();
-        c.setCont(d);
-        d->setPos(&c);
-        c.attach(td);
-        cellLine.emplace_back(c);
-      }
-      else if (line[i] == '\\') {
-        Cell c {j, i, '.'};
-        shared_ptr<Stair> s = make_shared<Stair>();
-        c.setCont(s);
-        s->setPos(&c);
         c.attach(td);
         cellLine.emplace_back(c);
       }
     }
     board.emplace_back(cellLine);
     j++;
+  }
+  
+  for(int row=0; row<height; ++row){
+    for (int col=0; col< length; ++col){
+      Cell &cell =board[row][col];
+      addNeighbours(cell, Dir::no, row-1, col);
+      addNeighbours(cell, Dir::so, row+1, col);
+      addNeighbours(cell, Dir::ea, row, col+1);
+      addNeighbours(cell, Dir::we, row, col-1);
+      addNeighbours(cell, Dir::ne, row-1, col+1);
+      addNeighbours(cell, Dir::nw, row-1, col-1);
+      addNeighbours(cell, Dir::se, row+1, col+1);
+      addNeighbours(cell, Dir::sw, row+1, col-1);
+      
+    }
+  }
+
+  for (int i = 0; i < height; i++) {
+    for (int j = 0 ; j < length; j++) {
+      if (board[i][j].getContent() != nullptr) {
+        if (board[i][j].getContent()->isTreasure()) {
+          Treasure* t = (Treasure*)board[i][j].getContent().get();
+          if(!t->canPickUp()){
+            DragonHoard* dh = (DragonHoard*)t;
+            for(int i = 0; i < 7; ++i){
+              
+            }
+            Dragon* dragon = (Dragon*) board[i][j].getNeighbour()
+            dh->setDragon()
+          }
+        }
+      }
+    }
   }
 }
 
