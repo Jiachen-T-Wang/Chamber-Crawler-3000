@@ -124,7 +124,9 @@ bool Cell::isInvisible(){
    return invisible;
 }
 
-
+void Cell::setInvisible(bool i){
+   invisible = i;
+}
 
 
 
