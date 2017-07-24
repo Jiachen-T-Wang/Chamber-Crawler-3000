@@ -18,12 +18,12 @@ void Merchant::beAtkBy(Player* p){
     angry = true;
     p->attack(this);
     if(checkDead()){
+        getPos()->notifyDead();
         if(p->race == "Goblin"){
             p->incScore(5);
         }
         gold->setPos(getPos());
         getPos()->setCont(gold);
-        getPos()->notifyDead();
     }
 }
 

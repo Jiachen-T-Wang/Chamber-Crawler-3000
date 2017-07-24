@@ -69,6 +69,7 @@ void Enemy::attack(Goblin* g){
 void Enemy::beAtkBy(Player* p){
   p->attack(this);
   if(checkDead()){
+    getPos()->notifyDead();
     if(p->race == "Goblin"){
       p->incScore(5);
     }
@@ -80,7 +81,6 @@ void Enemy::beAtkBy(Player* p){
         p->incScore(gold->getValue());
         getPos()->setCont(nullptr);
     }
-    getPos()->notifyDead();
   }
 }
 
