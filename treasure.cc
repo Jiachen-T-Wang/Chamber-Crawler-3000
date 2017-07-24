@@ -14,7 +14,7 @@ char Treasure::symbol(){ return 'G';};
 
 void Treasure::setDragon(){}
 
-void Treasure::setDragon(std::shared_ptr<Dragon> dragon){}
+void Treasure::setDragon(Dragon* dragon){}
 
 bool Treasure::canPickUp(){ return true;}
 

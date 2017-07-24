@@ -11,7 +11,7 @@ class DragonHoard : public Treasure {
  public:
  	DragonHoard();
     std::shared_ptr<Dragon> getDragon();
-    void setDragon(std::shared_ptr<Dragon> dragon) override;
+    void setDragon(Dragon* dragon) override;
     void setDragon() override;
     void removeDragon();
     bool canPickUp() override;

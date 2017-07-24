@@ -16,8 +16,8 @@ void DragonHoard::setDragon(){
     }
 }
 
-void DragonHoard::setDragon(std::shared_ptr<Dragon> dragon){
-    this->dragon = dragon;
+void DragonHoard::setDragon(Dragon* dragon){
+    this->dragon = std::shared_ptr<Dragon>(dragon);
     dragon->setHoard(this);
 }
 

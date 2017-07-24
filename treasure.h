@@ -15,7 +15,7 @@ class Treasure : public Object {
     virtual ~Treasure() = 0;
     char symbol() override;
     virtual void setDragon();
-    virtual void setDragon(std::shared_ptr<Dragon> dragon);
+    virtual void setDragon(Dragon* dragon);
     virtual bool canPickUp();
     virtual void switchPlayer();
 };
