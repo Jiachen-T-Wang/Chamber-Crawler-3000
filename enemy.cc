@@ -88,8 +88,5 @@ void Enemy::canDrop(){
     drop = true;
 }
 
-bool Enemy::isDragon(){
-   return false;
-}
 Enemy::~Enemy() {}
 

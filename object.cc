@@ -31,3 +31,7 @@ bool Object::isPotion(){
 bool Object::isTreasure(){
    return false;
 }
+
+bool Object::isDragon(){
+    return false;
+}
