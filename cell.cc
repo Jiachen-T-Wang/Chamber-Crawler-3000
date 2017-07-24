@@ -2,7 +2,7 @@
 #include "header.h"
 using namespace std;
 
-Cell::Cell(int row, int col, char c): row{row}, col{col}, content{nullptr}{
+Cell::Cell(int row, int col, char c): row{row}, col{col}, content{nullptr}, invisible(false){
    if (c == '.') type = CellType::Tile;
       else if ( c == '-') type = CellType::Wall;
          else if (c == '|') type = CellType::WallVertical;
@@ -118,6 +118,10 @@ char Cell::getSymbol(){
    else if(type==CellType::Passage) return '#';
    else if(type==CellType::Wall) return '-';
    else return '|';
+}
+
+bool Cell::isInvisible(){
+   return invisible;
 }
 
 

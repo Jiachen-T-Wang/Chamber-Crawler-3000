@@ -5,26 +5,6 @@
 
 using namespace std;
 
-Dir Enemy::numToDir(int d){
-    switch (d) {
-        case 0:
-            return Dir::no; break;
-        case 1:
-            return Dir::ne; break;
-        case 2:
-            return Dir::nw; break;
-        case 3:
-            return Dir::so; break;
-        case 4:
-            return Dir::sw; break;
-        case 5:
-            return Dir::se; break;
-        case 6:
-            return Dir::we; break;
-        default:
-            return Dir::ea;break;
-    }
-}
 
 Enemy::Enemy(int HP, int atk, int def, string type)
 : Character{HP, atk, def}, moveable{true}, type{type} {

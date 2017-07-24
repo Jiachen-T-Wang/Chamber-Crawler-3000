@@ -14,7 +14,7 @@ protected:
    int def;
    
 public:
-   
+   Dir numToDir(int d);
    int getHP();
    int getAtk();
    int getDef();

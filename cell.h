@@ -17,7 +17,7 @@ class Cell: public Subject {//abstract
    CellType type;
    std::shared_ptr<Object> content;
    std::map <Dir, Cell*> neighbours;
-   
+   bool invisible;
 public:
    Cell(int row, int col, char c);
    
@@ -46,6 +46,8 @@ public:
    bool isNeighbour(Cell *c);
    CellType getCellType();
    char getSymbol();
+   bool isInvisible();
+   void setInvisible(bool i);
 };
 
 #endif
