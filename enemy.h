@@ -44,7 +44,7 @@ public:
    virtual void attack(Drow* d);
    virtual void attack(Vampire* v);
    virtual void attack(Goblin* g);
-   virtual bool isDragon();
+//   virtual bool isDragon();
    virtual ~Enemy()=0;
 };
 
