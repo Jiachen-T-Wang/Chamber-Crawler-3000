@@ -21,10 +21,12 @@ class Enemy: public Character{
    std::string type;
    
 protected:
+    static bool drop;
    int calcDamage(Player* defender);
    std::shared_ptr<Treasure> gold;
     
 public:
+    static void canDrop();
    Enemy(int HP, int atk, int def, std::string);
     
    bool isEnemy() override;

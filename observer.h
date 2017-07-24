@@ -13,7 +13,7 @@ public:
     virtual void displayEnemyAtk(Enemy *e, int damage)=0;
     virtual void displayMiss()=0;
     virtual void displayDead()=0;
-    virtual void displayGold()=0;    //这个用在Human死的时候四周散落gold
+    virtual void displayGold()=0;
     virtual void displayCannotMove()=0;
     virtual void displayUsePotion(Potion *p)=0;
   

@@ -31,5 +31,3 @@ bool Object::isPotion(){
 bool Object::isTreasure(){
    return false;
 }
-
-char Object::symbol(){ return 'z';}

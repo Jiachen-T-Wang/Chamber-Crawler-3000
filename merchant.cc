@@ -15,8 +15,16 @@ void Merchant::attack(Player* p){
 
 //static 咋玩
 void Merchant::beAtkBy(Player* p){
+    angry = true;
     p->attack(this);
-	angry = true;
+    if(checkDead()){
+        if(p->race == "Goblin"){
+            p->incScore(5);
+        }
+        gold->setPos(getPos());
+        getPos()->setCont(gold);
+        getPos()->notifyDead();
+    }
 }
 
 char Merchant::symbol(){return 'M';}
