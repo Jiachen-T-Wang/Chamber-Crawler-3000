@@ -76,15 +76,8 @@ void Cell::spawnEnemy(){
 void Cell::spawnPotion(){
    // srand(time(0));
    int x=rand() % 6;
-   shared_ptr<Potion> p;
-   if(x==0) p = make_shared<Potion>(10, "Hp");
-   else if(x==1) p = make_shared<Potion>(-10, "Hp");
-   else if(x==2) p = make_shared<Potion>(5, "Atk");
-   else if(x==3) p = make_shared<Potion>(-5, "Atk");
-   else if(x==4) p = make_shared<Potion>(5, "Def");
-   else p = make_shared<Potion>(-5, "Def");
-    
-    this->setCont(p);
+   shared_ptr<Potion> p = make_shared<Potion>(x);
+   this->setCont(p);
    p->setPos(this);
 }
 

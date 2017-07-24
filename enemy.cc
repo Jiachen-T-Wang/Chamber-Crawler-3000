@@ -72,10 +72,20 @@ void Enemy::beAtkBy(Player* p){
     if(p->race == "Goblin"){
       p->incScore(5);
     }
-    gold->setPos(getPos());
-    getPos()->setCont(gold);
+    if(drop){
+        gold->setPos(getPos());
+        getPos()->setCont(gold);
+    }
+    else{
+        p->incScore(gold->getValue());
+        getPos()->setCont(nullptr);
+    }
     getPos()->notifyDead();
   }
+}
+
+void Enemy::canDrop(){
+    drop = true;
 }
 
 bool Enemy::isDragon(){

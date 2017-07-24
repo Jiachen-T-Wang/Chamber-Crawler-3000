@@ -3,9 +3,15 @@
 Dragon::Dragon(DragonHoard* hoard)
 : Enemy{150, 20, 20, "Dragon"}, hoard{hoard} {}
 
+Dragon::Dragon()
+: Enemy{150, 20, 20, "Dragon"}, hoard{nullptr} {}
 
 DragonHoard* Dragon::getHoard(){
     return hoard;
+}
+
+void Dragon::setHoard(DragonHoard* hoard){
+    this->hoard = hoard;
 }
 
 bool Dragon::isDragon(){
@@ -23,7 +29,6 @@ void Dragon::beAtkBy(Player* p){
             p->incScore(5);
         }
         hoard->removeDragon();
- //       gold->setPos(getPos());
         getPos()->setCont(nullptr);
         getPos()->notifyDead();
     }

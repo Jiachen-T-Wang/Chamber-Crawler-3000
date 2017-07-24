@@ -1,9 +1,7 @@
 #include "header.h"
 
 DragonHoard::DragonHoard():
-Treasure{"DragonHoard", 6}, dragon{nullptr}, canPick{false}, bePlayer{false} {
-  //  dragon->setPos(this->getPos()->getNeighbour(dragon->numToDir(d)));
-}
+Treasure{"DragonHoard", 6}, dragon{nullptr}, canPick{false}, bePlayer{false} {}
 
 void DragonHoard::setDragon(){
     dragon =  make_shared<Dragon>(this);
@@ -18,6 +16,11 @@ void DragonHoard::setDragon(){
     }
 }
 
+void DragonHoard::setDragon(std::shared_ptr<Dragon> dragon){
+    this->dragon = dragon;
+    dragon->setHoard(this);
+}
+
 std::shared_ptr<Dragon> DragonHoard::getDragon(){
     return dragon;
 }
@@ -29,8 +32,6 @@ bool DragonHoard::canPickUp(){
 void DragonHoard::removeDragon(){
     canPick = true;
 }
-
-
 
 char DragonHoard::symbol(){
     if(bePlayer)

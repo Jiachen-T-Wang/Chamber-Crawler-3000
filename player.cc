@@ -19,7 +19,6 @@ void Player::setDefEffect(int effect){
 }
 
 bool Player::isPlayer() { return true;}
-//bool Player::isEnemy() {return false;}
 
 void Player::addHp(int hpEffect) {
    HP = (getHP() + hpEffect > maxHP) ? maxHP : getHP() + hpEffect;
@@ -30,7 +29,6 @@ void Player::resetEffect(){
    defEffect = 0;
 }
 
-// Basic Implementation
 void Player::usePotion(Potion* p){
    string type = p->getType();
    int effect =p->getEffect();
@@ -68,18 +66,7 @@ void Player::moveTo(Dir dir){
            Treasure* gd = (Treasure*)getPos()->getContent().get();
            gd->switchPlayer();
            setPos(nb);
-           
-  //         Cell* current = getPos();
-  //         Cell* origin = nullptr;
-           /*
-           for(int i=0; i < 8; ++i){
-               if(current->getNeighbour(numToDir(i))->getContent()->isPlayer())
-                   origin = current->getNeighbour(numToDir(i));
-           }
-            */
            nb->setCont(std::shared_ptr<Player>(this));
- //          origin->setInvisible(false);
- //          origin->setCont(nullptr);
        }
        else{
            Character::moveTo(dir);
