@@ -14,7 +14,7 @@ class DragonHoard : public Treasure {
     void setDragon() override;
     void removeDragon();
     bool canPickUp() override;
-    char symbol();
+    char symbol() override;
     void switchPlayer() override;
 };
 
