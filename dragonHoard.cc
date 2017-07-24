@@ -1,7 +1,7 @@
 #include "header.h"
 
 DragonHoard::DragonHoard():
-Treasure{"DragonHoard", 6}, dragon{nullptr}, canPick{false} {
+Treasure{"DragonHoard", 6}, dragon{nullptr}, canPick{false}, bePlayer{false} {
   //  dragon->setPos(this->getPos()->getNeighbour(dragon->numToDir(d)));
 }
 
@@ -28,5 +28,21 @@ bool DragonHoard::canPickUp(){
 
 void DragonHoard::removeDragon(){
     canPick = true;
+}
+
+
+
+char DragonHoard::symbol(){
+    if(bePlayer)
+        return '@';
+    else
+        return 'D';
+}
+
+void DragonHoard::switchPlayer(){
+    if(bePlayer)
+        bePlayer = false;
+    else
+        bePlayer = true;
 }
 

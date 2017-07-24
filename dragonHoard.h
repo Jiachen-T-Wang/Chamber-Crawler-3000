@@ -7,12 +7,15 @@ class Dragon;
 class DragonHoard : public Treasure {
 	std::shared_ptr<Dragon> dragon;
     bool canPick;
+    bool bePlayer;
  public:
  	DragonHoard();
     std::shared_ptr<Dragon> getDragon();
     void setDragon() override;
     void removeDragon();
     bool canPickUp() override;
+    char symbol();
+    void switchPlayer() override;
 };
 
 #endif
