@@ -37,10 +37,6 @@ void Subject::notifyUsePotion(Potion* p){
     observers[TD]->displayUsePotion(p);
 }
 
-void Subject::notifyPlayerDead(){
-    observers[TD]->displayPlayerDead();
-}
-
 void Subject::attach(std::shared_ptr<Observer> o) { observers.emplace_back(o); }
 
 
