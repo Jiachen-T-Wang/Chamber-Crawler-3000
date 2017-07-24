@@ -130,8 +130,9 @@ Floor::Floor(int l, shared_ptr<Player> p, bool enemyMove, string fileName): leve
   }
   
   attachNeighbours();
-  for (int i = 0; i < height; i++) {
-    for (int j = 0 ; j < length; j++) {
+  /*
+  for (int i = 1; i < height -1; i++) {
+    for (int j = 1 ; j < length -1; j++) {
       if (board[i][j].getContent() != nullptr) {
         if (board[i][j].getContent()->isTreasure()) {
           Treasure* t = (Treasure*)board[i][j].getContent().get();
@@ -140,7 +141,8 @@ Floor::Floor(int l, shared_ptr<Player> p, bool enemyMove, string fileName): leve
              Dragon* dragon = nullptr;
             for (int x = -1; x <= 1; x++) {
               for (int y = -1; y <= 1; y++) {
-                if(!(board[i+x][j+y].getContent()) && board[i+x][j+y].getContent()->isDragon()){
+                if(!(board[i+x][j+y].getContent()) &&
+                   board[i+x][j+y].getContent()->isDragon()){
                   dragon = (Dragon*) board[i+x][j+y].getContent().get();
                   break;
                 }
@@ -153,6 +155,7 @@ Floor::Floor(int l, shared_ptr<Player> p, bool enemyMove, string fileName): leve
       }
     }
   }
+   */
    display();
 }
 
