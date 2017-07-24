@@ -20,6 +20,7 @@ shared_ptr<Object> fetchNeighbourObject(shared_ptr<Player> p, string dir){
 }
 
 bool Merchant::angry{false};
+bool Enemy::drop{false};
 
 void printcover() {
    cout << "|-----------------------------------------------------------------------------|" << endl;
@@ -57,13 +58,14 @@ bool oneRound(Floor &f, shared_ptr<Player> p){
 
 int main(int argc, const char * argv[]) {
    int levelNum = 5;
-   bool arg = false;
    string fileName;
-   if (argc > 1) {
-      fileName = argv[1];
-      arg = true;
-   }
-   //    Merchant::angry = false;
+  for (int i = argc - 1; i != 0; i --)
+  {
+    string temp = argv[i];
+    if (temp == "drop") Enemy::canDrop();
+    else fileName = argv[i];
+  }
+   
 Restart:
    
    shared_ptr<Player> p;

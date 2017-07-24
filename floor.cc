@@ -66,7 +66,7 @@ Floor::Floor(int l, Player *p, string fileName): level{l}, length{79}, height{25
   
   ifstream fs {fileName};
   string line;
-  for (int i = 0; i < l; i++) getline(fs, line);
+  for (int i = 0; i < l * height; i++) getline(fs, line);
   int j=0;
   while(getline(fs, line)){
     vector <Cell> cellLine;
