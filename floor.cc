@@ -81,7 +81,7 @@ void Floor::attachNeighbours(){
 
 
 Floor::Floor(int l, shared_ptr<Player> p, bool enemyMove, string fileName): level{l}, length{79}, height{25}, enemyMove{enemyMove}{
-   
+  td = make_shared<TextDisplay>("fileName", p, this);
   p->setFloor(this);
   ifstream fs {fileName};
   string line;
