@@ -3,9 +3,15 @@
 Dragon::Dragon(DragonHoard* hoard)
 : Enemy{150, 20, 20, "Dragon"}, hoard{hoard} {}
 
+Dragon::Dragon()
+: Enemy{150, 20, 20, "Dragon"}, hoard{nullptr} {}
 
 DragonHoard* Dragon::getHoard(){
     return hoard;
+}
+
+void Dragon::setHoard(DragonHoard* hoard){
+    this->hoard = hoard;
 }
 
 bool Dragon::isDragon(){

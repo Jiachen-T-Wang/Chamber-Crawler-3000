@@ -9,7 +9,9 @@ class Treasure;
 class Dragon: public Enemy{
 	DragonHoard* hoard;
 public:
+    Dragon();
     Dragon(DragonHoard* hoard);
+    void setHoard(DragonHoard* hoard);
     bool isDragon() override;
     DragonHoard* getHoard();
     void move() override;
