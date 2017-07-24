@@ -11,7 +11,7 @@ class Potion: public Object {
    std::string type; // One of Hp, Atk, Def
    
 public:
-   Potion(int effect, std::string type);
+   Potion(int name);
    
    std::string getType();
    
