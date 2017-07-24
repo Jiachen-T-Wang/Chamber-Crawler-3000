@@ -23,7 +23,6 @@ void Dragon::beAtkBy(Player* p){
             p->incScore(5);
         }
         hoard->removeDragon();
- //       gold->setPos(getPos());
         getPos()->setCont(nullptr);
         getPos()->notifyDead();
     }

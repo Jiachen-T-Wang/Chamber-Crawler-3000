@@ -49,7 +49,7 @@ public:
    
     virtual void beAtkBy(Enemy* enemy);
     virtual void PickGold(Treasure* gold);
-    virtual void roundChange();   //每一轮都发生的变化
+    virtual void roundChange();
     void setFloor(Floor* f);
     char symbol() override;
     virtual ~Player() = 0;
