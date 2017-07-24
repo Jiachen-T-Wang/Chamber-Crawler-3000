@@ -22,32 +22,38 @@ shared_ptr<Object> fetchNeighbourObject(shared_ptr<Player> p, string dir){
 bool Merchant::angry{false};
 
 int main(int argc, const char * argv[]) {
+   int levelNum = 5;
    bool arg = false;
    string fileName;
    if (argc > 1) {
       fileName = argv[1];
       arg = true;
    }
-//    Merchant::angry = false;
+   //    Merchant::angry = false;
 Restart:
+<<<<<<< HEAD
   shared_ptr<Player> p;
   string race;
   
+=======
+   shared_ptr<Player> p;
+   string race;
+>>>>>>> 316a11d5fabca109a7f90e7d5fdcbb39ed0eb760
    cout << "Please choose a race." <<endl;
-  cout << "s - shade" << endl;
-  cout << "d - Drow" << endl;
-  cout << "v - Vampire" << endl;
-  cout << "g - Goblin" << endl;
-  cout << "t - Troll" << endl;
-  cout << "q - quit" << endl;
+   cout << "s - shade" << endl;
+   cout << "d - Drow" << endl;
+   cout << "v - Vampire" << endl;
+   cout << "g - Goblin" << endl;
+   cout << "t - Troll" << endl;
+   cout << "q - quit" << endl;
    while (cin >> race) {
       if (race == "s") {
          p = make_shared<Shade>();
          break;
       }
       else if (race == "d") {
-          p = make_shared<Drow>();
-
+         p = make_shared<Drow>();
+         
          break;
       }
       else if (race == "v") {
@@ -59,27 +65,34 @@ Restart:
          break;
       }
       else if (race == "t") {
-        p = make_shared<Troll>();
+         p = make_shared<Troll>();
          break;
       }
       else if (race == "q") {
+         cout << "bye" <<endl;
          exit(0);
       }
    }
-   for(int i=0; i<5; i++){
+   if(cin.eof()) {
+      cout << "bye" <<endl;
+      exit(0);
+   }
+   int level=0;
+   string cmd;
+   while(level<levelNum){
       p->notGoToNext();
       //    if(arg) Floor f {i, p, fileName};
       //    else
-      Floor f {i, p};
-      string cmd;
+      Floor f {level, p};
+      
       string direction;
-//       Merchant::angry = false;
+      //       Merchant::angry = false;
       
       while (cin >> cmd) {
          if (cmd == "no"|| cmd == "so" ||cmd == "ea" ||cmd == "we"
              ||cmd == "ne" ||cmd == "nw" ||cmd == "se" ||cmd == "sw"){
             p.get()->moveTo(stringToDir(cmd));//p
-         f.gothroughBoard(p);
+            f.gothroughBoard(p);
             f.display();
          }
          else if (cmd == "u") {
@@ -104,7 +117,7 @@ Restart:
                   e->beAtkBy(p.get());
                   f.gothroughBoard(p);
                   f.display();
-
+                  
                }
             }
          }
@@ -121,10 +134,29 @@ Restart:
          if(p->getGoToNext()) break;
          if(p->checkDead()) {
             p->getPos()->notifyPlayerDead();
+            break;
          }
+      }// end cmd while
+      if(p->checkDead()) break;
+      level++;
+   }// end game
+   
+   if(level==levelNum) cout << "Congratulations!" <<endl;
+   
+   cout << "please choose one of the following options:" << endl;
+   cout << "r - restart" << endl;
+   cout << "q - quit" <<endl;
+   while(cin >> cmd){
+      if(cmd=="r") goto Restart;
+      else if (cmd == "q") {
+         cout <<"bye" << endl;
+         exit(0);
+      }
+      else {
+         cout << "please choose one of the following options:" << endl;
+         cout << "r - restart" << endl;
+         cout << "q - quit" <<endl;
       }
    }
-   cout << "Congratulations!" <<endl;
-   
-   
 }
+
