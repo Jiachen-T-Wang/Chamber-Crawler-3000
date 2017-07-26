@@ -56,7 +56,57 @@ bool oneRound(Floor &f, shared_ptr<Player> p){
    return false;
 }
 
-int main(int argc, const char * argv[]) {
+void startGame(Floor &f, shared_ptr<Player> p, bool &enemyMove, bool &restart){
+   string cmd;
+   f.display();
+   string direction;
+   
+   while (cin >> cmd) {
+      if (cmd == "no"|| cmd == "so" ||cmd == "ea" ||cmd == "we"
+          ||cmd == "ne" ||cmd == "nw" ||cmd == "se" ||cmd == "sw"){
+         p.get()->moveTo(stringToDir(cmd));//p
+         if(oneRound(f, p)) break;
+      }
+      else if (cmd == "u") {
+         if(cin >> direction) {
+            shared_ptr<Object> o =fetchNeighbourObject(p, direction);
+            if (o.get() && o->isPotion()){
+               Potion *drug=(Potion*)o.get();
+               p.get()->usePotion(drug);//p
+               o->getPos()->setCont(nullptr);
+            }
+            if(oneRound(f,p)) break;
+         }
+      }
+      else if (cmd == "a") { // attack enemy
+         
+         if(cin >> direction) {
+            shared_ptr<Object> o = fetchNeighbourObject(p, direction);
+            if (o.get() && o->isEnemy()){
+               Enemy *e =(Enemy*)o.get();
+               e->beAtkBy(p.get());
+            }
+            if(oneRound(f,p)) break;
+         }
+      }
+      else if (cmd == "f") { // enemies stop moving
+         enemyMove = !enemyMove;
+         f.changeEnemyMove();
+         f.display();
+         
+      }
+      else if (cmd == "r") { // restart
+         restart = true;
+         return;
+      }
+      else if (cmd == "q") {
+         cout << "bye" <<endl;
+         exit(0);
+      }
+   }// end cmd while
+}
+
+int main(int argc,char * argv[]) {
    int levelNum = 5;
    string fileName="";
    bool arg = false;
@@ -109,63 +159,21 @@ Restart:
       exit(0);
    }
    int level=0;
-   string cmd;
+   bool restart = false;
    bool enemyMove = true;
    while(level<levelNum){
       p->notGoToNext();
-
-       Floor f =Floor {level, p, enemyMove};
-      
-     if(fileName!="") {
-        f =  Floor {level, p, enemyMove, fileName};
+      if(fileName==""){
+         Floor f {level, p, enemyMove};
+         startGame(f, p, enemyMove, restart);
+      }else {
+         Floor f {level, p, enemyMove, fileName};
+         startGame(f, p, enemyMove, restart);
       }
-      f.display();
-      string direction;
       
-      while (cin >> cmd) {
-         if (cmd == "no"|| cmd == "so" ||cmd == "ea" ||cmd == "we"
-             ||cmd == "ne" ||cmd == "nw" ||cmd == "se" ||cmd == "sw"){
-            p.get()->moveTo(stringToDir(cmd));//p
-            if(oneRound(f, p)) break;
-         }
-         else if (cmd == "u") {
-            if(cin >> direction) {
-               shared_ptr<Object> o =fetchNeighbourObject(p, direction);
-               if (o.get() && o->isPotion()){
-                  Potion *drug=(Potion*)o.get();
-                  p.get()->usePotion(drug);//p
-                  o->getPos()->setCont(nullptr);
-               }
-               if(oneRound(f,p)) break;
-            }
-         }
-         else if (cmd == "a") { // attack enemy
-            
-            if(cin >> direction) {
-               shared_ptr<Object> o = fetchNeighbourObject(p, direction);
-               if (o.get() && o->isEnemy()){
-                  Enemy *e =(Enemy*)o.get();
-                  e->beAtkBy(p.get());
-               }
-               if(oneRound(f,p)) break;
-            }
-         }
-         else if (cmd == "f") { // enemies stop moving
-            enemyMove = !enemyMove;
-            f.changeEnemyMove();
-            f.display();
-            
-         }
-         else if (cmd == "r") { // restart
-            goto Restart;
-         }
-         else if (cmd == "q") {
-            cout << "bye" <<endl;
-            exit(0);
-         }
-      }// end cmd while
       if(p->checkDead()) break;
       level++;
+      if(restart) goto Restart;
    }// end game
    
    if(level==levelNum) cout << "Congratulations! You won!" <<endl;
@@ -173,6 +181,7 @@ Restart:
    cout << "please choose one of the following options:" << endl;
    cout << "r - restart" << endl;
    cout << "q - quit" <<endl;
+   string cmd;
    while(cin >> cmd){
       if(cmd=="r") goto Restart;
       else if (cmd == "q") {
@@ -186,4 +195,6 @@ Restart:
       }
    }
 }
+
+
 

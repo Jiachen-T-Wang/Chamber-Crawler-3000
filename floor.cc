@@ -80,8 +80,10 @@ Floor::Floor(int l, shared_ptr<Player> p, bool enemyMove, string fileName): leve
    td = make_shared<TextDisplay>(fileName, p, this);
   ifstream fs {fileName};
   string line;
-  for (int i = 0; i < l * height; i++) getline(fs, line);
+   
+   for (int i = 0; i < l * height; i++) {getline(fs, line);}
   int j=0;
+
   while(getline(fs, line)){
     vector <Cell> cellLine;
      
@@ -95,6 +97,7 @@ Floor::Floor(int l, shared_ptr<Player> p, bool enemyMove, string fileName): leve
         Cell c {j, i, line[i]};
         c.attach(td);
         cellLine.emplace_back(c);
+        
       }
       else {
         Cell c {j, i, '.'};
@@ -114,7 +117,7 @@ Floor::Floor(int l, shared_ptr<Player> p, bool enemyMove, string fileName): leve
         else if (line[i] == 'D') o = make_shared<Dragon>();
         else if (line[i] == '\\') o = make_shared<Stair>();
         c.setCont(o);
-        o->setPos(&c);
+        //o->setPos(&c);//
         c.attach(td);
         cellLine.emplace_back(c);
       }
@@ -122,7 +125,12 @@ Floor::Floor(int l, shared_ptr<Player> p, bool enemyMove, string fileName): leve
     board.emplace_back(cellLine);
     j++;
   }
-  
+   for(int i=0; i<height; i++){
+      for(int j=0; j<length; j++){
+         Cell &c =board[i][j];
+         if(c.getContent()) c.getContent()->setPos(&c);
+      }
+   }
    attachNeighbours();
    
   for (int i = 0; i < height; i++) {

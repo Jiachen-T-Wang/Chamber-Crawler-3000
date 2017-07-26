@@ -27,7 +27,7 @@ class TextDisplay: public Observer {
  void displayEnemyAtk(Enemy *e, int damage) override;
   void displayMiss() override;
   void displayDead() override;
-  void displayGold() override;    //这个用在Human死的时候四周散落gold
+  void displayGold() override;    
   void displayCannotMove() override;
   void displayUsePotion(Potion *p) override;
 //use potion
