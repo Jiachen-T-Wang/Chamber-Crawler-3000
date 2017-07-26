@@ -33,6 +33,7 @@ class Floor{
    void addNeighbours(Cell &c, Dir dir, int row, int col);
    
    bool enemyMove;
+   void attachNeighbours();
 public:
    Floor(int l, std::shared_ptr<Player> p, bool enemyMove, std::string fileName);
    
