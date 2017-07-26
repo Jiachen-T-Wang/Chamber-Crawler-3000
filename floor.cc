@@ -135,7 +135,8 @@ Floor::Floor(int l, shared_ptr<Player> p, bool enemyMove, string fileName): leve
             Dragon* dragon=nullptr;
             for (int x = -1; x <= 1; x++) {
               for (int y = -1; y <= 1; y++) {
-                if(!(board[i+x][j+y].getContent()) && board[i+x][j+y].getContent()->isDragon()){
+                if((board[i+x][j+y].getContent())
+                   && board[i+x][j+y].getContent()->isDragon()){
                   dragon = (Dragon*) board[i+x][j+y].getContent().get();
                   break;
                 }
