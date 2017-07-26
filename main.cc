@@ -68,7 +68,6 @@ int main(int argc, const char * argv[]) {
          fileName = argv[i];
          arg = true;
       }
-      fileName = argv[1];
    }
    
 Restart:
@@ -115,11 +114,11 @@ Restart:
    while(level<levelNum){
       p->notGoToNext();
 
-      Floor f =Floor {level, p, enemyMove};
+       Floor f =Floor {level, p, enemyMove};
       
      if(fileName!="") {
-         f= Floor {level, p, enemyMove, fileName};
-     }
+        f =  Floor {level, p, enemyMove, fileName};
+      }
       f.display();
       string direction;
       
