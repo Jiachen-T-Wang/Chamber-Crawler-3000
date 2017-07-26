@@ -15,22 +15,20 @@ void Floor::addToChamber(Cell *c){
            (x>=37 && x<=75 && y>=19 && y<=21 )) chambers[2]->addCell(c);
    else if(x>=4 && x<= 24 && y>=15 && y<=21) chambers[3]->addCell(c);
    else if(x>=38 && x<= 49 && y>=10 && y<=12) chambers[4]->addCell(c);
-   // cout << "add cell row "<< y<<" col "<<  x << endl;
 }
 
 std::shared_ptr<Chamber> Floor::randChamber(){
-   //srand(time(NULL));
    int x=rand() % chamberNum;
    return chambers[x];
 }
 
 void Floor::createObjects(shared_ptr<Player>p){
-   //first player
+   //first, player
    srand(time(0));
    std::shared_ptr<Chamber> ch_player = randChamber();
    ch_player->addPlayer(p);
    
-   //second stairway
+   //second, stairway
    std::shared_ptr<Chamber> ch_stair = randChamber();
    while(ch_stair.get() == ch_player.get()) ch_stair = randChamber();
    ch_stair->addStair();
@@ -60,10 +58,26 @@ void Floor::addNeighbours(Cell &c, Dir dir, int row, int col){
 }
 
 
+void Floor::attachNeighbours(){
+   for(int row=0; row<height; ++row){
+      for (int col=0; col< length; ++col){
+         Cell &cell =board[row][col];
+         addNeighbours(cell, Dir::no, row-1, col);
+         addNeighbours(cell, Dir::so, row+1, col);
+         addNeighbours(cell, Dir::ea, row, col+1);
+         addNeighbours(cell, Dir::we, row, col-1);
+         addNeighbours(cell, Dir::ne, row-1, col+1);
+         addNeighbours(cell, Dir::nw, row-1, col-1);
+         addNeighbours(cell, Dir::se, row+1, col+1);
+         addNeighbours(cell, Dir::sw, row+1, col-1);
+         
+      }
+   }
+}
 
-
-Floor::Floor(int l, Player *p, string fileName): level{l}, length{79}, height{25}{
-  
+Floor::Floor(int l, shared_ptr<Player> p, bool enemyMove, string fileName): level{l}, length{79}, height{25}, enemyMove{enemyMove}{
+   p->setFloor(this);
+   td = make_shared<TextDisplay>(fileName, p, this);
   ifstream fs {fileName};
   string line;
   for (int i = 0; i < l * height; i++) getline(fs, line);
@@ -108,21 +122,8 @@ Floor::Floor(int l, Player *p, string fileName): level{l}, length{79}, height{25
     j++;
   }
   
-  for(int row=0; row<height; ++row){
-    for (int col=0; col< length; ++col){
-      Cell &cell =board[row][col];
-      addNeighbours(cell, Dir::no, row-1, col);
-      addNeighbours(cell, Dir::so, row+1, col);
-      addNeighbours(cell, Dir::ea, row, col+1);
-      addNeighbours(cell, Dir::we, row, col-1);
-      addNeighbours(cell, Dir::ne, row-1, col+1);
-      addNeighbours(cell, Dir::nw, row-1, col-1);
-      addNeighbours(cell, Dir::se, row+1, col+1);
-      addNeighbours(cell, Dir::sw, row+1, col-1);
-      
-    }
-  }
-
+   attachNeighbours();
+   
   for (int i = 0; i < height; i++) {
     for (int j = 0 ; j < length; j++) {
       if (board[i][j].getContent() != nullptr) {
@@ -130,7 +131,7 @@ Floor::Floor(int l, Player *p, string fileName): level{l}, length{79}, height{25
           Treasure* t = (Treasure*)board[i][j].getContent().get();
           if(!t->canPickUp()){
             DragonHoard* dh = (DragonHoard*)t;
-            Dragon* dragon;
+            Dragon* dragon=nullptr;
             for (int x = -1; x <= 1; x++) {
               for (int y = -1; y <= 1; y++) {
                 if(!(board[i+x][j+y].getContent()) && board[i+x][j+y].getContent()->isDragon()){
@@ -177,30 +178,12 @@ Floor::Floor(int l, shared_ptr<Player>p, bool enemyMove):level{l}, length{79}, h
       for(int j=0; j<length; j++)
          addToChamber(&board[i][j]);
          }
-   
-   
-   
-   
-   
+ 
    // add neighbors to cell
-   for(int row=0; row<height; ++row){
-      for (int col=0; col< length; ++col){
-         Cell &cell =board[row][col];
-         addNeighbours(cell, Dir::no, row-1, col);
-         addNeighbours(cell, Dir::so, row+1, col);
-         addNeighbours(cell, Dir::ea, row, col+1);
-         addNeighbours(cell, Dir::we, row, col-1);
-         addNeighbours(cell, Dir::ne, row-1, col+1);
-         addNeighbours(cell, Dir::nw, row-1, col-1);
-         addNeighbours(cell, Dir::se, row+1, col+1);
-         addNeighbours(cell, Dir::sw, row+1, col-1);
-         
-      }
-   }
+   attachNeighbours();
    
    // randomly create objects on the floor
    createObjects(p);
-   display();
 }
 
 
@@ -229,12 +212,11 @@ void Floor::gothroughBoard(shared_ptr<Player>p){
             }else {
                if(e->canMove() && enemyMove) e->move();
             }
-            //   e.reset(static_cast<Object*>(e.get()));//cast back
          }
       }
    }
-   // enable enemies to move
    
+   // enable enemies to move
    for(int i=0; i<height; i++){
       for(int j=0; j<length; j++){
          Cell &cell = board[i][j];

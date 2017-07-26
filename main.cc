@@ -58,13 +58,18 @@ bool oneRound(Floor &f, shared_ptr<Player> p){
 
 int main(int argc, const char * argv[]) {
    int levelNum = 5;
-   string fileName;
-  for (int i = argc - 1; i != 0; i --)
-  {
-    string temp = argv[i];
-    if (temp == "drop") Enemy::canDrop();
-    else fileName = argv[i];
-  }
+   string fileName="";
+   bool arg = false;
+   for (int i = argc - 1; i != 0; i --)
+   {
+      string temp = argv[i];
+      if (temp == "drop") Enemy::canDrop();
+      else {
+         fileName = argv[i];
+         arg = true;
+      }
+      fileName = argv[1];
+   }
    
 Restart:
    
@@ -109,12 +114,14 @@ Restart:
    bool enemyMove = true;
    while(level<levelNum){
       p->notGoToNext();
-      //    if(arg) Floor f {i, p, fileName};
-      //    else
-      Floor f {level, p, enemyMove};
+
+      Floor f =Floor {level, p, enemyMove};
       
+     if(fileName!="") {
+         f= Floor {level, p, enemyMove, fileName};
+     }
+      f.display();
       string direction;
-      //       Merchant::angry = false;
       
       while (cin >> cmd) {
          if (cmd == "no"|| cmd == "so" ||cmd == "ea" ||cmd == "we"
@@ -129,9 +136,8 @@ Restart:
                   Potion *drug=(Potion*)o.get();
                   p.get()->usePotion(drug);//p
                   o->getPos()->setCont(nullptr);
-                  if(oneRound(f,p)) break;
                }
-               // else 不是potion
+               if(oneRound(f,p)) break;
             }
          }
          else if (cmd == "a") { // attack enemy
@@ -141,8 +147,8 @@ Restart:
                if (o.get() && o->isEnemy()){
                   Enemy *e =(Enemy*)o.get();
                   e->beAtkBy(p.get());
-                  if(oneRound(f,p)) break;
                }
+               if(oneRound(f,p)) break;
             }
          }
          else if (cmd == "f") { // enemies stop moving

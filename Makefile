@@ -1,4 +1,4 @@
-CXX = g++-5
+CXX = g++
 CXXFLAGS = -std=c++14 -Wall -Werror=vla -MMD
 EXEC = cc3k
 OBJECTS = main.o floor.o object.o character.o enemy.o player.o drow.o goblin.o shade.o troll.o vampire.o elf.o dragon.o halfling.o dwarf.o human.o merchant.o orcs.o dragonHoard.o merchantHoard.o normalhoard.o smallGold.o treasure.o subject.o potion.o cell.o chamber.o textdisplay.o stair.o
