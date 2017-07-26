@@ -99,7 +99,8 @@ Floor::Floor(int l, shared_ptr<Player> p, bool enemyMove, string fileName): leve
       else {
         Cell c {j, i, '.'};
         shared_ptr<Object> o;
-        if (line[i] >= '0' && line[i] <= '5') o = make_shared<Potion>(line[i] - '0');
+        if (line[i] == '@') o = p;
+        else if (line[i] >= '0' && line[i] <= '5') o = make_shared<Potion>(line[i] - '0');
         else if (line[i] == '6') o = make_shared<NormalHoard>();
         else if (line[i] == '7') o = make_shared<SmallGold>();
         else if (line[i] == '8') o = make_shared<MerchantHoard>();
